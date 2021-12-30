@@ -1,17 +1,21 @@
-# Welcome to MkDocs
+# BRACE2
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Tools
 
-## Commands
+- [MotionAPI](tools/MotionAPI) Ground motion management system.
+- [PyG3](tools/pyg3)
+- [QuakeIO](tools/quakeio/)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+[![Quake-IO][shield:quakeio:github]][pypi-d-link]
 
-## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<!-- Badge links -->
+[pypi-d-image]: https://img.shields.io/pypi/dm/quakeio.svg
+[license-badge]: https://img.shields.io/pypi/l/quakeio.svg
+[pypi-d-link]: https://pypi.org/project/quakeio
+[pypi-v-image]: https://img.shields.io/pypi/v/quakeio.svg
+[pypi-v-link]: https://pypi.org/project/quakeio
+[build-img]: https://github.com/claudioperez/quakeio/actions/workflows/base.yml/badge.svg
+[cov-img]: https://raw.githubusercontent.com/claudioperez/quakeio/master/etc/coverage/cov.svg
+[gh-link]: https://github.com/claudioperez/quakeio/compare/0.0.3...master
+[gh-image]: https://img.shields.io/github/commits-since/claudioperez/quakeio/0.0.3?style=social
