@@ -14,5 +14,6 @@ the BRACE2 project.
 - [OWASP Application Security Verification Standard](https://owasp.org/www-project-application-security-verification-standard/)
 - [NIST Guide to Secure Web Services](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-95.pdf)
 - [Best practices](https://support.google.com/googleapi/answer/6310037?hl=en)
-
+- [4 Most Used REST API Authentication Methods](https://blog.restcase.com/4-most-used-rest-api-authentication-methods/)
+- [Choosing an Authentication Method](https://cloud.google.com/endpoints/docs/openapi/authentication-method)
 - [Why and when to use API keys](https://cloud.google.com/endpoints/docs/openapi/when-why-api-key)
