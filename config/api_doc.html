@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="//unpkg.com/swagger-ui-dist@3/swagger-ui.css" />
+<link rel="stylesheet" type="text/css" href="../swagger.css" />
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+<script>
+const ui = SwaggerUIBundle({
+// url: "{# url schema_url #}",
+url: "../schema.yaml",
+dom_id: '#swagger-ui',
+presets: [
+SwaggerUIBundle.presets.apis,
+SwaggerUIBundle.SwaggerUIStandalonePreset
+],
+layout: "BaseLayout",
+requestInterceptor: (request) => {
+request.headers['X-CSRFToken'] = "{{ csrf_token }}"
+return request;
+}
+})
+</script>
+{% endblock %}
+

@@ -1,0 +1,36 @@
+---
+site_name: BRACE2 Documentation
+site_dir:  out/web
+docs_dir:  docs/
+site_url:  "https://BRACE2.github.io/TeamDocumentation"
+
+copyright: 'Berkeley, CA'
+pandoc:    ./config/pandoc-web.yaml
+
+plugins: 
+- search
+  #- mkdocstrings
+
+theme:
+  name: material
+  palette:
+    primary: white
+  features:
+  - navigation.tabs
+  - navigation.indexes
+  - navigation.top
+  custom_dir: ./config
+
+extra:
+  generator: false # remove theme watermark in footer
+
+markdown_extensions: [toc]
+
+sidebar:
+  min_depth: -1
+  max_depth: 10
+
+extra_javascript: 
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+

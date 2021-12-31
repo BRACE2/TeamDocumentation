@@ -4,10 +4,11 @@
 
 - [MotionAPI](tools/MotionAPI) Ground motion management system.
 - [PyG3](tools/pyg3)
-- [QuakeIO](tools/quakeio/)
+- [QuakeIO](tools/quakeio/) A library of utilities for parsing ground motion files
 
+<!--
 [![Quake-IO][shield:quakeio:github]][pypi-d-link]
-
+-->
 
 <!-- Badge links -->
 [pypi-d-image]: https://img.shields.io/pypi/dm/quakeio.svg

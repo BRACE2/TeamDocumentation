@@ -16,11 +16,11 @@ QuakeIO is a library of utilities for parsing ground motion files. Interfaces ar
 
 <center>
 
-| Format          | Read      | Write   |  Reference              |
-|-----------------|-----------|---------|-------------------------|
-|`[quakeio.]json` | &#9745;   | &#9745; | [schema][record-schema] |
-|`csmip`          | &#9744;   | &#9744; |                         |
-|`csmip.v2`       | &#9745;   | &#9744; | [CSMIP][CSMIP]          |
+| Format          | Read      | Write   |  Reference              | Data Type  |
+|-----------------|-----------|---------|-------------------------|------------|
+|`[quakeio.]json` | &#9745;   | &#9745; | [schema][record-schema] | *any*
+|`csmip`          | &#9744;   | &#9744; |                         | E/R/C/S
+|`csmip.v2`       | &#9745;   | &#9744; | [CSMIP][CSMIP]          | C/S
 |`eqsig`          | &#9745;   | &#9745; | [eqsig][EQSIG]          |
 |`PEER.NGA`       | &#9745;   | &#9744; |                         |
 |`plain.tsv`      | &#9744;   | &#9744; |                         |
@@ -30,6 +30,7 @@ QuakeIO is a library of utilities for parsing ground motion files. Interfaces ar
 | SimCenter.Event | &#9744;   | &#9744; |                         |
 
 </center>
+
 
 ## Python API
 
