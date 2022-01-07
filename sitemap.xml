@@ -91,7 +91,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/collection/</loc>
+         <lastmod>2022-01-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/component/</loc>
+         <lastmod>2022-01-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/component.schema/</loc>
+         <lastmod>2022-01-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/filter-default/</loc>
+         <lastmod>2022-01-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/filter/</loc>
+         <lastmod>2022-01-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/series-default/</loc>
+         <lastmod>2022-01-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/series/</loc>
          <lastmod>2022-01-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
