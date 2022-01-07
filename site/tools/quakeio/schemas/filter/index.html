@@ -15,7 +15,7 @@
     
     
       
-        <title>QuakeFilter Schema - BRACE2 Documentation</title>
+        <title>BRACE2 Documentation</title>
       
     
     
@@ -93,8 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              QuakeFilter Schema
-
+              
             
           </span>
         </div>
@@ -870,8 +869,7 @@
   
     <li class="md-nav__item">
       <a href="../collection/" class="md-nav__link">
-        QuakeCollection Schema
-
+        
       </a>
     </li>
   
@@ -906,8 +904,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        QuakeFilter Schema
-
+        
       </a>
       
     </li>
@@ -922,8 +919,7 @@
   
     <li class="md-nav__item">
       <a href="../series/" class="md-nav__link">
-        QuakeSeries Schema
-
+        
       </a>
     </li>
   
@@ -963,50 +959,9 @@
               
                 
 
-<h1 id="quakefilter-schema">QuakeFilter Schema</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode txt"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0</span></code></pre></div>
-<table>
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 5%" />
-<col style="width: 7%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-<col style="width: 10%" />
-<col style="width: 9%" />
-<col style="width: 41%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Abstract</th>
-<th style="text-align: left;">Extensible</th>
-<th style="text-align: left;">Status</th>
-<th style="text-align: left;">Identifiable</th>
-<th style="text-align: left;">Custom Properties</th>
-<th style="text-align: left;">Additional Properties</th>
-<th style="text-align: left;">Access Restrictions</th>
-<th style="text-align: left;">Defined In</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Can be instantiated</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Unknown status</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Forbidden</td>
-<td style="text-align: left;">Allowed</td>
-<td style="text-align: left;">none</td>
-<td style="text-align: left;"><a href="../../../../out/filter.schema.json" title="open original schema">filter.schema.json</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="quakefilter-type">QuakeFilter Type</h2>
-<p><code>object</code> (<a href="filter.md">QuakeFilter</a>)</p>
-<h2 id="quakefilter-default-value">QuakeFilter Default Value</h2>
-<p>The default value is:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{}</span></span></code></pre></div>
-<h1 id="quakefilter-properties">QuakeFilter Properties</h1>
+<h1 id="quakefilter-properties">
+QuakeFilter Properties
+</h1>
 <table>
 <colgroup>
 <col style="width: 10%" />
@@ -1017,127 +972,354 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Property</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Nullable</th>
-<th style="text-align: left;">Defined by</th>
+<th style="text-align: left;">
+Property
+</th>
+<th style="text-align: left;">
+Type
+</th>
+<th style="text-align: left;">
+Required
+</th>
+<th style="text-align: left;">
+Nullable
+</th>
+<th style="text-align: left;">
+Defined by
+</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="#filter_type">filter_type</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="filter-properties-the-filter_type-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/filter_type#/properties/filter_type">QuakeFilter</a></td>
+<td style="text-align: left;">
+<a href="#filter_type">filter_type</a>
+</td>
+<td style="text-align: left;">
+<code>string</code>
+</td>
+<td style="text-align: left;">
+Required
+</td>
+<td style="text-align: left;">
+cannot be null
+</td>
+<td style="text-align: left;">
+<a href="filter-properties-the-filter_type-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/filter_type#/properties/filter_type">QuakeFilter</a>
+</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="#point">point</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="filter-properties-the-point-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/point#/properties/point">QuakeFilter</a></td>
+<td style="text-align: left;">
+<a href="#point">point</a>
+</td>
+<td style="text-align: left;">
+<code>number</code>
+</td>
+<td style="text-align: left;">
+Optional
+</td>
+<td style="text-align: left;">
+cannot be null
+</td>
+<td style="text-align: left;">
+<a href="filter-properties-the-point-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/point#/properties/point">QuakeFilter</a>
+</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="#pointunits">point.units</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="filter-properties-the-pointunits-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/point.units#/properties/point.units">QuakeFilter</a></td>
+<td style="text-align: left;">
+<a href="#pointunits">point.units</a>
+</td>
+<td style="text-align: left;">
+<code>string</code>
+</td>
+<td style="text-align: left;">
+Optional
+</td>
+<td style="text-align: left;">
+cannot be null
+</td>
+<td style="text-align: left;">
+<a href="filter-properties-the-pointunits-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/point.units#/properties/point.units">QuakeFilter</a>
+</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="#limit_low">limit_low</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="filter-properties-the-limit_low-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit_low#/properties/limit_low">QuakeFilter</a></td>
+<td style="text-align: left;">
+<a href="#limit_low">limit_low</a>
+</td>
+<td style="text-align: left;">
+<code>number</code>
+</td>
+<td style="text-align: left;">
+Optional
+</td>
+<td style="text-align: left;">
+cannot be null
+</td>
+<td style="text-align: left;">
+<a href="filter-properties-the-limit_low-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit_low#/properties/limit_low">QuakeFilter</a>
+</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="#limit_high">limit_high</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="filter-properties-the-limit_high-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit_high#/properties/limit_high">QuakeFilter</a></td>
+<td style="text-align: left;">
+<a href="#limit_high">limit_high</a>
+</td>
+<td style="text-align: left;">
+<code>number</code>
+</td>
+<td style="text-align: left;">
+Optional
+</td>
+<td style="text-align: left;">
+cannot be null
+</td>
+<td style="text-align: left;">
+<a href="filter-properties-the-limit_high-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit_high#/properties/limit_high">QuakeFilter</a>
+</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="#limitunits">limit.units</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="filter-properties-the-limitunits-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit.units#/properties/limit.units">QuakeFilter</a></td>
+<td style="text-align: left;">
+<a href="#limitunits">limit.units</a>
+</td>
+<td style="text-align: left;">
+<code>string</code>
+</td>
+<td style="text-align: left;">
+Optional
+</td>
+<td style="text-align: left;">
+cannot be null
+</td>
+<td style="text-align: left;">
+<a href="filter-properties-the-limitunits-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit.units#/properties/limit.units">QuakeFilter</a>
+</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Additional Properties</td>
-<td style="text-align: left;">Any</td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">can be null</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">
+Additional Properties
+</td>
+<td style="text-align: left;">
+Any
+</td>
+<td style="text-align: left;">
+Optional
+</td>
+<td style="text-align: left;">
+can be null
+</td>
+<td style="text-align: left;">
+</td>
 </tr>
 </tbody>
 </table>
-<h2 id="filter_type">filter_type</h2>
-<p><code>filter_type</code></p>
+<h2 id="filter_type">
+filter_type
+</h2>
+<p>
+<code>filter_type</code>
+</p>
 <ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="filter-properties-the-filter_type-schema.md">The filter_type schema</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="filter-properties-the-filter_type-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/filter_type#/properties/filter_type">QuakeFilter</a></p></li>
+<li>
+<p>
+is required
+</p>
+</li>
+<li>
+<p>
+Type: <code>string</code> (<a href="filter-properties-the-filter_type-schema.md">The filter_type schema</a>)
+</p>
+</li>
+<li>
+<p>
+cannot be null
+</p>
+</li>
+<li>
+<p>
+defined in: <a href="filter-properties-the-filter_type-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/filter_type#/properties/filter_type">QuakeFilter</a>
+</p>
+</li>
 </ul>
-<h3 id="filter_type-type">filter_type Type</h3>
-<p><code>string</code> (<a href="filter-properties-the-filter_type-schema.md">The filter_type schema</a>)</p>
-<h2 id="point">point</h2>
-<p><code>point</code></p>
+<h3 id="filter_type-type">
+filter_type Type
+</h3>
+<p>
+<code>string</code> (<a href="filter-properties-the-filter_type-schema.md">The filter_type schema</a>)
+</p>
+<h2 id="point">
+point
+</h2>
+<p>
+<code>point</code>
+</p>
 <ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>number</code> (<a href="filter-properties-the-point-schema.md">The point schema</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="filter-properties-the-point-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/point#/properties/point">QuakeFilter</a></p></li>
+<li>
+<p>
+is optional
+</p>
+</li>
+<li>
+<p>
+Type: <code>number</code> (<a href="filter-properties-the-point-schema.md">The point schema</a>)
+</p>
+</li>
+<li>
+<p>
+cannot be null
+</p>
+</li>
+<li>
+<p>
+defined in: <a href="filter-properties-the-point-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/point#/properties/point">QuakeFilter</a>
+</p>
+</li>
 </ul>
-<h3 id="point-type">point Type</h3>
-<p><code>number</code> (<a href="filter-properties-the-point-schema.md">The point schema</a>)</p>
-<h2 id="point.units">point.units</h2>
-<p><code>point.units</code></p>
+<h3 id="point-type">
+point Type
+</h3>
+<p>
+<code>number</code> (<a href="filter-properties-the-point-schema.md">The point schema</a>)
+</p>
+<h2 id="point.units">
+point.units
+</h2>
+<p>
+<code>point.units</code>
+</p>
 <ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="filter-properties-the-pointunits-schema.md">The point.units schema</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="filter-properties-the-pointunits-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/point.units#/properties/point.units">QuakeFilter</a></p></li>
+<li>
+<p>
+is optional
+</p>
+</li>
+<li>
+<p>
+Type: <code>string</code> (<a href="filter-properties-the-pointunits-schema.md">The point.units schema</a>)
+</p>
+</li>
+<li>
+<p>
+cannot be null
+</p>
+</li>
+<li>
+<p>
+defined in: <a href="filter-properties-the-pointunits-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/point.units#/properties/point.units">QuakeFilter</a>
+</p>
+</li>
 </ul>
-<h3 id="point.units-type">point.units Type</h3>
-<p><code>string</code> (<a href="filter-properties-the-pointunits-schema.md">The point.units schema</a>)</p>
-<h2 id="limit_low">limit_low</h2>
-<p><code>limit_low</code></p>
+<h3 id="point.units-type">
+point.units Type
+</h3>
+<p>
+<code>string</code> (<a href="filter-properties-the-pointunits-schema.md">The point.units schema</a>)
+</p>
+<h2 id="limit_low">
+limit_low
+</h2>
+<p>
+<code>limit_low</code>
+</p>
 <ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>number</code> (<a href="filter-properties-the-limit_low-schema.md">The limit_low schema</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="filter-properties-the-limit_low-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit_low#/properties/limit_low">QuakeFilter</a></p></li>
+<li>
+<p>
+is optional
+</p>
+</li>
+<li>
+<p>
+Type: <code>number</code> (<a href="filter-properties-the-limit_low-schema.md">The limit_low schema</a>)
+</p>
+</li>
+<li>
+<p>
+cannot be null
+</p>
+</li>
+<li>
+<p>
+defined in: <a href="filter-properties-the-limit_low-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit_low#/properties/limit_low">QuakeFilter</a>
+</p>
+</li>
 </ul>
-<h3 id="limit_low-type">limit_low Type</h3>
-<p><code>number</code> (<a href="filter-properties-the-limit_low-schema.md">The limit_low schema</a>)</p>
-<h2 id="limit_high">limit_high</h2>
-<p><code>limit_high</code></p>
+<h3 id="limit_low-type">
+limit_low Type
+</h3>
+<p>
+<code>number</code> (<a href="filter-properties-the-limit_low-schema.md">The limit_low schema</a>)
+</p>
+<h2 id="limit_high">
+limit_high
+</h2>
+<p>
+<code>limit_high</code>
+</p>
 <ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>number</code> (<a href="filter-properties-the-limit_high-schema.md">The limit_high schema</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="filter-properties-the-limit_high-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit_high#/properties/limit_high">QuakeFilter</a></p></li>
+<li>
+<p>
+is optional
+</p>
+</li>
+<li>
+<p>
+Type: <code>number</code> (<a href="filter-properties-the-limit_high-schema.md">The limit_high schema</a>)
+</p>
+</li>
+<li>
+<p>
+cannot be null
+</p>
+</li>
+<li>
+<p>
+defined in: <a href="filter-properties-the-limit_high-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit_high#/properties/limit_high">QuakeFilter</a>
+</p>
+</li>
 </ul>
-<h3 id="limit_high-type">limit_high Type</h3>
-<p><code>number</code> (<a href="filter-properties-the-limit_high-schema.md">The limit_high schema</a>)</p>
-<h2 id="limit.units">limit.units</h2>
-<p><code>limit.units</code></p>
+<h3 id="limit_high-type">
+limit_high Type
+</h3>
+<p>
+<code>number</code> (<a href="filter-properties-the-limit_high-schema.md">The limit_high schema</a>)
+</p>
+<h2 id="limit.units">
+limit.units
+</h2>
+<p>
+<code>limit.units</code>
+</p>
 <ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="filter-properties-the-limitunits-schema.md">The limit.units schema</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="filter-properties-the-limitunits-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit.units#/properties/limit.units">QuakeFilter</a></p></li>
+<li>
+<p>
+is optional
+</p>
+</li>
+<li>
+<p>
+Type: <code>string</code> (<a href="filter-properties-the-limitunits-schema.md">The limit.units schema</a>)
+</p>
+</li>
+<li>
+<p>
+cannot be null
+</p>
+</li>
+<li>
+<p>
+defined in: <a href="filter-properties-the-limitunits-schema.md" title="#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0/properties/limit.units#/properties/limit.units">QuakeFilter</a>
+</p>
+</li>
 </ul>
-<h3 id="limit.units-type">limit.units Type</h3>
-<p><code>string</code> (<a href="filter-properties-the-limitunits-schema.md">The limit.units schema</a>)</p>
-<h2 id="additional-properties">Additional Properties</h2>
-<p>Additional properties are allowed and do not have to follow a specific schema</p>
+<h3 id="limit.units-type">
+limit.units Type
+</h3>
+<p>
+<code>string</code> (<a href="filter-properties-the-limitunits-schema.md">The limit.units schema</a>)
+</p>
+<h2 id="additional-properties">
+Additional Properties
+</h2>
+<p>
+Additional properties are allowed and do not have to follow a specific schema
+</p>
 
 
               
