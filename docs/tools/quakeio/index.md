@@ -34,10 +34,11 @@ following table summarizes the file formats which are currently supported:
 Ground motion data is represented by compositions of the
 following data types/containers:
 
-1. `QuakeSeries` is an array-like data type which contains a single time series, and associated metadata like peak values and units. All data contained by this type is generally closely related to a single physical quantity or *measurement*.
-2. `QuakeComponent` is a collection of `QuakeSeries` types which generally represents time series data (e.g. acceleration, velocity, displacement) which were collected in a single *direction*.
+1. `QuakeSeries` is an array-like data type which contains a single time series, and associated metadata like peak values and units. All data contained by this type is generally closely related to a single physical quantity or *measurement*. An example of a file format which parses to this type is the PEER NGA `.AT2` file.
+2. `QuakeComponent` is a collection of `QuakeSeries` types which generally represents time series data (e.g. acceleration, velocity, displacement) which were collected in a single *direction*. An example
+of a file format that parses into this type is the CSMIP Volume 2 (`.V2`) spec.
 3. `QuakeMotion` is a collection of `QuakeComponent` types which all pertain to a single shared *spacial location*. The data contained by this type is generally free of any spacial variation.
-4. `QuakeCollection` is a collection of `QuakeMotion` types, often corresponding to a single *site*.
+4. `QuakeCollection` is a collection of `QuakeMotion` types, often corresponding to a single *site*. An example of a file format that parses into this type is the CSMIP processed archive (`.zip`).
 
 The core functionality of the library is exposed by the `quakeio.read(filename,
 format=None)`{.py} function. This function will return an object either of type
@@ -47,6 +48,22 @@ extension `.AT2`), is a `QuakeSeries` with acceleration data. When parsing a
 CSMIP Volume 2 file the return is a `QuakeComponent` containing `QuakeSeries`
 instances for acceleration, velocity and displacement values, and when parsing
 a `zip` archive of such files, a `QuakeCollection` is returned.
+
+When used via the Python library, these types are overloaded with mathematical
+operations allowing for concise and expressive post-processing. For example,
+given to `QuakeMotion` objects `top` and `bot`, representing the motion at the
+top and bottom of a bridge column, respectively, their relative motion is simply
+computed as follows:
+
+```python
+>>> top - bot
+QuakeMotion("Hayward")
+```
+
+The resulting `QuakeMotion` has acceleration, velocity and displacement
+components all equal to the respective difference between those of
+`top` and `bot`. These operations are further developed in [Example:Hayward]
+
 
 <!-- Operators -->
 
@@ -120,9 +137,9 @@ Motion = quakeIO.read('csmip.zip')
 [pypi-v-link]: https://pypi.org/project/quakeio
 [build-img]: https://github.com/claudioperez/quakeio/actions/workflows/base.yml/badge.svg
 [cov-img]: https://raw.githubusercontent.com/claudioperez/quakeio/master/etc/coverage/cov.svg
-[gh-link]: https://github.com/claudioperez/quakeio/compare/0.1.3...master
-[gh-image]: https://img.shields.io/github/commits-since/claudioperez/quakeio/0.1.3?style=social
+[gh-link]: https://github.com/claudioperez/quakeio/compare/v0.1.2...master
+[gh-image]: https://img.shields.io/github/commits-since/claudioperez/quakeio/v0.1.2?style=social
 
 [gh-tests]: https://github.com/claudioperez/quakeio/tree/master/tests
 
-
+[Example:Hayward]: examples/hayward
