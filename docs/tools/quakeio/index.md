@@ -3,7 +3,31 @@
 [![PyPI Downloads][pypi-v-image]][pypi-v-link] [![PyPI Version][pypi-d-image]][pypi-d-link] ![][cov-img] [![Commits since latest release][gh-image]][gh-link]
 <!-- ![Build][build-img] -->
 
-QuakeIO is a library of utilities for parsing ground motion files. Interfaces are provided for Python, Matlab, and the command line.
+QuakeIO is a library of utilities for parsing and processing ground motion
+files. All data is serialized into a standardized JSON representation with a
+strictly defined [schema](schemas).
+Interfaces are provided for Python, Matlab, and the command line. The
+following table summarizes the file formats which are currently supported:
+
+<center>
+
+| Format          | Read      | Write   |  Reference              | Data Type  |
+|-----------------|-----------|---------|-------------------------|------------|
+|`[quakeio.]json` | &#9745;   | &#9745; | [schema][record-schema] | *any*
+|`csmip.v2`       | &#9745;   | &#9744; | [CSMIP][CSMIP]          | C/S
+|`csmip.zip`      | &#9745;   | &#9744; |                         | E/R/C/S
+|`eqsig`          | &#9745;   | &#9745; | [eqsig][EQSIG]          |
+|`opensees`       | &#9744;   | &#9744; |                         |
+|`PEER.NGA`       | &#9745;   | &#9744; |                         |
+
+<!--
+|`plain.tsv`      | &#9744;   | &#9744; |                         |
+|`plain.csv`      | &#9744;   | &#9744; |                         |
+|`mdof`           | &#9744;   | &#9744; |                         |
+| SimCenter.Event | &#9744;   | &#9744; |                         |
+-->
+
+</center>
 
 ## Design
 
@@ -26,30 +50,9 @@ a `zip` archive of such files, a `QuakeCollection` is returned.
 
 <!-- Operators -->
 
+
+
 ### Tooling and Standards
-
-<center>
-
-| Format          | Read      | Write   |  Reference              | Data Type  |
-|-----------------|-----------|---------|-------------------------|------------|
-|`[quakeio.]json` | &#9745;   | &#9745; | [schema][record-schema] | *any*
-|`csmip`          | &#9744;   | &#9744; |                         | E/R/C/S
-|`csmip.v2`       | &#9745;   | &#9744; | [CSMIP][CSMIP]          | C/S
-|`eqsig`          | &#9745;   | &#9745; | [eqsig][EQSIG]          |
-|`PEER.NGA`       | &#9745;   | &#9744; |                         |
-|`plain.tsv`      | &#9744;   | &#9744; |                         |
-|`opensees`       | &#9744;   | &#9744; |                         |
-|`plain.csv`      | &#9744;   | &#9744; |                         |
-|`mdof`           | &#9744;   | &#9744; |                         |
-| SimCenter.Event | &#9744;   | &#9744; |                         |
-
-</center>
-
-
-The core of the QuakeIO library is implemented in a Python package.
-
-- `meshio`, `json`
-
 
 ### Verification, Validation, and Continuous Integration
 
