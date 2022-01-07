@@ -94,6 +94,7 @@
           <span class="md-ellipsis">
             
               quake-io
+
             
           </span>
         </div>
@@ -169,7 +170,7 @@
 
   <li class="md-tabs__item">
     <a href="../.." class="md-tabs__link">
-      Home
+      
     </a>
   </li>
 
@@ -267,7 +268,7 @@
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        Home
+        
       </a>
     </li>
   
@@ -505,6 +506,7 @@
     <li class="md-nav__item">
       <a href="../MotionAPI/design/" class="md-nav__link">
         Design
+
       </a>
     </li>
   
@@ -519,6 +521,7 @@
     <li class="md-nav__item">
       <a href="../MotionAPI/examples/" class="md-nav__link">
         API Examples
+
       </a>
     </li>
   
@@ -532,7 +535,7 @@
   
     <li class="md-nav__item">
       <a href="../MotionAPI/schema/" class="md-nav__link">
-        Schema
+        
       </a>
     </li>
   
@@ -688,6 +691,7 @@
     <li class="md-nav__item">
       <a href="embedded-svg/" class="md-nav__link">
         Embedded SVG Output
+
       </a>
     </li>
   
@@ -750,6 +754,7 @@
     <li class="md-nav__item">
       <a href="examples/basic/" class="md-nav__link">
         Basic Operations
+
       </a>
     </li>
   
@@ -763,7 +768,8 @@
   
     <li class="md-nav__item">
       <a href="examples/hayward/" class="md-nav__link">
-        Hayward
+        Drift Demands (Hayward)
+
       </a>
     </li>
   
@@ -777,7 +783,8 @@
   
     <li class="md-nav__item">
       <a href="examples/meloland/" class="md-nav__link">
-        Meloland
+        Event analysis (Meloland)
+
       </a>
     </li>
   
@@ -791,7 +798,8 @@
   
     <li class="md-nav__item">
       <a href="examples/system_id-painter/" class="md-nav__link">
-        System id painter
+        System Identification (Painter Street Overpass)
+
       </a>
     </li>
   
@@ -854,7 +862,7 @@
   
     <li class="md-nav__item">
       <a href="schemas/component/" class="md-nav__link">
-        Component
+        
       </a>
     </li>
   
@@ -898,6 +906,15 @@
 <p><a href="https://pypi.org/project/quakeio"><img src="../..https://img.shields.io/pypi/v/quakeio.svg" style="margin:auto; display: block; max-width: 75%" alt="PyPI Downloads" /></a> <a href="https://pypi.org/project/quakeio"><img src="../..https://img.shields.io/pypi/dm/quakeio.svg" style="margin:auto; display: block; max-width: 75%" alt="PyPI Version" /></a> <img src="../..https://raw.githubusercontent.com/claudioperez/quakeio/master/etc/coverage/cov.svg" style="margin:auto; display: block; max-width: 75%" /> <a href="https://github.com/claudioperez/quakeio/compare/0.1.3...master"><img src="../..https://img.shields.io/github/commits-since/claudioperez/quakeio/0.1.3?style=social" style="margin:auto; display: block; max-width: 75%" alt="Commits since latest release" /></a> <!-- ![Build][build-img] --></p>
 <p>QuakeIO is a library of utilities for parsing ground motion files. Interfaces are provided for Python, Matlab, and the command line.</p>
 <h2 id="design">Design</h2>
+<p>Ground motion data is represented by compositions of the following data types/containers:</p>
+<ol type="1">
+<li><code>QuakeSeries</code> is an array-like data type which contains a single time series, and associated metadata like peak values and units. All data contained by this type is generally closely related to a single physical quantity or <em>measurement</em>.</li>
+<li><code>QuakeComponent</code> is a collection of <code>QuakeSeries</code> types which generally represents time series data (e.g. acceleration, velocity, displacement) which were collected in a single <em>direction</em>.</li>
+<li><code>QuakeMotion</code> is a collection of <code>QuakeComponent</code> types which all pertain to a single shared <em>spacial location</em>. The data contained by this type is generally free of any spacial variation.</li>
+<li><code>QuakeCollection</code> is a collection of <code>QuakeMotion</code> types, often corresponding to a single <em>site</em>.</li>
+</ol>
+<p>The core functionality of the library is exposed by the <code class="sourceCode python">quakeio.read(filename, <span class="bu">format</span><span class="op">=</span><span class="va">None</span>)</code> function. This function will return an object either of type (1), (2) or (3), depending on the format of the file that was parsed. For example, the return value of <code>read</code> when parsing a PEER NGA file (file extension <code>.AT2</code>), is a <code>QuakeSeries</code> with acceleration data. When parsing a CSMIP Volume 2 file the return is a <code>QuakeComponent</code> containing <code>QuakeSeries</code> instances for acceleration, velocity and displacement values, and when parsing a <code>zip</code> archive of such files, a <code>QuakeCollection</code> is returned.</p>
+<!-- Operators -->
 <h3 id="tooling-and-standards">Tooling and Standards</h3>
 <center>
 <table>
@@ -998,7 +1015,6 @@
 <h3 id="verification-validation-and-continuous-integration">Verification, Validation, and Continuous Integration</h3>
 <p>The <a href="https://github.com/claudioperez/quakeio/tree/master/tests"><code>tests/</code></a> directory of the source code tree contains a suite of integration tests. An automated continuous integration workflow ensures that these tests are executed everytime that a change to the source code is pushed back to the upstream repository.</p>
 <h2 id="python-library-reference">Python Library Reference</h2>
-<p><code class="sourceCode python">read(string, <span class="bu">format</span>)</code></p>
 <h3 id="readffile-format"><code>readf(file,   format)</code></h3>
 <h2 id="command-line-interface">Command Line Interface</h2>
 <pre><code>usage: quakeio [MODE] [OPTIONS] [FILE]

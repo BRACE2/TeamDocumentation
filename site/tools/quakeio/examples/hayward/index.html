@@ -15,7 +15,7 @@
     
     
       
-        <title>Hayward - BRACE2 Documentation</title>
+        <title>Drift Demands (Hayward) - BRACE2 Documentation</title>
       
     
     
@@ -93,7 +93,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hayward
+              Drift Demands (Hayward)
+
             
           </span>
         </div>
@@ -169,7 +170,7 @@
 
   <li class="md-tabs__item">
     <a href="../../../.." class="md-tabs__link">
-      Home
+      
     </a>
   </li>
 
@@ -267,7 +268,7 @@
   
     <li class="md-nav__item">
       <a href="../../../.." class="md-nav__link">
-        Home
+        
       </a>
     </li>
   
@@ -505,6 +506,7 @@
     <li class="md-nav__item">
       <a href="../../../MotionAPI/design/" class="md-nav__link">
         Design
+
       </a>
     </li>
   
@@ -519,6 +521,7 @@
     <li class="md-nav__item">
       <a href="../../../MotionAPI/examples/" class="md-nav__link">
         API Examples
+
       </a>
     </li>
   
@@ -532,7 +535,7 @@
   
     <li class="md-nav__item">
       <a href="../../../MotionAPI/schema/" class="md-nav__link">
-        Schema
+        
       </a>
     </li>
   
@@ -688,6 +691,7 @@
     <li class="md-nav__item">
       <a href="../../embedded-svg/" class="md-nav__link">
         Embedded SVG Output
+
       </a>
     </li>
   
@@ -752,6 +756,7 @@
     <li class="md-nav__item">
       <a href="../basic/" class="md-nav__link">
         Basic Operations
+
       </a>
     </li>
   
@@ -772,7 +777,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Hayward
+        Drift Demands (Hayward)
+
       </a>
       
     </li>
@@ -787,7 +793,8 @@
   
     <li class="md-nav__item">
       <a href="../meloland/" class="md-nav__link">
-        Meloland
+        Event analysis (Meloland)
+
       </a>
     </li>
   
@@ -801,7 +808,8 @@
   
     <li class="md-nav__item">
       <a href="../system_id-painter/" class="md-nav__link">
-        System id painter
+        System Identification (Painter Street Overpass)
+
       </a>
     </li>
   
@@ -864,7 +872,7 @@
   
     <li class="md-nav__item">
       <a href="../../schemas/component/" class="md-nav__link">
-        Component
+        
       </a>
     </li>
   
@@ -904,84 +912,74 @@
               
                 
 
-<section id="drift-calculations----hayward-bridge" class="cell markdown">
-<h1>Drift Calculations -- Hayward Bridge</h1>
+<section id="drift-demands-hayward" class="cell markdown">
+<h1>Drift Demands (Hayward)</h1>
 </section>
 <div class="cell markdown">
 <p>This example uses the <code>quakeio</code> package to parse a collection of ground motion records and calculate drift demands.</p>
 <p><img src="../../../../static/ll58658_2.svg" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 <div class="cell code" data-execution_count="1">
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import numpy as np</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> quakeio</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> quakeio.utils.spectrum <span class="im">as</span> spec</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> quakeio</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> quakeio.processing <span class="im">as</span> spec</span></code></pre></div>
 </div>
 <div class="cell code" data-execution_count="2">
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>inches_to_cm <span class="op">=</span> <span class="fl">2.54</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="fl">47.0</span><span class="op">*</span><span class="fl">12.0</span> <span class="op">*</span> inches_to_cm</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># file_name = &quot;../dat/58658_007_20210426_10.09.54.P.zip&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="st">&quot;../dat/nc73654060_ce58658p.zip&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># file_name = &quot;../dat/58658_007_20210426_10.09.54.P.zip&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="st">&quot;../dat/nc73654060_ce58658p.zip&quot;</span></span></code></pre></div>
 </div>
 <div class="cell code" data-execution_count="3">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>collection <span class="op">=</span> quakeio.read(file_name, <span class="st">&quot;csmip.zip&quot;</span>)</span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="4">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import matplotlib.pyplot as plt</span></span></code></pre></div>
-</div>
 <div class="cell code" data-execution_count="5">
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#diff = col_1_top_x - col_1_bot_x</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#max_displ = max(diff.displ, key=abs)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print(max_displ/height)</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------------------</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>top <span class="op">=</span> collection.at(key<span class="op">=</span><span class="st">&quot;bent_4_north_column_top&quot;</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>bot <span class="op">=</span> collection.at(key<span class="op">=</span><span class="st">&quot;bent_4_north_column_grnd_level&quot;</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>spec.plot_grid(series<span class="op">=</span>[top.tran.displ, bot.tran.displ], </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span> [<span class="st">&quot;Structure&quot;</span>,    <span class="st">&quot;Ground&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>top <span class="op">=</span> collection.at(key<span class="op">=</span><span class="st">&quot;bent_4_north_column_top&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>bot <span class="op">=</span> collection.at(key<span class="op">=</span><span class="st">&quot;bent_4_north_column_grnd_level&quot;</span>)</span></code></pre></div>
+</div>
+<div class="cell code" data-execution_count="6">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>spec.plot_grid(series<span class="op">=</span>[top.tran.displ, bot.tran.displ], </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span> [<span class="st">&quot;Structure&quot;</span>,    <span class="st">&quot;Ground&quot;</span>])</span></code></pre></div>
 <div class="output display_data">
-<p><img src="../../../../static/9d3c07c2bd943b95eb38f43ce32782cd094b18d5.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../../static/04f86583b32f00b52373097187c316fbe26ed9d5.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
-</div>
-<div class="cell code">
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>relative_resp <span class="op">=</span> top <span class="op">-</span> bot</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># relative_resp is a record with long,tran,vert series</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((top <span class="op">-</span> bot).resultant().displ[<span class="st">&quot;peak_value&quot;</span>]<span class="op">/</span>height)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((top <span class="op">-</span> bot).tran.displ[<span class="st">&quot;peak_value&quot;</span>]<span class="op">/</span>height)</span></code></pre></div>
 </div>
 <div class="cell code" data-execution_count="7">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> component <span class="kw">in</span> collection.components.values():</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    spec.Spectrum(component, damping<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">0.01</span>, <span class="fl">0.05</span>]).plot()</span></code></pre></div>
-<div class="output display_data">
-<p><img src="../../../../static/593f57b89cbd66a7efe976b57c6ff788a4bfacbf.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>inches_to_cm <span class="op">=</span> <span class="fl">2.54</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="fl">47.0</span><span class="op">*</span><span class="fl">12.0</span> <span class="op">*</span> inches_to_cm</span></code></pre></div>
+</div>
+<div class="cell code" data-execution_count="7">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>relative_resp <span class="op">=</span> (top <span class="op">-</span> bot).<span class="bu">slice</span>(<span class="fl">28.</span>,<span class="fl">60.</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># relative_resp is a QuakeMotion with long,tran,vert series</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> relative_resp.<span class="bu">long</span>.displ.plot()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> relative_resp.tran.displ.plot(ax<span class="op">=</span>ax)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> relative_resp.resultant().displ.plot(ax<span class="op">=</span>ax)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((top <span class="op">-</span> bot).resultant().displ[<span class="st">&quot;peak_value&quot;</span>]<span class="op">/</span>height)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((top <span class="op">-</span> bot).tran.displ[<span class="st">&quot;peak_value&quot;</span>]<span class="op">/</span>height)</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>5.7846756828653446e-05
+-5.362784106773887e-05</code></pre>
 </div>
 <div class="output display_data">
-<p><img src="../../../../static/47b9611cacfbac9171724ea5d254ade7b5fa4ce3.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../../static/83572a291ba34a730f4e303de2cb5247a909f04a.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+</div>
+<div class="cell code" data-execution_count="8">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for component in collection.components:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     spec.Spectrum(component, damping=[0.0, 0.01]).plot()</span></span></code></pre></div>
+</div>
+<div class="cell code" data-execution_count="9">
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>spec.TransferFunction((top.<span class="bu">long</span>,bot.<span class="bu">long</span>), damping<span class="op">=</span>[<span class="fl">0.001</span>,<span class="fl">0.01</span>,<span class="fl">0.05</span>]).plot()<span class="op">;</span></span></code></pre></div>
+<div class="output display_data">
+<p><img src="../../../../static/cda984cc840f357bccfc16ef277862c68ef9d85b.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+</div>
+<div class="cell code" data-execution_count="10">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>spec.Spectrum(bot.<span class="bu">long</span>, damping<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">0.01</span>]).plot()</span></code></pre></div>
+<div class="output execute_result" data-execution_count="10">
+<pre><code>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Response spectrum (Chn. 12)&#39;}, xlabel=&#39;Period, (sec.)&#39;&gt;</code></pre>
 </div>
 <div class="output display_data">
-<p><img src="../../../../static/2f3cf0ad83712f86562ff6ac88fab6642b70a43b.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../../static/9839b440d933113daaf668faea74be6f25f3f606.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
-</div>
-<div class="cell code" data-execution_count="13">
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>spec.TransferFunction((top.<span class="bu">long</span>,bot.<span class="bu">long</span>), damping<span class="op">=</span>[<span class="fl">0.001</span>,<span class="fl">0.01</span>,<span class="fl">0.05</span>]).plot()<span class="op">;</span></span></code></pre></div>
-<div class="output display_data">
-<p><img src="../../../../static/ee552b433ca11917c0e323426db7b02669c04d00.png" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
-</div>
-<div class="cell code">
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>spec.Spectrum(bot.<span class="bu">long</span>, damping<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">0.01</span>]).spect(bot.<span class="bu">long</span>).shape</span></code></pre></div>
-</div>
-<div class="cell code">
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>motion.<span class="bu">long</span>.veloc.data[<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
-</div>
-<div class="cell code">
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>component.keys()</span></code></pre></div>
-</div>
-<div class="cell code">
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>top,bot</span></code></pre></div>
-</div>
-<div class="cell code">
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 </div>
 
 
