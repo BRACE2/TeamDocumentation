@@ -1,29 +1,147 @@
-# QuakeMotion Properties
+# QuakeComponent Properties
 
-| Property                                                | Type     | Required | Nullable       | Defined by                                                                                                                                           |
-| :------------------------------------------------------ | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [location](#location)                                   | `string` | Optional | cannot be null | [QuakeMotion](component-properties-location.md "#/properties/location#/properties/location")                                                         |
-| [filter.bandpass.limit_high](#filterbandpasslimit_high) | `number` | Optional | cannot be null | [QuakeMotion](component-properties-band-pass-filter-high-cutoff.md "#/properties/filter.bandpass.limit_high#/properties/filter.bandpass.limit_high") |
-| [station_no](#station_no)                               | `string` | Optional | cannot be null | [QuakeMotion](component-properties-station-number.md "#/properties/station_no#/properties/station_no")                                               |
-| [azimuth](#azimuth)                                     | `string` | Required | cannot be null | [QuakeMotion](component-properties-azimuth.md "#/properties/azimuth#/properties/azimuth")                                                            |
-| [instr_period](#instr_period)                           | `number` | Optional | cannot be null | [QuakeMotion](component-properties-instrument-period.md "#/properties/instr_period#/properties/instr_period")                                        |
-| [instr_period.units](#instr_periodunits)                | `string` | Optional | cannot be null | [QuakeMotion](component-properties-instrument-period-units.md "#/properties/instr_period.units#/properties/instr_period.units")                      |
-| [peak_accel](#peak_accel)                               | `number` | Required | cannot be null | [QuakeMotion](component-properties-peak-acceleration.md "#/properties/peak_accel#/properties/peak_accel")                                            |
-| [peak_accel.units](#peak_accelunits)                    | `string` | Required | cannot be null | [QuakeMotion](component-properties-peak-acceleration-units.md "#/properties/peak_accel.units#/properties/peak_accel.units")                          |
-| [accel.time_step](#acceltime_step)                      | `number` | Optional | cannot be null | [QuakeMotion](component-properties-time-step-of-acceleration-data.md "undefined#/properties/accel.time_step")                                        |
-| [peak_accel.time](#peak_acceltime)                      | `number` | Required | cannot be null | [QuakeMotion](component-properties-time-of-peak-acceleration.md "#/properties/peak_accel.time#/properties/peak_accel.time")                          |
-| [peak_veloc](#peak_veloc)                               | `number` | Required | cannot be null | [QuakeMotion](component-properties-peak-velocity.md "#/properties/peak_veloc#/properties/peak_veloc")                                                |
-| [peak_veloc.units](#peak_velocunits)                    | `string` | Required | cannot be null | [QuakeMotion](component-properties-peak_velocunits.md "#/properties/peak_veloc.units#/properties/peak_veloc.units")                                  |
-| [peak_veloc.time](#peak_veloctime)                      | `number` | Required | cannot be null | [QuakeMotion](component-properties-time-of-peak-velocity.md "#/properties/peak_veloc.time#/properties/peak_veloc.time")                              |
-| [peak_displ](#peak_displ)                               | `number` | Required | cannot be null | [QuakeMotion](component-properties-peak-displacement.md "#/properties/peak_displ#/properties/peak_displ")                                            |
-| [peak_displ.units](#peak_displunits)                    | `string` | Required | cannot be null | [QuakeMotion](component-properties-peak_displunits.md "#/properties/peak_displ.units#/properties/peak_displ.units")                                  |
-| [peak_displ.time](#peak_displtime)                      | `number` | Required | cannot be null | [QuakeMotion](component-properties-time-of-peak-displacement.md "#/properties/peak_displ.time#/properties/peak_displ.time")                          |
-| [init_displ](#init_displ)                               | `number` | Optional | cannot be null | [QuakeMotion](component-properties-initial-displacement.md "#/properties/init_displ#/properties/init_displ")                                         |
-| [init_displ.units](#init_displunits)                    | `string` | Optional | cannot be null | [QuakeMotion](component-properties-init_displunits.md "#/properties/init_displ.units#/properties/init_displ.units")                                  |
-| [init_veloc](#init_veloc)                               | `number` | Optional | cannot be null | [QuakeMotion](component-properties-initial-velocity.md "#/properties/init_veloc#/properties/init_veloc")                                             |
-| [init_veloc.units](#init_velocunits)                    | `string` | Optional | cannot be null | [QuakeMotion](component-properties-init_velocunits.md "#/properties/init_veloc.units#/properties/init_veloc.units")                                  |
-| [file_name](#file_name)                                 | `string` | Optional | cannot be null | [QuakeMotion](component-properties-source-file.md "#/properties/file_name#/properties/file_name")                                                    |
-| Additional Properties                                   | Any      | Optional | can be null    |                                                                                                                                                      |
+| Property                                 | Type     | Required | Nullable       | Defined by                                                                                                                                               |
+| :--------------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [accel](#accel)                          | `object` | Optional | cannot be null | [QuakeComponent](series.md "#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/veloc#/properties/accel")                  |
+| [veloc](#veloc)                          | `object` | Optional | cannot be null | [QuakeComponent](series.md "#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/veloc#/properties/veloc")                  |
+| [displ](#displ)                          | `object` | Optional | cannot be null | [QuakeComponent](series.md "#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/veloc#/properties/displ")                  |
+| [ihdr](#ihdr)                            | `array`  | Optional | cannot be null | [QuakeComponent](component-properties-ihdr.md "#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/ihdr#/properties/ihdr") |
+| [rhdr](#rhdr)                            | `array`  | Optional | cannot be null | [QuakeComponent](component-properties-rhdr.md "#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/rhdr#/properties/rhdr") |
+| [location](#location)                    | `string` | Optional | cannot be null | [QuakeComponent](component-properties-location.md "#/properties/location#/properties/location")                                                          |
+| [station_no](#station_no)                | `string` | Optional | cannot be null | [QuakeComponent](component-properties-station-number.md "#/properties/station_no#/properties/station_no")                                                |
+| [azimuth](#azimuth)                      | `string` | Optional | cannot be null | [QuakeComponent](component-properties-azimuth.md "#/properties/azimuth#/properties/azimuth")                                                             |
+| [instr_period](#instr_period)            | `number` | Optional | cannot be null | [QuakeComponent](component-properties-instrument-period.md "#/properties/instr_period#/properties/instr_period")                                         |
+| [instr_period.units](#instr_periodunits) | `string` | Optional | cannot be null | [QuakeComponent](component-properties-instrument-period-units.md "#/properties/instr_period.units#/properties/instr_period.units")                       |
+| [peak_accel](#peak_accel)                | `number` | Required | cannot be null | [QuakeComponent](component-properties-peak-acceleration.md "#/properties/peak_accel#/properties/peak_accel")                                             |
+| [peak_accel.units](#peak_accelunits)     | `string` | Required | cannot be null | [QuakeComponent](component-properties-peak-acceleration-units.md "#/properties/peak_accel.units#/properties/peak_accel.units")                           |
+| [accel.time_step](#acceltime_step)       | `number` | Optional | cannot be null | [QuakeComponent](component-properties-time-step-of-acceleration-data.md "undefined#/properties/accel.time_step")                                         |
+| [peak_accel.time](#peak_acceltime)       | `number` | Required | cannot be null | [QuakeComponent](component-properties-time-of-peak-acceleration.md "#/properties/peak_accel.time#/properties/peak_accel.time")                           |
+| [peak_veloc](#peak_veloc)                | `number` | Required | cannot be null | [QuakeComponent](component-properties-peak-velocity.md "#/properties/peak_veloc#/properties/peak_veloc")                                                 |
+| [peak_veloc.units](#peak_velocunits)     | `string` | Required | cannot be null | [QuakeComponent](component-properties-peak_velocunits.md "#/properties/peak_veloc.units#/properties/peak_veloc.units")                                   |
+| [peak_veloc.time](#peak_veloctime)       | `number` | Required | cannot be null | [QuakeComponent](component-properties-time-of-peak-velocity.md "#/properties/peak_veloc.time#/properties/peak_veloc.time")                               |
+| [peak_displ](#peak_displ)                | `number` | Required | cannot be null | [QuakeComponent](component-properties-peak-displacement.md "#/properties/peak_displ#/properties/peak_displ")                                             |
+| [peak_displ.units](#peak_displunits)     | `string` | Required | cannot be null | [QuakeComponent](component-properties-peak_displunits.md "#/properties/peak_displ.units#/properties/peak_displ.units")                                   |
+| [peak_displ.time](#peak_displtime)       | `number` | Required | cannot be null | [QuakeComponent](component-properties-time-of-peak-displacement.md "#/properties/peak_displ.time#/properties/peak_displ.time")                           |
+| [init_displ](#init_displ)                | `number` | Optional | cannot be null | [QuakeComponent](component-properties-initial-displacement.md "#/properties/init_displ#/properties/init_displ")                                          |
+| [init_displ.units](#init_displunits)     | `string` | Optional | cannot be null | [QuakeComponent](component-properties-init_displunits.md "#/properties/init_displ.units#/properties/init_displ.units")                                   |
+| [init_veloc](#init_veloc)                | `number` | Optional | cannot be null | [QuakeComponent](component-properties-initial-velocity.md "#/properties/init_veloc#/properties/init_veloc")                                              |
+| [init_veloc.units](#init_velocunits)     | `string` | Optional | cannot be null | [QuakeComponent](component-properties-init_velocunits.md "#/properties/init_veloc.units#/properties/init_veloc.units")                                   |
+| [file_name](#file_name)                  | `string` | Optional | cannot be null | [QuakeComponent](component-properties-source-file.md "#/properties/file_name#/properties/file_name")                                                     |
+| Additional Properties                    | Any      | Optional | can be null    |                                                                                                                                                          |
+
+## accel
+
+
+
+`accel`
+
+*   is optional
+
+*   Type: `object` ([QuakeSeries](series.md))
+
+*   cannot be null
+
+*   defined in: [QuakeComponent](series.md "#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/veloc#/properties/accel")
+
+### accel Type
+
+`object` ([QuakeSeries](series.md))
+
+### accel Default Value
+
+The default value is:
+
+```json
+{}
+```
+
+## veloc
+
+
+
+`veloc`
+
+*   is optional
+
+*   Type: `object` ([QuakeSeries](series.md))
+
+*   cannot be null
+
+*   defined in: [QuakeComponent](series.md "#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/veloc#/properties/veloc")
+
+### veloc Type
+
+`object` ([QuakeSeries](series.md))
+
+### veloc Default Value
+
+The default value is:
+
+```json
+{}
+```
+
+## displ
+
+
+
+`displ`
+
+*   is optional
+
+*   Type: `object` ([QuakeSeries](series.md))
+
+*   cannot be null
+
+*   defined in: [QuakeComponent](series.md "#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/veloc#/properties/displ")
+
+### displ Type
+
+`object` ([QuakeSeries](series.md))
+
+### displ Default Value
+
+The default value is:
+
+```json
+{}
+```
+
+## ihdr
+
+Integer header data
+
+`ihdr`
+
+*   is optional
+
+*   Type: `integer[]`
+
+*   cannot be null
+
+*   defined in: [QuakeComponent](component-properties-ihdr.md "#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/ihdr#/properties/ihdr")
+
+### ihdr Type
+
+`integer[]`
+
+## rhdr
+
+
+
+`rhdr`
+
+*   is optional
+
+*   Type: `number[]`
+
+*   cannot be null
+
+*   defined in: [QuakeComponent](component-properties-rhdr.md "#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/rhdr#/properties/rhdr")
+
+### rhdr Type
+
+`number[]`
 
 ## location
 
@@ -37,29 +155,11 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-location.md "#/properties/location#/properties/location")
+*   defined in: [QuakeComponent](component-properties-location.md "#/properties/location#/properties/location")
 
 ### location Type
 
 `string` ([Location](component-properties-location.md))
-
-## filter.bandpass.limit_high
-
-Upper cutoff point for band-pass filter.
-
-`filter.bandpass.limit_high`
-
-*   is optional
-
-*   Type: `number` ([Band-pass filter high cutoff.](component-properties-band-pass-filter-high-cutoff.md))
-
-*   cannot be null
-
-*   defined in: [QuakeMotion](component-properties-band-pass-filter-high-cutoff.md "#/properties/filter.bandpass.limit_high#/properties/filter.bandpass.limit_high")
-
-### filter.bandpass.limit_high Type
-
-`number` ([Band-pass filter high cutoff.](component-properties-band-pass-filter-high-cutoff.md))
 
 ## station_no
 
@@ -73,7 +173,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-station-number.md "#/properties/station_no#/properties/station_no")
+*   defined in: [QuakeComponent](component-properties-station-number.md "#/properties/station_no#/properties/station_no")
 
 ### station_no Type
 
@@ -85,13 +185,13 @@ Number identifying station at which the data was recorded.
 
 `azimuth`
 
-*   is required
+*   is optional
 
 *   Type: `string` ([Azimuth](component-properties-azimuth.md))
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-azimuth.md "#/properties/azimuth#/properties/azimuth")
+*   defined in: [QuakeComponent](component-properties-azimuth.md "#/properties/azimuth#/properties/azimuth")
 
 ### azimuth Type
 
@@ -115,7 +215,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-instrument-period.md "#/properties/instr_period#/properties/instr_period")
+*   defined in: [QuakeComponent](component-properties-instrument-period.md "#/properties/instr_period#/properties/instr_period")
 
 ### instr_period Type
 
@@ -139,7 +239,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-instrument-period-units.md "#/properties/instr_period.units#/properties/instr_period.units")
+*   defined in: [QuakeComponent](component-properties-instrument-period-units.md "#/properties/instr_period.units#/properties/instr_period.units")
 
 ### instr_period.units Type
 
@@ -163,7 +263,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-peak-acceleration.md "#/properties/peak_accel#/properties/peak_accel")
+*   defined in: [QuakeComponent](component-properties-peak-acceleration.md "#/properties/peak_accel#/properties/peak_accel")
 
 ### peak_accel Type
 
@@ -187,7 +287,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-peak-acceleration-units.md "#/properties/peak_accel.units#/properties/peak_accel.units")
+*   defined in: [QuakeComponent](component-properties-peak-acceleration-units.md "#/properties/peak_accel.units#/properties/peak_accel.units")
 
 ### peak_accel.units Type
 
@@ -211,7 +311,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-time-step-of-acceleration-data.md "undefined#/properties/accel.time_step")
+*   defined in: [QuakeComponent](component-properties-time-step-of-acceleration-data.md "undefined#/properties/accel.time_step")
 
 ### accel.time_step Type
 
@@ -229,7 +329,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-time-of-peak-acceleration.md "#/properties/peak_accel.time#/properties/peak_accel.time")
+*   defined in: [QuakeComponent](component-properties-time-of-peak-acceleration.md "#/properties/peak_accel.time#/properties/peak_accel.time")
 
 ### peak_accel.time Type
 
@@ -253,7 +353,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-peak-velocity.md "#/properties/peak_veloc#/properties/peak_veloc")
+*   defined in: [QuakeComponent](component-properties-peak-velocity.md "#/properties/peak_veloc#/properties/peak_veloc")
 
 ### peak_veloc Type
 
@@ -277,7 +377,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-peak_velocunits.md "#/properties/peak_veloc.units#/properties/peak_veloc.units")
+*   defined in: [QuakeComponent](component-properties-peak_velocunits.md "#/properties/peak_veloc.units#/properties/peak_veloc.units")
 
 ### peak_veloc.units Type
 
@@ -301,7 +401,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-time-of-peak-velocity.md "#/properties/peak_veloc.time#/properties/peak_veloc.time")
+*   defined in: [QuakeComponent](component-properties-time-of-peak-velocity.md "#/properties/peak_veloc.time#/properties/peak_veloc.time")
 
 ### peak_veloc.time Type
 
@@ -319,7 +419,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-peak-displacement.md "#/properties/peak_displ#/properties/peak_displ")
+*   defined in: [QuakeComponent](component-properties-peak-displacement.md "#/properties/peak_displ#/properties/peak_displ")
 
 ### peak_displ Type
 
@@ -337,7 +437,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-peak_displunits.md "#/properties/peak_displ.units#/properties/peak_displ.units")
+*   defined in: [QuakeComponent](component-properties-peak_displunits.md "#/properties/peak_displ.units#/properties/peak_displ.units")
 
 ### peak_displ.units Type
 
@@ -361,7 +461,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-time-of-peak-displacement.md "#/properties/peak_displ.time#/properties/peak_displ.time")
+*   defined in: [QuakeComponent](component-properties-time-of-peak-displacement.md "#/properties/peak_displ.time#/properties/peak_displ.time")
 
 ### peak_displ.time Type
 
@@ -385,7 +485,7 @@ Number identifying station at which the data was recorded.
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-initial-displacement.md "#/properties/init_displ#/properties/init_displ")
+*   defined in: [QuakeComponent](component-properties-initial-displacement.md "#/properties/init_displ#/properties/init_displ")
 
 ### init_displ Type
 
@@ -403,7 +503,7 @@ Units
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-init_displunits.md "#/properties/init_displ.units#/properties/init_displ.units")
+*   defined in: [QuakeComponent](component-properties-init_displunits.md "#/properties/init_displ.units#/properties/init_displ.units")
 
 ### init_displ.units Type
 
@@ -427,7 +527,7 @@ Units
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-initial-velocity.md "#/properties/init_veloc#/properties/init_veloc")
+*   defined in: [QuakeComponent](component-properties-initial-velocity.md "#/properties/init_veloc#/properties/init_veloc")
 
 ### init_veloc Type
 
@@ -445,7 +545,7 @@ Units
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-init_velocunits.md "#/properties/init_veloc.units#/properties/init_veloc.units")
+*   defined in: [QuakeComponent](component-properties-init_velocunits.md "#/properties/init_veloc.units#/properties/init_veloc.units")
 
 ### init_veloc.units Type
 
@@ -469,7 +569,7 @@ Units
 
 *   cannot be null
 
-*   defined in: [QuakeMotion](component-properties-source-file.md "#/properties/file_name#/properties/file_name")
+*   defined in: [QuakeComponent](component-properties-source-file.md "#/properties/file_name#/properties/file_name")
 
 ### file_name Type
 

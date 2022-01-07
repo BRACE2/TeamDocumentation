@@ -4,9 +4,9 @@
 
 *   [QuakeCollection](./collection.md) – `http://example.com/example.json`
 
-*   [QuakeFilter](./filter.md) – `#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0`
+*   [QuakeComponent](./component.md "quakeIO Ground Motion Record schema") – `-`
 
-*   [QuakeMotion](./component.md "quakeIO Ground Motion Record schema") – `-`
+*   [QuakeFilter](./filter.md) – `#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters/items/anyOf/0`
 
 *   [QuakeSeries](./series.md) – `#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/veloc`
 
@@ -14,23 +14,19 @@
 
 ### Objects
 
-*   [QuakeComponent](./collection-properties-the-motions-schema-items-anyof-quakemotion-properties-quakemotion-components-items-anyof-quakecomponent.md) – `#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0`
-
-*   [QuakeMotion](./collection-properties-the-motions-schema-items-anyof-quakemotion.md) – `#/properties/motions/items/anyOf/0#/properties/motions/items/anyOf/0`
+*   [QuakeMotion](./collection-properties-the-motions-schema-quakemotion.md) – `#/properties/motions/items#/properties/motions/items`
 
 ### Arrays
 
-*   [QuakeMotion Components](./collection-properties-the-motions-schema-items-anyof-quakemotion-properties-quakemotion-components.md) – `#/properties/motions/items/anyOf/0/properties/components#/properties/motions/items/anyOf/0/properties/components`
-
-*   [The QuakeComponent.filters schema](./collection-properties-the-motions-schema-items-anyof-quakemotion-properties-quakemotion-components-items-anyof-quakecomponent-properties-the-quakecomponentfilters-schema.md) – `#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/filters`
-
-*   [The ihdr schema](./collection-properties-the-motions-schema-items-anyof-quakemotion-properties-quakemotion-components-items-anyof-quakecomponent-properties-the-ihdr-schema.md) – `#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/ihdr#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/ihdr`
+*   [QuakeMotion Components](./collection-properties-the-motions-schema-quakemotion-properties-quakemotion-components.md) – `#/properties/motions/items/anyOf/0/properties/components#/properties/motions/items/properties/components`
 
 *   [The motions schema](./collection-properties-the-motions-schema.md) – `#/properties/motions#/properties/motions`
 
-*   [The rhdr schema](./collection-properties-the-motions-schema-items-anyof-quakemotion-properties-quakemotion-components-items-anyof-quakecomponent-properties-the-rhdr-schema.md) – `#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/rhdr#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/rhdr`
-
 *   [Time series data](./series-properties-time-series-data.md) – `#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/series/properties/data#/properties/data`
+
+*   [ihdr](./component-properties-ihdr.md "Integer header data") – `#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/ihdr#/properties/ihdr`
+
+*   [rhdr](./component-properties-rhdr.md) – `#/properties/motions/items/anyOf/0/properties/components/items/anyOf/0/properties/rhdr#/properties/rhdr`
 
 ## Version Note
 

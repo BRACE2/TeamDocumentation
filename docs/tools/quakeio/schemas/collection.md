@@ -13,7 +13,7 @@
 
 *   is required
 
-*   Type: an array of merged types ([Details](collection-properties-the-motions-schema-items.md))
+*   Type: `object[]` ([QuakeMotion](collection-properties-the-motions-schema-quakemotion.md))
 
 *   cannot be null
 
@@ -21,15 +21,7 @@
 
 ### motions Type
 
-an array of merged types ([Details](collection-properties-the-motions-schema-items.md))
-
-### motions Default Value
-
-The default value is:
-
-```json
-[]
-```
+`object[]` ([QuakeMotion](collection-properties-the-motions-schema-quakemotion.md))
 
 ## Additional Properties
 

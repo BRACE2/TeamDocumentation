@@ -1,5 +1,7 @@
 # quake-io
 
+![](https://github.com/claudioperez/quakeio/actions/workflows/base.yaml/badge.svg)
+
 [![PyPI Downloads][pypi-v-image]][pypi-v-link] [![PyPI Version][pypi-d-image]][pypi-d-link] ![][cov-img] [![Commits since latest release][gh-image]][gh-link]
 <!-- ![Build][build-img] -->
 
@@ -17,7 +19,7 @@ following table summarizes the file formats which are currently supported:
 |`csmip.v2`       | &#9745;   | &#9744; | [CSMIP][CSMIP]          | C/S
 |`csmip.zip`      | &#9745;   | &#9744; |                         | E/R/C/S
 |`eqsig`          | &#9745;   | &#9745; | [eqsig][EQSIG]          |
-|`opensees`       | &#9744;   | &#9744; |                         |
+|`opensees`       | &#9744;   | &#9745; |                         |
 |`PEER.NGA`       | &#9745;   | &#9744; |                         |
 
 <!--
@@ -51,7 +53,7 @@ a `zip` archive of such files, a `QuakeCollection` is returned.
 
 When used via the Python library, these types are overloaded with mathematical
 operations allowing for concise and expressive post-processing. For example,
-given to `QuakeMotion` objects `top` and `bot`, representing the motion at the
+given two `QuakeMotion` objects `top` and `bot`, representing the motion at the
 top and bottom of a bridge column, respectively, their relative motion is simply
 computed as follows:
 
@@ -79,19 +81,12 @@ ensures that these tests are executed everytime that a change to the source
 code is pushed back to the upstream repository.
 
 
-## Python Library Reference
-
-
-
-### `readf(file,   format)`
-
 
 ## Command Line Interface
 
 ```
 usage: quakeio [MODE] [OPTIONS] [FILE]
 Options:
--c/--calculate COMMAND
  
 -f/--from FORMAT
 -t/--to   FORMAT
@@ -127,7 +122,7 @@ Motion = quakeIO.read('csmip.zip')
 <!-- Reference links -->
 [EQSIG]: https://github.com/eng-tools/eqsig
 [CSMIP]: https://www.conservation.ca.gov/cgs/Documents/Program-SMIP/Reports/Other/OSMS_85-03.pdf
-[record-schema]: https://raw.githubusercontent.com/claudioperez/quakeio/master/etc/schemas/record.schema.json
+[record-schema]: https://brace2.github.com/TeamDocumentation/tools/quakeio/schemas/
 
 <!-- Badge links -->
 [pypi-d-image]: https://img.shields.io/pypi/dm/quakeio.svg
