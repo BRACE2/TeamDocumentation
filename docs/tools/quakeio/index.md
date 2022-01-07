@@ -7,6 +7,25 @@ QuakeIO is a library of utilities for parsing ground motion files. Interfaces ar
 
 ## Design
 
+Ground motion data is represented by compositions of the
+following data types/containers:
+
+1. `QuakeSeries` is an array-like data type which contains a single time series, and associated metadata like peak values and units. All data contained by this type is generally closely related to a single physical quantity or *measurement*.
+2. `QuakeComponent` is a collection of `QuakeSeries` types which generally represents time series data (e.g. acceleration, velocity, displacement) which were collected in a single *direction*.
+3. `QuakeMotion` is a collection of `QuakeComponent` types which all pertain to a single shared *spacial location*. The data contained by this type is generally free of any spacial variation.
+4. `QuakeCollection` is a collection of `QuakeMotion` types, often corresponding to a single *site*.
+
+The core functionality of the library is exposed by the `quakeio.read(filename,
+format=None)`{.py} function. This function will return an object either of type
+(1), (2) or (3), depending on the format of the file that was parsed. For
+example, the return value of `read` when parsing a PEER NGA file (file
+extension `.AT2`), is a `QuakeSeries` with acceleration data. When parsing a
+CSMIP Volume 2 file the return is a `QuakeComponent` containing `QuakeSeries`
+instances for acceleration, velocity and displacement values, and when parsing
+a `zip` archive of such files, a `QuakeCollection` is returned.
+
+<!-- Operators -->
+
 ### Tooling and Standards
 
 <center>
@@ -42,7 +61,6 @@ code is pushed back to the upstream repository.
 
 ## Python Library Reference
 
-`read(string, format)`{.py}
 
 
 ### `readf(file,   format)`

@@ -1,23 +1,28 @@
 
-verbosity: INFO
+#verbosity: INFO
+
 #from: markdown+raw_html-markdown_in_html_blocks+raw_attribute+inline_code_attributes+link_attributes
 #from: markdown+implicit_figures+raw_html-markdown_in_html_blocks+raw_attribute+inline_code_attributes+shortcut_reference_links+link_attributes
 from: markdown+implicit_figures+raw_html+markdown_in_html_blocks+raw_attribute+inline_code_attributes+shortcut_reference_links+link_attributes
 to: 'html'
 
+listings: true
 highlight-style: config/highlight.theme
 
 metadata:
   link-citations: true
+  include.lua:
+    a: b
 
 
 filters:
 #- pandoc-crossref
 - include.lua
-- citeproc
+- elstir.lua
+#- citeproc
 - image_center.lua
-- include-code-files.lua
-- pygmentize
+#- include-code-files.lua
+#- pygmentize
 
 # method is plain, webtex, gladtex, mathml, mathjax, katex
 # you may specify a url with webtex, mathjax, katex

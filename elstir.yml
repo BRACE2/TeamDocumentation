@@ -1,9 +1,10 @@
 ---
 site_name: BRACE2 Documentation
-site_dir:  out/web
+site_dir:  site
 docs_dir:  docs/
 site_url:  "https://BRACE2.github.io/TeamDocumentation"
-
+repo_url:  "https://github.com/BRACE2"
+edit_uri:  ""
 copyright: 'Berkeley, CA'
 pandoc:    ./config/pandoc-web.yaml
 
@@ -15,6 +16,10 @@ theme:
   name: material
   palette:
     primary: white
+  site_favicon: static/favicon.ico
+  logo: assets/brace2-no_text-300.png
+  icon:
+    repo: fontawesome/brands/git
   features:
   - navigation.tabs
   - navigation.indexes
@@ -30,6 +35,8 @@ sidebar:
   min_depth: -1
   max_depth: 10
 
+extra_css:
+  - highlighting.css
 extra_javascript: 
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
