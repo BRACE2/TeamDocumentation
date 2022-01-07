@@ -849,6 +849,8 @@
         
           
         
+          
+        
       
       
         
@@ -922,6 +924,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../../schemas/motion/" class="md-nav__link">
+        QuakeMotion Schema
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../schemas/series/" class="md-nav__link">
         QuakeSeries Properties
 
@@ -979,58 +996,123 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># file_name = &quot;../dat/58658_007_20210426_10.09.54.P.zip&quot;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="st">&quot;../dat/nc73654060_ce58658p.zip&quot;</span></span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="3">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>collection <span class="op">=</span> quakeio.read(file_name, <span class="st">&quot;csmip.zip&quot;</span>)</span></code></pre></div>
+<div class="cell code" data-execution_count="11">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>collection <span class="op">=</span> quakeio.read(file_name, <span class="st">&quot;csmip.zip&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>collection.motions.keys()</span></code></pre></div>
+<div class="output execute_result" data-execution_count="11">
+<pre><code>dict_keys([&#39;abutment_1&#39;, &#39;bent_3_south_column_grnd_level&#39;, &#39;deck_level_near_abut_1&#39;, &#39;bent_3_deck_level&#39;, &#39;midspan_between_bents_3_4_deck&#39;, &#39;bent_4_north_column_grnd_level&#39;, &#39;bent_4_north_column_top&#39;, &#39;bent_4_deck_level&#39;, &#39;bent_4_south_column_grnd_level&#39;])</code></pre>
+</div>
+</div>
+<div class="cell code" data-execution_count="4">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>top <span class="op">=</span> collection.at(key<span class="op">=</span><span class="st">&quot;bent_4_north_column_top&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>bot <span class="op">=</span> collection.at(key<span class="op">=</span><span class="st">&quot;bent_4_north_column_grnd_level&quot;</span>)</span></code></pre></div>
 </div>
 <div class="cell code" data-execution_count="5">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>top <span class="op">=</span> collection.at(key<span class="op">=</span><span class="st">&quot;bent_4_north_column_top&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>bot <span class="op">=</span> collection.at(key<span class="op">=</span><span class="st">&quot;bent_4_north_column_grnd_level&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>spec.plot_grid(series<span class="op">=</span>[top.tran.displ, bot.tran.displ], </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>               label <span class="op">=</span>[<span class="st">&quot;Structure&quot;</span>,    <span class="st">&quot;Ground&quot;</span>])</span></code></pre></div>
+<div class="output display_data">
+<p><img src="../../../../static/cc8ef1c0d9efe63457e40f6bfb65a799e16a5442.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
 </div>
 <div class="cell code" data-execution_count="6">
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>spec.plot_grid(series<span class="op">=</span>[top.tran.displ, bot.tran.displ], </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span> [<span class="st">&quot;Structure&quot;</span>,    <span class="st">&quot;Ground&quot;</span>])</span></code></pre></div>
-<div class="output display_data">
-<p><img src="../../../../static/04f86583b32f00b52373097187c316fbe26ed9d5.png" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>inches_to_cm <span class="op">=</span> <span class="fl">2.54</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="fl">47.0</span><span class="op">*</span><span class="fl">12.0</span> <span class="op">*</span> inches_to_cm</span></code></pre></div>
 </div>
 <div class="cell code" data-execution_count="7">
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>inches_to_cm <span class="op">=</span> <span class="fl">2.54</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="fl">47.0</span><span class="op">*</span><span class="fl">12.0</span> <span class="op">*</span> inches_to_cm</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>relative_resp <span class="op">=</span> (top <span class="op">-</span> bot).<span class="bu">slice</span>(<span class="fl">28.</span>,<span class="fl">60.</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># relative_resp is a QuakeMotion with long,tran,vert series</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> relative_resp.<span class="bu">long</span>.displ.plot()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> relative_resp.tran.displ.plot(ax<span class="op">=</span>ax)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> relative_resp.resultant().displ.plot(ax<span class="op">=</span>ax)</span></code></pre></div>
 </div>
 <div class="cell code" data-execution_count="7">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>relative_resp <span class="op">=</span> (top <span class="op">-</span> bot).<span class="bu">slice</span>(<span class="fl">28.</span>,<span class="fl">60.</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># relative_resp is a QuakeMotion with long,tran,vert series</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> relative_resp.<span class="bu">long</span>.displ.plot()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> relative_resp.tran.displ.plot(ax<span class="op">=</span>ax)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> relative_resp.resultant().displ.plot(ax<span class="op">=</span>ax)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((top <span class="op">-</span> bot).resultant().displ[<span class="st">&quot;peak_value&quot;</span>]<span class="op">/</span>height)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((top <span class="op">-</span> bot).tran.displ[<span class="st">&quot;peak_value&quot;</span>]<span class="op">/</span>height)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>resultant_drift  <span class="op">=</span> relative_resp.resultant().displ[<span class="st">&quot;peak_value&quot;</span>]<span class="op">/</span>height</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>transverse_drift <span class="op">=</span> relative_resp.tran.displ[<span class="st">&quot;peak_value&quot;</span>]<span class="op">/</span>height</span></code></pre></div>
 <div class="output stream stdout">
 <pre><code>5.7846756828653446e-05
 -5.362784106773887e-05</code></pre>
 </div>
 <div class="output display_data">
-<p><img src="../../../../static/83572a291ba34a730f4e303de2cb5247a909f04a.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../../static/e437d47d6dc62bb36895661a2d8b1316054229d5.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
 <div class="cell code" data-execution_count="8">
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for component in collection.components:</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     spec.Spectrum(component, damping=[0.0, 0.01]).plot()</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> component <span class="kw">in</span> collection.components:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    spec.Spectrum(component, damping<span class="op">=</span>[<span class="fl">0.001</span>, <span class="fl">0.01</span>]).plot()</span></code></pre></div>
+<div class="output display_data">
+<p><img src="../../../../static/47e09f5a696abcf4ef0dbc332de8f6a18d49379d.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/3d3107d87badebecaab117f17686ac4a8816d4e7.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/52b5e157dcb136ac35ecb6ed206d8418c7b2b7f8.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/f1ab8a13c65377d12a575c1e791369926f38ed04.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/3c39f7480035ddc3e396585a3b3ed3d89819abd7.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/034aff26da13fdd4802a9c39c5fec4d7901e5fe5.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/ecccd954d0ea436f65d58178f986d2eea9a2f7ef.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/8bc947164dae93553b4eda54d445b2d8d32b7fce.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/0e737ed000d8992b4215249eaeb91e59b7997e25.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/52c05cee2de449309e298730d485ab46b73d3252.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/5e02ab18aff3561037dabd2e661887c6cba1be6e.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/d62d4fd016c16e2fa260232af683fc719ec53d2f.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/0e90b52aa8c8c8699bacd89b6b7a83ad0ce84ee0.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/45527b676195ed0728fcc46a8c06b78dcb5d2414.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/0f8184447c133aa757d37db3b0c836de803bfd0f.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/bac6e622a15bfa5ef4c846c3e786858229179d05.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/bbf6e2028c42b30b0c051b94e8e614d3beb8ab9a.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/6bbcb6ce25d828d0928dad9f67f3bad4e24cd600.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/1aee00f77c9c02adbaa9ed2c0ef070fcc61294bd.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/2ec6fcd3ca517ea0e98876aae54790e9bd53e7af.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
 </div>
 <div class="cell code" data-execution_count="9">
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>spec.TransferFunction((top.<span class="bu">long</span>,bot.<span class="bu">long</span>), damping<span class="op">=</span>[<span class="fl">0.001</span>,<span class="fl">0.01</span>,<span class="fl">0.05</span>]).plot()<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>spec.TransferFunction((top.<span class="bu">long</span>,bot.<span class="bu">long</span>), damping<span class="op">=</span>[<span class="fl">0.001</span>,<span class="fl">0.01</span>,<span class="fl">0.05</span>]).plot()<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
-<p><img src="../../../../static/cda984cc840f357bccfc16ef277862c68ef9d85b.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../../static/53bd793708b89a0ad00b197d0b4e974f6d3f19d4.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
 <div class="cell code" data-execution_count="10">
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>spec.Spectrum(bot.<span class="bu">long</span>, damping<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">0.01</span>]).plot()</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>spec.Spectrum(bot.<span class="bu">long</span>, damping<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">0.01</span>]).plot()</span></code></pre></div>
 <div class="output execute_result" data-execution_count="10">
 <pre><code>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Response spectrum (Chn. 12)&#39;}, xlabel=&#39;Period, (sec.)&#39;&gt;</code></pre>
 </div>
 <div class="output display_data">
-<p><img src="../../../../static/9839b440d933113daaf668faea74be6f25f3f606.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../../static/d62d4fd016c16e2fa260232af683fc719ec53d2f.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
 
