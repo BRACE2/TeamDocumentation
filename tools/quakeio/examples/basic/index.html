@@ -94,6 +94,7 @@
           <span class="md-ellipsis">
             
               Basic Operations
+
             
           </span>
         </div>
@@ -169,7 +170,7 @@
 
   <li class="md-tabs__item">
     <a href="../../../.." class="md-tabs__link">
-      Home
+      
     </a>
   </li>
 
@@ -267,7 +268,7 @@
   
     <li class="md-nav__item">
       <a href="../../../.." class="md-nav__link">
-        Home
+        
       </a>
     </li>
   
@@ -505,6 +506,7 @@
     <li class="md-nav__item">
       <a href="../../../MotionAPI/design/" class="md-nav__link">
         Design
+
       </a>
     </li>
   
@@ -519,6 +521,7 @@
     <li class="md-nav__item">
       <a href="../../../MotionAPI/examples/" class="md-nav__link">
         API Examples
+
       </a>
     </li>
   
@@ -532,7 +535,7 @@
   
     <li class="md-nav__item">
       <a href="../../../MotionAPI/schema/" class="md-nav__link">
-        Schema
+        
       </a>
     </li>
   
@@ -688,6 +691,7 @@
     <li class="md-nav__item">
       <a href="../../embedded-svg/" class="md-nav__link">
         Embedded SVG Output
+
       </a>
     </li>
   
@@ -759,6 +763,7 @@
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Basic Operations
+
       </a>
       
     </li>
@@ -773,7 +778,8 @@
   
     <li class="md-nav__item">
       <a href="../hayward/" class="md-nav__link">
-        Hayward
+        Drift Demands (Hayward)
+
       </a>
     </li>
   
@@ -787,7 +793,8 @@
   
     <li class="md-nav__item">
       <a href="../meloland/" class="md-nav__link">
-        Meloland
+        Event analysis (Meloland)
+
       </a>
     </li>
   
@@ -801,7 +808,8 @@
   
     <li class="md-nav__item">
       <a href="../system_id-painter/" class="md-nav__link">
-        System id painter
+        System Identification (Painter Street Overpass)
+
       </a>
     </li>
   
@@ -864,7 +872,7 @@
   
     <li class="md-nav__item">
       <a href="../../schemas/component/" class="md-nav__link">
-        Component
+        
       </a>
     </li>
   
@@ -910,17 +918,38 @@
 <summary>
 Python
 </summary>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> quakeio</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>csmip_event <span class="op">=</span> quakeio.read(<span class="st">&quot;dat/58658_007_20210426_10.09.54.P.zip&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>record <span class="op">=</span> csmip_event[<span class="st">&quot;bent_4_north_column_grnd_level&quot;</span>]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>component <span class="op">=</span> record[<span class="st">&quot;long&quot;</span>]</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>series <span class="op">=</span> component.accel</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>series.plot()</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#csmip_event[&quot;chan001&quot;].plot()</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#csmip_event[&quot;chan001&quot;].plot_spect()</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>jupyter:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  jupytext:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    cell_metadata_filter: <span class="op">-</span><span class="bu">all</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    main_language: python</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    notebook_metadata_filter: <span class="op">+</span><span class="bu">all</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    text_representation:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      extension: .md</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      format_name: markdown</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      format_version: <span class="st">&#39;1.3&#39;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      jupytext_version: <span class="fl">1.13.5</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>```python</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> quakeio</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>```python</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>csmip_event <span class="op">=</span> quakeio.read(<span class="st">&quot;dat/58658_007_20210426_10.09.54.P.zip&quot;</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>record <span class="op">=</span> csmip_event[<span class="st">&quot;bent_4_north_column_grnd_level&quot;</span>]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>component <span class="op">=</span> record[<span class="st">&quot;long&quot;</span>]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>series <span class="op">=</span> component.accel</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>series.plot()</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#csmip_event[&quot;chan001&quot;].plot()</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#csmip_event[&quot;chan001&quot;].plot_spect()</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>```python</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>```</span></code></pre></div>
 </details>
 
 

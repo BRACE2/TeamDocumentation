@@ -15,7 +15,7 @@
     
     
       
-        <title>System id painter - BRACE2 Documentation</title>
+        <title>System Identification (Painter Street Overpass) - BRACE2 Documentation</title>
       
     
     
@@ -93,7 +93,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              System id painter
+              System Identification (Painter Street Overpass)
+
             
           </span>
         </div>
@@ -169,7 +170,7 @@
 
   <li class="md-tabs__item">
     <a href="../../../.." class="md-tabs__link">
-      Home
+      
     </a>
   </li>
 
@@ -267,7 +268,7 @@
   
     <li class="md-nav__item">
       <a href="../../../.." class="md-nav__link">
-        Home
+        
       </a>
     </li>
   
@@ -505,6 +506,7 @@
     <li class="md-nav__item">
       <a href="../../../MotionAPI/design/" class="md-nav__link">
         Design
+
       </a>
     </li>
   
@@ -519,6 +521,7 @@
     <li class="md-nav__item">
       <a href="../../../MotionAPI/examples/" class="md-nav__link">
         API Examples
+
       </a>
     </li>
   
@@ -532,7 +535,7 @@
   
     <li class="md-nav__item">
       <a href="../../../MotionAPI/schema/" class="md-nav__link">
-        Schema
+        
       </a>
     </li>
   
@@ -688,6 +691,7 @@
     <li class="md-nav__item">
       <a href="../../embedded-svg/" class="md-nav__link">
         Embedded SVG Output
+
       </a>
     </li>
   
@@ -752,6 +756,7 @@
     <li class="md-nav__item">
       <a href="../basic/" class="md-nav__link">
         Basic Operations
+
       </a>
     </li>
   
@@ -765,7 +770,8 @@
   
     <li class="md-nav__item">
       <a href="../hayward/" class="md-nav__link">
-        Hayward
+        Drift Demands (Hayward)
+
       </a>
     </li>
   
@@ -779,7 +785,8 @@
   
     <li class="md-nav__item">
       <a href="../meloland/" class="md-nav__link">
-        Meloland
+        Event analysis (Meloland)
+
       </a>
     </li>
   
@@ -800,7 +807,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        System id painter
+        System Identification (Painter Street Overpass)
+
       </a>
       
     </li>
@@ -864,7 +872,7 @@
   
     <li class="md-nav__item">
       <a href="../../schemas/component/" class="md-nav__link">
-        Component
+        
       </a>
     </li>
   
@@ -904,8 +912,8 @@
               
                 
 
-<section id="system-identification----painter-street-overpass" class="cell markdown">
-<h1>System Identification -- Painter Street Overpass</h1>
+<section id="system-identification-painter-street-overpass" class="cell markdown">
+<h1>System Identification (Painter Street Overpass)</h1>
 </section>
 <div class="cell markdown">
 <figure>
@@ -915,8 +923,8 @@
 <div class="cell code" data-execution_count="1">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> quakeio</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> quakeio.utils.spectrum <span class="im">as</span> spec</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_formats <span class="op">=</span> [<span class="st">&#39;svg&#39;</span>]</span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> quakeio.processing <span class="im">as</span> spec</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># %config InlineBackend.figure_formats = [&#39;svg&#39;]</span></span></code></pre></div>
 </div>
 <div class="cell code" data-execution_count="2">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># file_name  = &quot;../dat/tomsplace_26nov2006_ce54730p.zip&quot;</span></span>
@@ -927,11 +935,26 @@
 <h2>System Identification</h2>
 </section>
 <div class="cell markdown">
-<p>Case 1: Input in transverse direction, output in transverse direction Input channels: 3; Output channels: 7</p>
-<p>Case 2: Input in longitudinal direction, output in longitudinal direction Input channels: 1; Output channel: 11</p>
-<p>Case 3: Input in longitudinal direction, output in vertical direction Considering that the bridge is similar to a frame in the longitudinal direction, shaking along this direction results in long. translational accelerations as well as bending &amp; rotation of the deck, causing vertical accelerations on deck nodes. Case 3 makes use of this behavior to identify the long. mode. The influence vector of long. ground motions on vertical accelerations is zero, which is a concern, but this is still a useful case. Input channels: 1; Output channels: 6</p>
-<p>Case 4: Input in longitudinal direction, output in longitudinal &amp; vertical directions. This is a case that can only be applied to OKID-ERA-DC. Therefore, it is the same as Case 3 in TFE, and similar to Case 3 in OKID-ERA-DC, except that the output channels is a combination of longitudinal &amp; vertical channels. %Input channels: 1; Output channels: 6</p>
-<p>Case 5: Input in vertical direction, output in vertical direction Input channels: 2; Output channel: 6</p>
+<p>Case 1 : Input in transverse direction, output in transverse direction</p>
+<blockquote>
+<p>Input channels: 3; Output channels: 7</p>
+</blockquote>
+<p>Case 2 : Input in longitudinal direction, output in longitudinal direction</p>
+<blockquote>
+<p>Input channels: 1; Output channel: 11</p>
+</blockquote>
+<p>Case 3 : Input in longitudinal direction, output in vertical direction Considering that the bridge is similar to a frame in the longitudinal direction, shaking along this direction results in long. translational accelerations as well as bending &amp; rotation of the deck, causing vertical accelerations on deck nodes. Case 3 makes use of this behavior to identify the long. mode. The influence vector of long. ground motions on vertical accelerations is zero, which is a concern, but this is still a useful case.</p>
+<blockquote>
+<p>Input channels: 1; Output channels: 6</p>
+</blockquote>
+<p>Case 4 : Input in longitudinal direction, output in longitudinal &amp; vertical directions. This is a case that can only be applied to OKID-ERA-DC. Therefore, it is the same as Case 3 in TFE, and similar to Case 3 in OKID-ERA-DC, except that the output channels is a combination of longitudinal &amp; vertical channels.</p>
+<blockquote>
+<p>Input channels: 1; Output channels: 6</p>
+</blockquote>
+<p>Case 5 : Input in vertical direction, output in vertical direction</p>
+<blockquote>
+<p>Input channels: 2; Output channel: 6</p>
+</blockquote>
 </div>
 <div class="cell code" data-execution_count="3">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cases <span class="op">=</span> {</span>
@@ -951,35 +974,91 @@ are not affected by the damping ratio. -->
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pair <span class="kw">in</span> cases.values():</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    inp <span class="op">=</span> collection.at(channel<span class="op">=</span>pair[<span class="dv">0</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> collection.at(channel<span class="op">=</span>pair[<span class="dv">1</span>])</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    tf <span class="op">=</span> spec.TransferFunction((inp,out), damping<span class="op">=</span>[<span class="fl">0.001</span>]).plot()</span></code></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    tf <span class="op">=</span> spec.TransferFunction((inp,out), damping<span class="op">=</span>[<span class="fl">0.001</span>, <span class="fl">0.01</span>]).plot()</span></code></pre></div>
 <div class="output display_data">
-<p><img src="../../../../static/ab49a1192460c0228c3f8d4ba6611f14119a5b08.svg" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
-<div class="output display_data">
-<p><img src="../../../../static/8bca27bcd1bbb08bd8faba54f71c4609cfd70e53.svg" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../../static/65838caed7dbfa51431417d2e742b178d8d9349b.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 <div class="output display_data">
-<p><img src="../../../../static/676708d0b958a2bfd6b3c612a27d338a0553a60f.svg" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../../static/11ff0b44bce370b4c6fe3d5521e38b91bde09002.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 <div class="output display_data">
-<p><img src="../../../../static/6e87124a28f7c375ba9f73f79a162190c66cb827.svg" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../../static/7b4727cde385531da865b2bc7b2b88d351a0b5de.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/88c3ba38f1ffb963779e6aeb1c9a44d2ed66d48a.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
-<div class="cell code">
+<div class="cell code" data-execution_count="5">
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> component <span class="kw">in</span> collection.components:</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    spec.Spectrum(component, damping<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">0.01</span>]).plot()</span></code></pre></div>
+<div class="output display_data">
+<p><img src="../../../../static/31efa949520ce00b007b86016863ed3327513877.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
-<div class="cell code">
+<div class="output display_data">
+<p><img src="../../../../static/983b2b65df4585dfad7c037fc9c9e3fad3cf0461.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/8a65499f67bd6431e7391e87ff804eaa8603bb2b.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/71531ec37b53ad9b018acffa234c1bc56a8853c4.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/c399ad366439231406d3a18ec5089fdae1fe0092.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/1bbc89b52f79faaef981cf62b42427e7b1ea7ea0.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/8452427e13829b150013b2310b665e3d9c7c3be1.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/52a51b1128f98df75516a8c074b691820ad7640b.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/8ae8ad480a74d7e6f8c57f24a68ad2607f341dcd.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/52f20e7ad4cd8c816557212b54e39211a9e78d7b.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/bd88105704449fb6c0ce886b61cc4defe939dd49.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/eebb0a2869b0bb3d7238d3fadf8a726f11b3ac30.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/34d344aef0943216da7e99b533a9acd1802e7562.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/2b17ade525aab994cf5c52131c88dd0404e4d64b.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/0caf1ff6c8fbb942e71f482eeb8b0acf13edd0bc.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+<div class="output display_data">
+<p><img src="../../../../static/768aac68f673dffd7e9065af3fbdb8dcd514fc29.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+</div>
+<div class="cell code" data-execution_count="6">
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>spec.Spectrum(bot.<span class="bu">long</span>, damping<span class="op">=</span>[<span class="fl">0.0</span>, <span class="fl">0.01</span>]).spect(bot.<span class="bu">long</span>).shape</span></code></pre></div>
+<div class="output error" data-ename="NameError" data-evalue="name &#39;bot&#39; is not defined">
+<pre><code>---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+/tmp/ipykernel_2714/326875978.py in &lt;module&gt;
+----&gt; 1 spec.Spectrum(bot.long, damping=[0.0, 0.01]).spect(bot.long).shape
+
+NameError: name &#39;bot&#39; is not defined</code></pre>
+</div>
 </div>
 <div class="cell code">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>motion.<span class="bu">long</span>.veloc.data[<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>motion.<span class="bu">long</span>.veloc.data[<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
 </div>
 <div class="cell code">
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>component.keys()</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>component.keys()</span></code></pre></div>
 </div>
 <div class="cell code">
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 </div>
 
 
