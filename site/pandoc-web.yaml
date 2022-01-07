@@ -18,6 +18,7 @@ metadata:
 filters:
 #- pandoc-crossref
 - include.lua
+- elstir.lua
 #- citeproc
 - image_center.lua
 #- include-code-files.lua
