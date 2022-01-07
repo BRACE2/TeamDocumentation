@@ -1,0 +1,25 @@
+
+
+shields:
+  :def shield <img, lnk>: "[![shield][{img}]][{lnk}]"
+
+  quakeio:
+    :var version: 0.0.3
+
+    pypi-download<shield>:
+      img: https://img.shields.io/pypi/dm/quakeio.svg
+      lnk: https://pypi.org/project/quakeio
+
+    pypi-version<shield>:
+      image : https://img.shields.io/pypi/v/quakeio.svg
+      link : https://pypi.org/project/quakeio
+
+    github<shield>:
+      gh-link : https://github.com/claudioperez/quakeio/compare/0.0.3...master
+      gh-image : https://img.shields.io/github/commits-since/claudioperez/quakeio/0.0.3?style=social
+
+ license-badge : https://img.shields.io/pypi/l/quakeio.svg
+ build-img : https://github.com/claudioperez/quakeio/actions/workflows/base.yml/badge.svg
+ cov-img : https://raw.githubusercontent.com/claudioperez/quakeio/master/etc/coverage/cov.svg
+
+
