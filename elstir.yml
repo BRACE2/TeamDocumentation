@@ -17,7 +17,7 @@ theme:
   palette:
     primary: white
   site_favicon: static/favicon.ico
-  logo: assets/brace2-no_text-300.png
+  logo: assets/brace2-no_text.png
   icon:
     repo: fontawesome/brands/git
   features:

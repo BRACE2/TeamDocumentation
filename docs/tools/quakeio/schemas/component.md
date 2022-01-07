@@ -1,416 +1,480 @@
-<h1 id="quakeio-ground-motion-record-schema-properties">quakeIO Ground Motion Record schema Properties</h1>
-<table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 5%" />
-<col style="width: 66%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Property</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Required</th>
-<th style="text-align: left;">Nullable</th>
-<th style="text-align: left;">Defined by</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><a href="#location">location</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-location.md" title="#/properties/location#/properties/location">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="#filterbandpasslimit_high">filter.bandpass.limit_high</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-band-pass-filter-high-cutoff.md" title="#/properties/filter.bandpass.limit_high#/properties/filter.bandpass.limit_high">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="#station_no">station_no</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-station-number.md" title="#/properties/station_no#/properties/station_no">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="#azimuth">azimuth</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-azimuth.md" title="#/properties/azimuth#/properties/azimuth">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="#instr_period">instr_period</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-instrument-period.md" title="#/properties/instr_period#/properties/instr_period">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="#instr_periodunits">instr_period.units</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-instrument-period-units.md" title="#/properties/instr_period.units#/properties/instr_period.units">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="#peak_accel">peak_accel</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-peak-acceleration.md" title="#/properties/peak_accel#/properties/peak_accel">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="#peak_accelunits">peak_accel.units</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-peak-acceleration-units.md" title="#/properties/peak_accel.units#/properties/peak_accel.units">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="#acceltime_step">accel.time_step</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-time-step-of-acceleration-data.md" title="undefined#/properties/accel.time_step">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="#peak_acceltime">peak_accel.time</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-time-of-peak-acceleration.md" title="#/properties/peak_accel.time#/properties/peak_accel.time">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="#peak_veloc">peak_veloc</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-peak-velocity.md" title="#/properties/peak_veloc#/properties/peak_veloc">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="#peak_velocunits">peak_veloc.units</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-peak_velocunits.md" title="#/properties/peak_veloc.units#/properties/peak_veloc.units">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="#peak_veloctime">peak_veloc.time</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-time-of-peak-velocity.md" title="#/properties/peak_veloc.time#/properties/peak_veloc.time">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="#peak_displ">peak_displ</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-peak-displacement.md" title="#/properties/peak_displ#/properties/peak_displ">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="#peak_displunits">peak_displ.units</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-peak_displunits.md" title="#/properties/peak_displ.units#/properties/peak_displ.units">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="#peak_displtime">peak_displ.time</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Required</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-time-of-peak-displacement.md" title="#/properties/peak_displ.time#/properties/peak_displ.time">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="#init_displ">init_displ</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-initial-displacement.md" title="#/properties/init_displ#/properties/init_displ">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="#init_displunits">init_displ.units</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-init_displunits.md" title="#/properties/init_displ.units#/properties/init_displ.units">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="#init_veloc">init_veloc</a></td>
-<td style="text-align: left;"><code>number</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-initial-velocity.md" title="#/properties/init_veloc#/properties/init_veloc">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="#init_velocunits">init_veloc.units</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-init_velocunits.md" title="#/properties/init_veloc.units#/properties/init_veloc.units">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="#file_name">file_name</a></td>
-<td style="text-align: left;"><code>string</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="component-properties-source-file.md" title="#/properties/file_name#/properties/file_name">quakeIO Ground Motion Record schema</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Additional Properties</td>
-<td style="text-align: left;">Any</td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">can be null</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<h2 id="location">location</h2>
-<p>Number identifying station at which the data was recorded.</p>
-<p><code>location</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="component-properties-location.md">Location</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-location.md" title="#/properties/location#/properties/location">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="location-type">location Type</h3>
-<p><code>string</code> (<a href="component-properties-location.md">Location</a>)</p>
-<h2 id="filter.bandpass.limit_high">filter.bandpass.limit_high</h2>
-<p>Upper cutoff point for band-pass filter.</p>
-<p><code>filter.bandpass.limit_high</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-band-pass-filter-high-cutoff.md">Band-pass filter high cutoff.</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-band-pass-filter-high-cutoff.md" title="#/properties/filter.bandpass.limit_high#/properties/filter.bandpass.limit_high">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="filter.bandpass.limit_high-type">filter.bandpass.limit_high Type</h3>
-<p><code>number</code> (<a href="component-properties-band-pass-filter-high-cutoff.md">Band-pass filter high cutoff.</a>)</p>
-<h2 id="station_no">station_no</h2>
-<p>Number identifying station at which the data was recorded.</p>
-<p><code>station_no</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="component-properties-station-number.md">Station number</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-station-number.md" title="#/properties/station_no#/properties/station_no">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="station_no-type">station_no Type</h3>
-<p><code>string</code> (<a href="component-properties-station-number.md">Station number</a>)</p>
-<h2 id="azimuth">azimuth</h2>
-<p><code>azimuth</code></p>
-<ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="component-properties-azimuth.md">Azimuth</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-azimuth.md" title="#/properties/azimuth#/properties/azimuth">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="azimuth-type">azimuth Type</h3>
-<p><code>string</code> (<a href="component-properties-azimuth.md">Azimuth</a>)</p>
-<h3 id="azimuth-examples">azimuth Examples</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;37.691N,</span> <span class="er">122.099W&quot;</span></span></code></pre></div>
-<h2 id="instr_period">instr_period</h2>
-<p><code>instr_period</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-instrument-period.md">Instrument period</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-instrument-period.md" title="#/properties/instr_period#/properties/instr_period">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="instr_period-type">instr_period Type</h3>
-<p><code>number</code> (<a href="component-properties-instrument-period.md">Instrument period</a>)</p>
-<h3 id="instr_period-examples">instr_period Examples</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">0.0047</span></span></code></pre></div>
-<h2 id="instr_period.units">instr_period.units</h2>
-<p><code>instr_period.units</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="component-properties-instrument-period-units.md">Instrument period units</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-instrument-period-units.md" title="#/properties/instr_period.units#/properties/instr_period.units">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="instr_period.units-type">instr_period.units Type</h3>
-<p><code>string</code> (<a href="component-properties-instrument-period-units.md">Instrument period units</a>)</p>
-<h3 id="instr_period.units-examples">instr_period.units Examples</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;sec&quot;</span></span></code></pre></div>
-<h2 id="peak_accel">peak_accel</h2>
-<p><code>peak_accel</code></p>
-<ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-peak-acceleration.md">Peak acceleration</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-peak-acceleration.md" title="#/properties/peak_accel#/properties/peak_accel">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="peak_accel-type">peak_accel Type</h3>
-<p><code>number</code> (<a href="component-properties-peak-acceleration.md">Peak acceleration</a>)</p>
-<h3 id="peak_accel-examples">peak_accel Examples</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">17.433</span></span></code></pre></div>
-<h2 id="peak_accel.units">peak_accel.units</h2>
-<p><code>peak_accel.units</code></p>
-<ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="component-properties-peak-acceleration-units.md">Peak acceleration units</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-peak-acceleration-units.md" title="#/properties/peak_accel.units#/properties/peak_accel.units">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="peak_accel.units-type">peak_accel.units Type</h3>
-<p><code>string</code> (<a href="component-properties-peak-acceleration-units.md">Peak acceleration units</a>)</p>
-<h3 id="peak_accel.units-examples">peak_accel.units Examples</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;cm/sec/sec&quot;</span></span></code></pre></div>
-<h2 id="accel.time_step">accel.time_step</h2>
-<p><code>accel.time_step</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-time-step-of-acceleration-data.md">Time step of acceleration data</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-time-step-of-acceleration-data.md" title="undefined#/properties/accel.time_step">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="accel.time_step-type">accel.time_step Type</h3>
-<p><code>number</code> (<a href="component-properties-time-step-of-acceleration-data.md">Time step of acceleration data</a>)</p>
-<h2 id="peak_accel.time">peak_accel.time</h2>
-<p><code>peak_accel.time</code></p>
-<ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-time-of-peak-acceleration.md">Time of peak acceleration</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-time-of-peak-acceleration.md" title="#/properties/peak_accel.time#/properties/peak_accel.time">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="peak_accel.time-type">peak_accel.time Type</h3>
-<p><code>number</code> (<a href="component-properties-time-of-peak-acceleration.md">Time of peak acceleration</a>)</p>
-<h3 id="peak_accel.time-examples">peak_accel.time Examples</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">20.27</span></span></code></pre></div>
-<h2 id="peak_veloc">peak_veloc</h2>
-<p><code>peak_veloc</code></p>
-<ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-peak-velocity.md">Peak velocity</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-peak-velocity.md" title="#/properties/peak_veloc#/properties/peak_veloc">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="peak_veloc-type">peak_veloc Type</h3>
-<p><code>number</code> (<a href="component-properties-peak-velocity.md">Peak velocity</a>)</p>
-<h3 id="peak_veloc-examples">peak_veloc Examples</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">0.205</span></span></code></pre></div>
-<h2 id="peak_veloc.units">peak_veloc.units</h2>
-<p><code>peak_veloc.units</code></p>
-<ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="component-properties-peak_velocunits.md">peak_veloc.units</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-peak_velocunits.md" title="#/properties/peak_veloc.units#/properties/peak_veloc.units">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="peak_veloc.units-type">peak_veloc.units Type</h3>
-<p><code>string</code> (<a href="component-properties-peak_velocunits.md">peak_veloc.units</a>)</p>
-<h3 id="peak_veloc.units-examples">peak_veloc.units Examples</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;cm/sec&quot;</span></span></code></pre></div>
-<h2 id="peak_veloc.time">peak_veloc.time</h2>
-<p><code>peak_veloc.time</code></p>
-<ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-time-of-peak-velocity.md">Time of peak velocity</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-time-of-peak-velocity.md" title="#/properties/peak_veloc.time#/properties/peak_veloc.time">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="peak_veloc.time-type">peak_veloc.time Type</h3>
-<p><code>number</code> (<a href="component-properties-time-of-peak-velocity.md">Time of peak velocity</a>)</p>
-<h2 id="peak_displ">peak_displ</h2>
-<p><code>peak_displ</code></p>
-<ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-peak-displacement.md">Peak displacement</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-peak-displacement.md" title="#/properties/peak_displ#/properties/peak_displ">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="peak_displ-type">peak_displ Type</h3>
-<p><code>number</code> (<a href="component-properties-peak-displacement.md">Peak displacement</a>)</p>
-<h2 id="peak_displ.units">peak_displ.units</h2>
-<p><code>peak_displ.units</code></p>
-<ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>string</code> (<a href="component-properties-peak_displunits.md">peak_displ.units</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-peak_displunits.md" title="#/properties/peak_displ.units#/properties/peak_displ.units">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="peak_displ.units-type">peak_displ.units Type</h3>
-<p><code>string</code> (<a href="component-properties-peak_displunits.md">peak_displ.units</a>)</p>
-<h3 id="peak_displ.units-examples">peak_displ.units Examples</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;cm&quot;</span></span></code></pre></div>
-<h2 id="peak_displ.time">peak_displ.time</h2>
-<p><code>peak_displ.time</code></p>
-<ul>
-<li><p>is required</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-time-of-peak-displacement.md">Time of peak displacement</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-time-of-peak-displacement.md" title="#/properties/peak_displ.time#/properties/peak_displ.time">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="peak_displ.time-type">peak_displ.time Type</h3>
-<p><code>number</code> (<a href="component-properties-time-of-peak-displacement.md">Time of peak displacement</a>)</p>
-<h3 id="peak_displ.time-examples">peak_displ.time Examples</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">20.27</span></span></code></pre></div>
-<h2 id="init_displ">init_displ</h2>
-<p><code>init_displ</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-initial-displacement.md">Initial displacement</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-initial-displacement.md" title="#/properties/init_displ#/properties/init_displ">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="init_displ-type">init_displ Type</h3>
-<p><code>number</code> (<a href="component-properties-initial-displacement.md">Initial displacement</a>)</p>
-<h2 id="init_displ.units">init_displ.units</h2>
-<p>Units</p>
-<p><code>init_displ.units</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="component-properties-init_displunits.md">init_displ.units</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-init_displunits.md" title="#/properties/init_displ.units#/properties/init_displ.units">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="init_displ.units-type">init_displ.units Type</h3>
-<p><code>string</code> (<a href="component-properties-init_displunits.md">init_displ.units</a>)</p>
-<h3 id="init_displ.units-examples">init_displ.units Examples</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;cm/sec&quot;</span></span></code></pre></div>
-<h2 id="init_veloc">init_veloc</h2>
-<p><code>init_veloc</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>number</code> (<a href="component-properties-initial-velocity.md">Initial velocity</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-initial-velocity.md" title="#/properties/init_veloc#/properties/init_veloc">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="init_veloc-type">init_veloc Type</h3>
-<p><code>number</code> (<a href="component-properties-initial-velocity.md">Initial velocity</a>)</p>
-<h2 id="init_veloc.units">init_veloc.units</h2>
-<p>Units</p>
-<p><code>init_veloc.units</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="component-properties-init_velocunits.md">init_veloc.units</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-init_velocunits.md" title="#/properties/init_veloc.units#/properties/init_veloc.units">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="init_veloc.units-type">init_veloc.units Type</h3>
-<p><code>string</code> (<a href="component-properties-init_velocunits.md">init_veloc.units</a>)</p>
-<h3 id="init_veloc.units-examples">init_veloc.units Examples</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;cm/sec&quot;</span></span></code></pre></div>
-<h2 id="file_name">file_name</h2>
-<p><code>file_name</code></p>
-<ul>
-<li><p>is optional</p></li>
-<li><p>Type: <code>string</code> (<a href="component-properties-source-file.md">Source file</a>)</p></li>
-<li><p>cannot be null</p></li>
-<li><p>defined in: <a href="component-properties-source-file.md" title="#/properties/file_name#/properties/file_name">quakeIO Ground Motion Record schema</a></p></li>
-</ul>
-<h3 id="file_name-type">file_name Type</h3>
-<p><code>string</code> (<a href="component-properties-source-file.md">Source file</a>)</p>
-<h2 id="additional-properties">Additional Properties</h2>
-<p>Additional properties are allowed and do not have to follow a specific schema</p>
+# QuakeMotion Properties
+
+| Property                                                | Type     | Required | Nullable       | Defined by                                                                                                                                           |
+| :------------------------------------------------------ | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [location](#location)                                   | `string` | Optional | cannot be null | [QuakeMotion](component-properties-location.md "#/properties/location#/properties/location")                                                         |
+| [filter.bandpass.limit_high](#filterbandpasslimit_high) | `number` | Optional | cannot be null | [QuakeMotion](component-properties-band-pass-filter-high-cutoff.md "#/properties/filter.bandpass.limit_high#/properties/filter.bandpass.limit_high") |
+| [station_no](#station_no)                               | `string` | Optional | cannot be null | [QuakeMotion](component-properties-station-number.md "#/properties/station_no#/properties/station_no")                                               |
+| [azimuth](#azimuth)                                     | `string` | Required | cannot be null | [QuakeMotion](component-properties-azimuth.md "#/properties/azimuth#/properties/azimuth")                                                            |
+| [instr_period](#instr_period)                           | `number` | Optional | cannot be null | [QuakeMotion](component-properties-instrument-period.md "#/properties/instr_period#/properties/instr_period")                                        |
+| [instr_period.units](#instr_periodunits)                | `string` | Optional | cannot be null | [QuakeMotion](component-properties-instrument-period-units.md "#/properties/instr_period.units#/properties/instr_period.units")                      |
+| [peak_accel](#peak_accel)                               | `number` | Required | cannot be null | [QuakeMotion](component-properties-peak-acceleration.md "#/properties/peak_accel#/properties/peak_accel")                                            |
+| [peak_accel.units](#peak_accelunits)                    | `string` | Required | cannot be null | [QuakeMotion](component-properties-peak-acceleration-units.md "#/properties/peak_accel.units#/properties/peak_accel.units")                          |
+| [accel.time_step](#acceltime_step)                      | `number` | Optional | cannot be null | [QuakeMotion](component-properties-time-step-of-acceleration-data.md "undefined#/properties/accel.time_step")                                        |
+| [peak_accel.time](#peak_acceltime)                      | `number` | Required | cannot be null | [QuakeMotion](component-properties-time-of-peak-acceleration.md "#/properties/peak_accel.time#/properties/peak_accel.time")                          |
+| [peak_veloc](#peak_veloc)                               | `number` | Required | cannot be null | [QuakeMotion](component-properties-peak-velocity.md "#/properties/peak_veloc#/properties/peak_veloc")                                                |
+| [peak_veloc.units](#peak_velocunits)                    | `string` | Required | cannot be null | [QuakeMotion](component-properties-peak_velocunits.md "#/properties/peak_veloc.units#/properties/peak_veloc.units")                                  |
+| [peak_veloc.time](#peak_veloctime)                      | `number` | Required | cannot be null | [QuakeMotion](component-properties-time-of-peak-velocity.md "#/properties/peak_veloc.time#/properties/peak_veloc.time")                              |
+| [peak_displ](#peak_displ)                               | `number` | Required | cannot be null | [QuakeMotion](component-properties-peak-displacement.md "#/properties/peak_displ#/properties/peak_displ")                                            |
+| [peak_displ.units](#peak_displunits)                    | `string` | Required | cannot be null | [QuakeMotion](component-properties-peak_displunits.md "#/properties/peak_displ.units#/properties/peak_displ.units")                                  |
+| [peak_displ.time](#peak_displtime)                      | `number` | Required | cannot be null | [QuakeMotion](component-properties-time-of-peak-displacement.md "#/properties/peak_displ.time#/properties/peak_displ.time")                          |
+| [init_displ](#init_displ)                               | `number` | Optional | cannot be null | [QuakeMotion](component-properties-initial-displacement.md "#/properties/init_displ#/properties/init_displ")                                         |
+| [init_displ.units](#init_displunits)                    | `string` | Optional | cannot be null | [QuakeMotion](component-properties-init_displunits.md "#/properties/init_displ.units#/properties/init_displ.units")                                  |
+| [init_veloc](#init_veloc)                               | `number` | Optional | cannot be null | [QuakeMotion](component-properties-initial-velocity.md "#/properties/init_veloc#/properties/init_veloc")                                             |
+| [init_veloc.units](#init_velocunits)                    | `string` | Optional | cannot be null | [QuakeMotion](component-properties-init_velocunits.md "#/properties/init_veloc.units#/properties/init_veloc.units")                                  |
+| [file_name](#file_name)                                 | `string` | Optional | cannot be null | [QuakeMotion](component-properties-source-file.md "#/properties/file_name#/properties/file_name")                                                    |
+| Additional Properties                                   | Any      | Optional | can be null    |                                                                                                                                                      |
+
+## location
+
+Number identifying station at which the data was recorded.
+
+`location`
+
+*   is optional
+
+*   Type: `string` ([Location](component-properties-location.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-location.md "#/properties/location#/properties/location")
+
+### location Type
+
+`string` ([Location](component-properties-location.md))
+
+## filter.bandpass.limit_high
+
+Upper cutoff point for band-pass filter.
+
+`filter.bandpass.limit_high`
+
+*   is optional
+
+*   Type: `number` ([Band-pass filter high cutoff.](component-properties-band-pass-filter-high-cutoff.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-band-pass-filter-high-cutoff.md "#/properties/filter.bandpass.limit_high#/properties/filter.bandpass.limit_high")
+
+### filter.bandpass.limit_high Type
+
+`number` ([Band-pass filter high cutoff.](component-properties-band-pass-filter-high-cutoff.md))
+
+## station_no
+
+Number identifying station at which the data was recorded.
+
+`station_no`
+
+*   is optional
+
+*   Type: `string` ([Station number](component-properties-station-number.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-station-number.md "#/properties/station_no#/properties/station_no")
+
+### station_no Type
+
+`string` ([Station number](component-properties-station-number.md))
+
+## azimuth
+
+
+
+`azimuth`
+
+*   is required
+
+*   Type: `string` ([Azimuth](component-properties-azimuth.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-azimuth.md "#/properties/azimuth#/properties/azimuth")
+
+### azimuth Type
+
+`string` ([Azimuth](component-properties-azimuth.md))
+
+### azimuth Examples
+
+```json
+"37.691N, 122.099W"
+```
+
+## instr_period
+
+
+
+`instr_period`
+
+*   is optional
+
+*   Type: `number` ([Instrument period](component-properties-instrument-period.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-instrument-period.md "#/properties/instr_period#/properties/instr_period")
+
+### instr_period Type
+
+`number` ([Instrument period](component-properties-instrument-period.md))
+
+### instr_period Examples
+
+```json
+0.0047
+```
+
+## instr_period.units
+
+
+
+`instr_period.units`
+
+*   is optional
+
+*   Type: `string` ([Instrument period units](component-properties-instrument-period-units.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-instrument-period-units.md "#/properties/instr_period.units#/properties/instr_period.units")
+
+### instr_period.units Type
+
+`string` ([Instrument period units](component-properties-instrument-period-units.md))
+
+### instr_period.units Examples
+
+```json
+"sec"
+```
+
+## peak_accel
+
+
+
+`peak_accel`
+
+*   is required
+
+*   Type: `number` ([Peak acceleration](component-properties-peak-acceleration.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-peak-acceleration.md "#/properties/peak_accel#/properties/peak_accel")
+
+### peak_accel Type
+
+`number` ([Peak acceleration](component-properties-peak-acceleration.md))
+
+### peak_accel Examples
+
+```json
+17.433
+```
+
+## peak_accel.units
+
+
+
+`peak_accel.units`
+
+*   is required
+
+*   Type: `string` ([Peak acceleration units](component-properties-peak-acceleration-units.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-peak-acceleration-units.md "#/properties/peak_accel.units#/properties/peak_accel.units")
+
+### peak_accel.units Type
+
+`string` ([Peak acceleration units](component-properties-peak-acceleration-units.md))
+
+### peak_accel.units Examples
+
+```json
+"cm/sec/sec"
+```
+
+## accel.time_step
+
+
+
+`accel.time_step`
+
+*   is optional
+
+*   Type: `number` ([Time step of acceleration data](component-properties-time-step-of-acceleration-data.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-time-step-of-acceleration-data.md "undefined#/properties/accel.time_step")
+
+### accel.time_step Type
+
+`number` ([Time step of acceleration data](component-properties-time-step-of-acceleration-data.md))
+
+## peak_accel.time
+
+
+
+`peak_accel.time`
+
+*   is required
+
+*   Type: `number` ([Time of peak acceleration](component-properties-time-of-peak-acceleration.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-time-of-peak-acceleration.md "#/properties/peak_accel.time#/properties/peak_accel.time")
+
+### peak_accel.time Type
+
+`number` ([Time of peak acceleration](component-properties-time-of-peak-acceleration.md))
+
+### peak_accel.time Examples
+
+```json
+20.27
+```
+
+## peak_veloc
+
+
+
+`peak_veloc`
+
+*   is required
+
+*   Type: `number` ([Peak velocity](component-properties-peak-velocity.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-peak-velocity.md "#/properties/peak_veloc#/properties/peak_veloc")
+
+### peak_veloc Type
+
+`number` ([Peak velocity](component-properties-peak-velocity.md))
+
+### peak_veloc Examples
+
+```json
+0.205
+```
+
+## peak_veloc.units
+
+
+
+`peak_veloc.units`
+
+*   is required
+
+*   Type: `string` ([peak_veloc.units](component-properties-peak_velocunits.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-peak_velocunits.md "#/properties/peak_veloc.units#/properties/peak_veloc.units")
+
+### peak_veloc.units Type
+
+`string` ([peak_veloc.units](component-properties-peak_velocunits.md))
+
+### peak_veloc.units Examples
+
+```json
+"cm/sec"
+```
+
+## peak_veloc.time
+
+
+
+`peak_veloc.time`
+
+*   is required
+
+*   Type: `number` ([Time of peak velocity](component-properties-time-of-peak-velocity.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-time-of-peak-velocity.md "#/properties/peak_veloc.time#/properties/peak_veloc.time")
+
+### peak_veloc.time Type
+
+`number` ([Time of peak velocity](component-properties-time-of-peak-velocity.md))
+
+## peak_displ
+
+
+
+`peak_displ`
+
+*   is required
+
+*   Type: `number` ([Peak displacement](component-properties-peak-displacement.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-peak-displacement.md "#/properties/peak_displ#/properties/peak_displ")
+
+### peak_displ Type
+
+`number` ([Peak displacement](component-properties-peak-displacement.md))
+
+## peak_displ.units
+
+
+
+`peak_displ.units`
+
+*   is required
+
+*   Type: `string` ([peak_displ.units](component-properties-peak_displunits.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-peak_displunits.md "#/properties/peak_displ.units#/properties/peak_displ.units")
+
+### peak_displ.units Type
+
+`string` ([peak_displ.units](component-properties-peak_displunits.md))
+
+### peak_displ.units Examples
+
+```json
+"cm"
+```
+
+## peak_displ.time
+
+
+
+`peak_displ.time`
+
+*   is required
+
+*   Type: `number` ([Time of peak displacement](component-properties-time-of-peak-displacement.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-time-of-peak-displacement.md "#/properties/peak_displ.time#/properties/peak_displ.time")
+
+### peak_displ.time Type
+
+`number` ([Time of peak displacement](component-properties-time-of-peak-displacement.md))
+
+### peak_displ.time Examples
+
+```json
+20.27
+```
+
+## init_displ
+
+
+
+`init_displ`
+
+*   is optional
+
+*   Type: `number` ([Initial displacement](component-properties-initial-displacement.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-initial-displacement.md "#/properties/init_displ#/properties/init_displ")
+
+### init_displ Type
+
+`number` ([Initial displacement](component-properties-initial-displacement.md))
+
+## init_displ.units
+
+Units
+
+`init_displ.units`
+
+*   is optional
+
+*   Type: `string` ([init_displ.units](component-properties-init_displunits.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-init_displunits.md "#/properties/init_displ.units#/properties/init_displ.units")
+
+### init_displ.units Type
+
+`string` ([init_displ.units](component-properties-init_displunits.md))
+
+### init_displ.units Examples
+
+```json
+"cm/sec"
+```
+
+## init_veloc
+
+
+
+`init_veloc`
+
+*   is optional
+
+*   Type: `number` ([Initial velocity](component-properties-initial-velocity.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-initial-velocity.md "#/properties/init_veloc#/properties/init_veloc")
+
+### init_veloc Type
+
+`number` ([Initial velocity](component-properties-initial-velocity.md))
+
+## init_veloc.units
+
+Units
+
+`init_veloc.units`
+
+*   is optional
+
+*   Type: `string` ([init_veloc.units](component-properties-init_velocunits.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-init_velocunits.md "#/properties/init_veloc.units#/properties/init_veloc.units")
+
+### init_veloc.units Type
+
+`string` ([init_veloc.units](component-properties-init_velocunits.md))
+
+### init_veloc.units Examples
+
+```json
+"cm/sec"
+```
+
+## file_name
+
+
+
+`file_name`
+
+*   is optional
+
+*   Type: `string` ([Source file](component-properties-source-file.md))
+
+*   cannot be null
+
+*   defined in: [QuakeMotion](component-properties-source-file.md "#/properties/file_name#/properties/file_name")
+
+### file_name Type
+
+`string` ([Source file](component-properties-source-file.md))
+
+## Additional Properties
+
+Additional properties are allowed and do not have to follow a specific schema
