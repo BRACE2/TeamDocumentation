@@ -1,18 +1,13 @@
 # quake-io
 
-[![PyPI Downloads][pypi-v-image]][pypi-v-link]
-[![PyPI Version][pypi-d-image]][pypi-d-link]
-![][cov-img]
+[![PyPI Downloads][pypi-v-image]][pypi-v-link] [![PyPI Version][pypi-d-image]][pypi-d-link] ![][cov-img] [![Commits since latest release][gh-image]][gh-link]
 <!-- ![Build][build-img] -->
-[![Commits since latest release][gh-image]][gh-link]
 
 QuakeIO is a library of utilities for parsing ground motion files. Interfaces are provided for Python, Matlab, and the command line.
 
-- [Formats](#formats)
-- [Python API](#Python-API)
+## Design
 
-
-## Formats
+### Tooling and Standards
 
 <center>
 
@@ -32,27 +27,26 @@ QuakeIO is a library of utilities for parsing ground motion files. Interfaces ar
 </center>
 
 
-## Python API
+The core of the QuakeIO library is implemented in a Python package.
 
-### `reads(string, format)`
+- `meshio`, `json`
+
+
+### Verification, Validation, and Continuous Integration
+
+The [`tests/`][gh-tests] directory of the source code tree contains a suite
+of integration tests. An automated continuous integration workflow
+ensures that these tests are executed everytime that a change to the source
+code is pushed back to the upstream repository.
+
+
+## Python Library Reference
+
+`read(string, format)`{.py}
+
 
 ### `readf(file,   format)`
 
-```python
-import quakeio
-
-csmip_event = quakeio.read("event.zip")
-csmip_event["channel-01"].accel.plot()
-```
-
-```python
-csmip_event["chan001"].plot()
-```
-
-
-```python
-csmip_event["chan001"].plot_spect()
-```
 
 ## Command Line Interface
 
@@ -105,7 +99,9 @@ Motion = quakeIO.read('csmip.zip')
 [pypi-v-link]: https://pypi.org/project/quakeio
 [build-img]: https://github.com/claudioperez/quakeio/actions/workflows/base.yml/badge.svg
 [cov-img]: https://raw.githubusercontent.com/claudioperez/quakeio/master/etc/coverage/cov.svg
-[gh-link]: https://github.com/claudioperez/quakeio/compare/0.0.3...master
-[gh-image]: https://img.shields.io/github/commits-since/claudioperez/quakeio/0.0.3?style=social
+[gh-link]: https://github.com/claudioperez/quakeio/compare/0.1.3...master
+[gh-image]: https://img.shields.io/github/commits-since/claudioperez/quakeio/0.1.3?style=social
+
+[gh-tests]: https://github.com/claudioperez/quakeio/tree/master/tests
 
 
