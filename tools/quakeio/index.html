@@ -998,7 +998,7 @@
 <td><code>[quakeio.]json</code></td>
 <td>☑</td>
 <td>☑</td>
-<td><a href="https://brace2.github.io/TeamDocumentation/tools/quakeio/schema/">schema</a></td>
+<td><a href="https://brace2.github.io/TeamDocumentation/tools/quakeio/schemas/">schema</a></td>
 <td><em>any</em></td>
 </tr>
 <tr class="even">
@@ -1048,10 +1048,10 @@
 <h2 id="design">Design</h2>
 <p>Ground motion data is represented by compositions of the following data types/containers:</p>
 <ol type="1">
-<li><a href="schema/series"><code>QuakeSeries</code></a> is an array-like data type which contains a single time series, and associated metadata like peak values and units. All data contained by this type is generally closely related to a single physical quantity or <em>measurement</em>. An example of a file format which parses to this type is the PEER NGA <code>.AT2</code> file.</li>
-<li><a href="schema/component"><code>QuakeComponent</code></a> is a collection of <code>QuakeSeries</code> types which generally represents time series data (e.g. acceleration, velocity, displacement) which were collected in a single <em>direction</em>. An example of a file format that parses into this type is the CSMIP Volume 2 (<code>.V2</code>) spec.</li>
-<li><a href="schema/motion"><code>QuakeMotion</code></a> is a collection of <code>QuakeComponent</code> types which all pertain to a single shared <em>spacial location</em>. The data contained by this type is generally free of any spacial variation.</li>
-<li><a href="schema/collection"><code>QuakeCollection</code></a> is a collection of <code>QuakeMotion</code> types, often corresponding to a single <em>site</em>. An example of a file format that parses into this type is the CSMIP processed archive (<code>.zip</code>).</li>
+<li><a href="schemas/series"><code>QuakeSeries</code></a> is an array-like data type which contains a single time series, and associated metadata like peak values and units. All data contained by this type is generally closely related to a single physical quantity or <em>measurement</em>. An example of a file format which parses to this type is the PEER NGA <code>.AT2</code> file.</li>
+<li><a href="schemas/component"><code>QuakeComponent</code></a> is a collection of <code>QuakeSeries</code> types which generally represents time series data (e.g. acceleration, velocity, displacement) which were collected in a single <em>direction</em>. An example of a file format that parses into this type is the CSMIP Volume 2 (<code>.V2</code>) spec.</li>
+<li><a href="schemas/motion"><code>QuakeMotion</code></a> is a collection of <code>QuakeComponent</code> types which all pertain to a single shared <em>spacial location</em>. The data contained by this type is generally free of any spacial variation.</li>
+<li><a href="schemas/collection"><code>QuakeCollection</code></a> is a collection of <code>QuakeMotion</code> types, often corresponding to a single <em>site</em>. An example of a file format that parses into this type is the CSMIP processed archive (<code>.zip</code>).</li>
 </ol>
 <p>The core functionality of the library is exposed by the <code class="sourceCode python">quakeio.read(filename, <span class="bu">format</span><span class="op">=</span><span class="va">None</span>)</code> function. This function will return an object either of type (1), (2) or (3), depending on the format of the file that was parsed. For example, the return value of <code>read</code> when parsing a PEER NGA file (file extension <code>.AT2</code>), is a <code>QuakeSeries</code> with acceleration data. When parsing a CSMIP Volume 2 file the return is a <code>QuakeComponent</code> containing <code>QuakeSeries</code> instances for acceleration, velocity and displacement values, and when parsing a <code>zip</code> archive of such files, a <code>QuakeCollection</code> is returned.</p>
 <p>When used via the Python library, these types are overloaded with mathematical operations allowing for concise and expressive post-processing. For example, given two <code>QuakeMotion</code> objects <code>top</code> and <code>bot</code>, representing the motion at the top and bottom of a bridge column, respectively, their relative motion is simply computed as follows:</p>
