@@ -1,9 +1,11 @@
 ## Bridges
 
-| Name                   | CESMD         | Repo                                                   |
-|------------------------|---------------|--------------------------------------------------------|
-| Hwy8/Meloland Overpass | `CE01336`     | [Github](https://github.com/BRACE2/Caltrans.Meloland/) |
-| Lake Crowley           | `CE54730`     | [Github](https://github.com/BRACE2/Caltrans.Crowley/)  |
+| Name                   | CESMD         | Repo                                                      |
+|------------------------|---------------|-----------------------------------------------------------|
+| Hwy8/Meloland Overpass | `CE01336`     | [Github](https://github.com/BRACE2/Caltrans.Meloland/)    |
+| Painter Street         | `CE89324`     | [Github](https://github.com/BRACE2/Caltrans.Painter/)     |
+| Lake Crowley           | `CE54730`     | [Github](https://github.com/BRACE2/Caltrans.Crowley/)     |
+| San Bernardino         | `CE23631`     | [Github](https://github.com/BRACE2/Caltrans.Bernardino/)  |
 
 <!--
 ```{yaml-table}

@@ -36,11 +36,11 @@ following table summarizes the file formats which are currently supported:
 Ground motion data is represented by compositions of the
 following data types/containers:
 
-1. `QuakeSeries` is an array-like data type which contains a single time series, and associated metadata like peak values and units. All data contained by this type is generally closely related to a single physical quantity or *measurement*. An example of a file format which parses to this type is the PEER NGA `.AT2` file.
-2. `QuakeComponent` is a collection of `QuakeSeries` types which generally represents time series data (e.g. acceleration, velocity, displacement) which were collected in a single *direction*. An example
+1. [`QuakeSeries`](schemas/series) is an array-like data type which contains a single time series, and associated metadata like peak values and units. All data contained by this type is generally closely related to a single physical quantity or *measurement*. An example of a file format which parses to this type is the PEER NGA `.AT2` file.
+2. [`QuakeComponent`](schemas/component) is a collection of `QuakeSeries` types which generally represents time series data (e.g. acceleration, velocity, displacement) which were collected in a single *direction*. An example
 of a file format that parses into this type is the CSMIP Volume 2 (`.V2`) spec.
-3. `QuakeMotion` is a collection of `QuakeComponent` types which all pertain to a single shared *spacial location*. The data contained by this type is generally free of any spacial variation.
-4. `QuakeCollection` is a collection of `QuakeMotion` types, often corresponding to a single *site*. An example of a file format that parses into this type is the CSMIP processed archive (`.zip`).
+3. [`QuakeMotion`](schemas/motion) is a collection of `QuakeComponent` types which all pertain to a single shared *spacial location*. The data contained by this type is generally free of any spacial variation.
+4. [`QuakeCollection`](schemas/collection) is a collection of `QuakeMotion` types, often corresponding to a single *site*. An example of a file format that parses into this type is the CSMIP processed archive (`.zip`).
 
 The core functionality of the library is exposed by the `quakeio.read(filename,
 format=None)`{.py} function. This function will return an object either of type
@@ -122,7 +122,7 @@ Motion = quakeIO.read('csmip.zip')
 <!-- Reference links -->
 [EQSIG]: https://github.com/eng-tools/eqsig
 [CSMIP]: https://www.conservation.ca.gov/cgs/Documents/Program-SMIP/Reports/Other/OSMS_85-03.pdf
-[record-schema]: https://brace2.github.com/TeamDocumentation/tools/quakeio/schemas/
+[record-schema]: https://brace2.github.io/TeamDocumentation/tools/quakeio/schemas/
 
 <!-- Badge links -->
 [pypi-d-image]: https://img.shields.io/pypi/dm/quakeio.svg

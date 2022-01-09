@@ -1,0 +1,94 @@
+---
+...
+
+<div id="app"></div>
+<script type="text/babel">
+var HelloMessage = React.createClass({
+    render: function() {
+	return <table>Hello {this.props.name}</table>;
+    }
+});
+
+ReactDOM.render(<HelloMessage name="John" />, document.getElementById('app'));
+
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script src="js/js-yaml.min.js" ></script>
+<script type="text/babel">
+function bridge_links(csmipid) return {
+csmip_motions: 'https://www.strongmotioncenter.org/cgi-bin/CESMD/'
+              +'Multiplesearch1_DM2.pl?event_name=&magmin=&magmax='
+	      +'&byear=&eyear=&country=Any&state=Any&stn_ident=&network=CE'
+	      +'&sta_number=23631'
+	      +'&type=Any&Material=Any&Height=&siteclass=Any&accmin=&accmax=&hdistmin=&hdistmax=',
+csmip_summary: ''
+}
+
+var data = `
+meloland:
+  cesmd: CE01336
+  calid: 58-0215
+  general:
+    Year built:          ~
+    Location:            "32.7735 N, 115.4481 W"
+    Bridge name:         "Hwy8/Meloland Overpass"
+  structure:
+    Plan shape:          straight with skew
+
+crowley:
+  cesmd: CE54730
+  calid: 47-0048
+  general:
+    Year built:  # 1969 ?
+  structure:
+    Plan shape:          straight with skew
+  accelerometers:
+    Year fitted:         1977
+    Bridge count:          17
+    Free-field count:       3
+
+painter:
+  cesmd: CE89324 # also CE89462
+  calid: 04-0236
+  general:
+    Year built:          1976
+    Location:            "40.5031 N, 124.1009 W"
+    Bridge Name:         ~
+  structure:
+    Plan shape:          straight with skew
+    Foundation Type:     Concrete piles.
+    Substructure Type:   Circular concrete columns.  2 columns per bent.
+    Superstructure Type: Continuous concrete box girder.  Diaphragm abutments.
+  accelerometers:
+    Year fitted:         1977
+    Bridge count:          17
+    Free-field count:       3
+
+bernardino:
+  cesmd: CE23631
+  calid: 54-823G
+  general:
+    Year built:          1969
+    Location:            "37.5733 N, 1187390 W"
+    Bridge Name:         "San Bernardino - I10/215 Interchange"
+
+hayward: ~
+  cesmd: CE58658
+  calid: 33-0214L
+
+  general:
+    Year built:          1988
+    Location:            "37.6907 N, 122.0993 W"
+    Bridge name:         "Route 580/238 Separation"
+
+  structure:
+    Plan shape: curved
+
+  accelerometers:
+    ground_channels: [ 1,  2,  3,  6,  7, 17, 18, 24, 25]
+    bridge_channels: [11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23]
+`
+</script>
+

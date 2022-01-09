@@ -13,6 +13,8 @@ highlight:
 schema:
 	. /usr/share/nvm/init-nvm.sh && jsonschema2md -d /home/claudio/packages/quakeio/etc/schemas/ -o ./docs/tools/quakeio/schemas
 	bash scripts/schema.sh
+	mv docs/tools/quakeio/schemas/collection-properties-the-motions-schema-quakemotion.md\
+	   docs/tools/quakeio/schemas/motion.md
 	rm ./docs/tools/quakeio/schemas/*-properties-*
 	rm ./docs/tools/quakeio/schemas/*-default.md
 
