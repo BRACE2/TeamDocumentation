@@ -1126,7 +1126,7 @@
 <div class="cell markdown">
 <p>The signature of the function <code>quakeio.read</code> is as follows:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read(filename: <span class="bu">str</span>, <span class="bu">format</span>: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>, <span class="op">**</span>parser_options): ...</span></code></pre></div>
-<p>However, in this case the <code>format</code> argument can be ommited because the CSMIP archive parser is the default parser for files with a <code>.zip</code> extension.</p>
+<p>where <code>format</code> is a string indicating the file format (see tool documentation for available <a href="https://brace2.github.io/TeamDocumentation/tools/quakeio/">formats</a>). In this case the <code>format</code> argument can be ommited because the CSMIP archive parser is the default parser for files with a <code>.zip</code> extension.</p>
 </div>
 <div class="cell code" data-execution_count="3">
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>collection <span class="op">=</span> quakeio.read(file_name, exclusions<span class="op">=</span>[<span class="st">&quot;filter*&quot;</span>])</span></code></pre></div>
@@ -1145,15 +1145,6 @@
 <div class="output display_data">
 <p><img src="../../../../static/f9fc140c1d01bdb02f94063710866f5363140be8.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
-</div>
-<div class="cell code">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>motion.<span class="bu">long</span>.veloc.data[<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
-</div>
-<div class="cell code">
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>component</span></code></pre></div>
-</div>
-<div class="cell code">
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 </div>
 
 
