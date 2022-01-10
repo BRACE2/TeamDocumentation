@@ -2,117 +2,127 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/bridges/</loc>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/notes/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/notes/1/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/notes/2/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/MotionAPI/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/MotionAPI/design/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/MotionAPI/examples/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/MotionAPI/schema/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/Scripts/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/tools/aleatoire/</loc>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/pyg3/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/examples/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/examples/basic/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/examples/embedded-svg/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/examples/hayward/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/examples/meloland/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/examples/system_id-painter/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/collection/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/component/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/filter/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/motion/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/series/</loc>
-         <lastmod>2022-01-08</lastmod>
+         <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
