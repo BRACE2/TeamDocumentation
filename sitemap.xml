@@ -76,6 +76,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/examples/bernardino/</loc>
+         <lastmod>2022-01-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/examples/embedded-svg/</loc>
          <lastmod>2022-01-10</lastmod>
          <changefreq>daily</changefreq>
