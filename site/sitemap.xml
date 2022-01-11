@@ -31,6 +31,61 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/elasticmaterial/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/quakecollection/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/quakecomponent/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/quakefilter/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/quakemotion/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/quakeseries/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/structuralanalysismodel/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/structuralgeometry/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/structuralnode/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/schemas/structuralresponse/</loc>
+         <lastmod>2022-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/MotionAPI/</loc>
          <lastmod>2022-01-11</lastmod>
          <changefreq>daily</changefreq>
@@ -107,36 +162,6 @@
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/examples/system_id-painter/</loc>
-         <lastmod>2022-01-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/</loc>
-         <lastmod>2022-01-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/collection/</loc>
-         <lastmod>2022-01-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/component/</loc>
-         <lastmod>2022-01-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/filter/</loc>
-         <lastmod>2022-01-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/motion/</loc>
-         <lastmod>2022-01-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://BRACE2.github.io/TeamDocumentation/tools/quakeio/schemas/series/</loc>
          <lastmod>2022-01-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
