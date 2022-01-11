@@ -24,7 +24,8 @@ variables:
 #citeproc: true
 
 # standalone: true
-#filters:
+filters:
+  - include.lua
 #   - ipynb_meta.lua
 #  - image_center.lua
 #    - ipynb_html_output.lua
