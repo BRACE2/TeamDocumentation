@@ -8,7 +8,7 @@ highlight-style: pygments
 
 metadata:
   # pandoc-crossref
-  autoEqnLabels: true
+  # autoEqnLabels: true
   # csl: style/citestyle.csl
   citeprgm: true
   styledir: ../style
@@ -70,7 +70,7 @@ bibliography:
   - ./style/brace.bib
 
 filters: 
-  - pandoc-crossref
+# - pandoc-crossref
 #   - ipynb_meta.lua
   - image_center.lua
 #    - ipynb_html_output.lua

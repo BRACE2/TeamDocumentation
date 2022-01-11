@@ -11,10 +11,36 @@ highlight:
 	  -o config/highlighting.css 
 
 schema:
-	. /usr/share/nvm/init-nvm.sh && jsonschema2md -d /home/claudio/packages/quakeio/etc/schemas/ -o ./docs/tools/quakeio/schemas
+	. /usr/share/nvm/init-nvm.sh && jsonschema2md -d ./schemas/ -o ./docs/schemas
 	bash scripts/schema.sh
-	mv docs/tools/quakeio/schemas/collection-properties-the-motions-schema-quakemotion.md\
-	   docs/tools/quakeio/schemas/motion.md
-	rm ./docs/tools/quakeio/schemas/*-properties-*
-	rm ./docs/tools/quakeio/schemas/*-default.md
+	mv docs/schemas/quakecollection-properties-the-motions-schema-quakemotion.md\
+	   docs/schemas/quakemotion.md
+	rm ./docs/schemas/*-properties-*
+	rm ./docs/schemas/*-default.md
+
+out/prnt/%.tex: out/prnt/%.md config/pandoc-tex.yaml
+	cat $< \
+	| sed 's/☑/ /g'\
+	| sed 's/☐/ /g'\
+	| pandoc --defaults config/pandoc-md.yaml -t latex -o $@
+
+out/prnt/%.pdf: out/prnt/%.tex config/pandoc-tex.yaml
+	cat $< \
+	| sed 's/☑/ /g'\
+	| sed 's/☐/ /g'\
+	| pandoc -f latex --pdf-engine=lualatex -o $@
+	/bin/cp $@ /mnt/c/Users/claud/Downloads/brace2/
+
+out/prnt/%.docx: out/prnt/%.md
+	cat $< \
+	| sed 's/☑/ /g'\
+	| sed 's/☐/ /g'\
+	| pandoc -o $@
+	/bin/cp $@ /mnt/c/Users/claud/Downloads/brace2/
+
+out/prnt/%.md: prnt/%.md config/pandoc-md.yaml
+	pandoc $< --defaults config/pandoc-md.yaml -o $@
+
+
+
 

@@ -1,0 +1,40 @@
+{
+                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/nodes/items",
+                "type": "object",
+                "title": "Node",
+                "examples": [{"name": 0,"ndf":  6,"crd":  [0, 240.453,0],"mass": [0,0,0,0,0,0]}],
+                "required": ["name","ndf","crd"],
+                "properties": {
+                    "name": {
+                        "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/nodes/items/properties/name",
+                        "type": "integer",
+                        "title": "Node name",
+                        "description": "An explanation about the purpose of this instance."
+                    },
+                    "ndf": {
+                        "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/nodes/items/anyOf/0/properties/ndf",
+                        "type": "integer",
+                        "title": "Node degrees of freedom",
+                        "description": "Number of degrees-of-freedom at node.",
+                        "examples": [6]
+                    },
+                    "crd": {
+                        "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/nodes/items/anyOf/0/properties/crd",
+                        "type": "array",
+                        "title": "Node coordinates",
+                        "description": "Node spatial coordinates.",
+                        "examples": [[0,240.453]],
+                        "items": {"anyOf": [{"type": "number"}]}
+                    },
+                    "mass": {
+                        "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/nodes/items/anyOf/0/properties/mass",
+                        "type": "array",
+                        "title": "Nodal mass",
+                        "description": "Assigned mass of each DOF at node.",
+                        "default": [[0.0, 0.0, 0.0]],
+                        "additionalItems": true,
+                        "items": {"anyOf": [{"type": "number"}]}
+                    }
+                },
+                "additionalProperties": true
+            }

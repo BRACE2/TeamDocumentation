@@ -1,9 +1,11 @@
 # quake-io
 
+```{=html}
 ![](https://github.com/claudioperez/quakeio/actions/workflows/base.yaml/badge.svg)
 
 [![PyPI Downloads][pypi-v-image]][pypi-v-link] [![PyPI Version][pypi-d-image]][pypi-d-link] ![][cov-img] [![Commits since latest release][gh-image]][gh-link]
 <!-- ![Build][build-img] -->
+```
 
 QuakeIO is a library of utilities for parsing and processing ground motion
 files. All data is serialized into a standardized JSON representation with a
@@ -39,7 +41,7 @@ following data types/containers:
 1. [`QuakeSeries`](schemas/series) is an array-like data type which contains a single time series, and associated metadata like peak values and units. All data contained by this type is generally closely related to a single physical quantity or *measurement*. An example of a file format which parses to this type is the PEER NGA `.AT2` file.
 2. [`QuakeComponent`](schemas/component) is a collection of `QuakeSeries` types which generally represents time series data (e.g. acceleration, velocity, displacement) which were collected in a single *direction*. An example
 of a file format that parses into this type is the CSMIP Volume 2 (`.V2`) spec.
-3. [`QuakeMotion`](schemas/motion) is a collection of `QuakeComponent` types which all pertain to a single shared *spacial location*. The data contained by this type is generally free of any spacial variation.
+3. [`QuakeMotion`](schemas/motion) is a collection of `QuakeComponent` types which all pertain to a single shared *spatial location*. The data contained by this type is generally free of any spatial variation.
 4. [`QuakeCollection`](schemas/collection) is a collection of `QuakeMotion` types, often corresponding to a single *site*. An example of a file format that parses into this type is the CSMIP processed archive (`.zip`).
 
 The core functionality of the library is exposed by the `quakeio.read(filename,
@@ -92,26 +94,11 @@ Options:
 -t/--to   FORMAT
 ```
 
-```bash
-$ quakeio -a rot:30 chan001.v2 -t html
-```
-
-Rotate and calculate Husid series.
-```bash
-$ quakeio -c 'rot:30;husid;' chan001.v2 
-```
-
-```bash
-$ cat chan001.v2 | quakeio -a rot:30 -f csmip.v2 -t html | pandoc -f html -t pdf
-```
-
-```bash
-$ cat chan001.v2 \
-    | quakeio -a rot:30 -f csmip.v2 -t html -x [*].data \
-    | pandoc -f html -t pdf
-```
-
 ## MATLAB Interface
+
+The Matlab interface utilizes the standard `jsondecode` function
+internally to read a JSON file and build a `struct` with fields
+corresponding to the Quake schemas.
 
 ```matlab
 Motion = quakeIO.read('csmip.zip')

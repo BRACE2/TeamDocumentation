@@ -1,0 +1,324 @@
+{
+    "$id": "#/properties/StructuralAnalysisModel/properties/geometry",
+    "type": "object",
+    "title": "Model geometry",
+    "examples": [
+        {
+          "nodes": [
+            {"name": 201, "ndf": 6, "crd": [11758.7, 31062.5, 1689]},
+            {"name": 202, "ndf": 6, "crd": [11758.7, 31062.5, 2313.31]},
+            {"name": 203, "ndf": 6, "crd": [11758.7, 31062.5, 2361.24]},
+            {"name": 204, "ndf": 6, "crd": [11675.7, 30944.9, 2369.88]}
+          ],
+          "elements": [
+            {"name": 0,"type": "ElasticBeam3d", "nodes": [ 0, 2 ], "E": 4074000.0, "G": 1697500.0, "A": 6476, "Jx": 79505000.0, "Iy": 74980000.0, "Iz": 4525000.0, "massperlength": 1.40742, "releasez": 0, "releasey": 0, "crdTransformation": "1" },
+            {"name": 1,"type": "ElasticBeam3d","nodes": [3,2],"E": 4074000.0,"G": 1697500.0,"A": 2827,"Jx": 254480,"Iy": 636200,"Iz": 636200,"massperlength": 0.614511,"releasez": 0,"releasey": 0,"crdTransformation": "2"},
+            {"name": 2,"type": "ElasticBeam3d","nodes": [2,1],"E": 4074000.0,"G": 1697500.0,"A": 6476,"Jx": 79505000.0,"Iy": 74980000.0,"Iz": 4525000.0,"massperlength": 1.40742,"releasez": 0,"releasey": 0,"crdTransformation": "1"},
+            {"name": 3,"type": "ZeroLength","nodes": [4,0],"materials": ["1","2","3","4","5","6"],"dof": ["P","Vy","Vz","T","My","Mz"],"transMatrix": [[1,0,0],[0,1,0],[0,0,1]]},
+            {"name": 4,"type": "ZeroLength","nodes": [5,1],"materials": ["7","8","9","10","11","12"],"dof": ["P","Vy","Vz","T","My","Mz"],"transMatrix": [[1,0,0],[0,1,0],[0,0,1]]}
+          ]
+        }
+    ],
+    "required": ["nodes","elements"],
+    "properties": {
+        "nodes": {
+            "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/nodes",
+            "type": "array",
+            "title": "Node array",
+            "description": "Array of structural nodes.",
+            "default": [],
+            "examples": [[{"name": 0,"ndf": 6,"crd": [0, 240.453,0],"mass": [0,0,0,0,0,0]}]],
+            "items": {"$ref": "domain/StructuralNode.schema.json"}
+        },
+
+        "elements": {
+            "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements",
+            "type": "array",
+            "title": "Domain elements",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [[{"name": 0, "type": "ElasticBeam3d","nodes": [0,2],"E": 4074000.0,"G": 1697500.0,"A": 6476,"Jx": 79505000.0,"Iy": 74980000.0,"Iz": 4525000.0,"massperlength": 1.40742,"releasez": 0,"releasey": 0, "crdTransformation": "1"}]],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {"name": 0,"type": "ElasticBeam3d","nodes": [0,2],"E": 4074000.0,"G": 1697500.0,"A": 6476,"Jx": 79505000.0,"Iy": 74980000.0,"Iz": 4525000.0,"massperlength": 1.40742,"releasez": 0,"releasey": 0,"crdTransformation": "1"}
+                        ],
+                        "required": ["name","type","nodes","E","G","A","Jx","Iy","Iz","massperlength","releasez","releasey","crdTransformation"],
+                        "properties": {
+                            "name": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/name",
+                                "type": "integer",
+                                "title": "Element tag"
+                            },
+                            "type": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/type",
+                                "type": "string",
+                                "title": "Element type",
+                                "description": "An explanation about the purpose of this instance.",
+                                "examples": ["ElasticBeam3d"]
+                            },
+                            "nodes": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/nodes",
+                                "type": "array",
+                                "title": "Element node array",
+                                "description": "Array of node tags.",
+                                "examples": [[0,2]],
+                                "items": {"$ref": "#/properties/StructuralAnalysisModel/properties/geometry/properties/nodes/items/properties/name"}
+                            },
+                            "E": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/E",
+                                "type": "number",
+                                "title": "Elastic modulus",
+                                "description": "An explanation about the purpose of this instance.",
+                                "examples": [4074000.0]
+                            },
+                            "G": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/G",
+                                "type": "number",
+                                "title": "Shear modulus"
+                            },
+                            "A": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/A",
+                                "type": "integer",
+                                "title": "Cross-sectional area"
+                            },
+                            "Jx": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/Jx",
+                                "type": "number",
+                                "title": "The Jx schema"
+                            },
+                            "Iy": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/Iy",
+                                "type": "number",
+                                "title": "The Iy schema"
+                            },
+                            "Iz": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/Iz",
+                                "type": "number",
+                                "title": "The Iz schema"
+                            },
+                            "massperlength": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/massperlength",
+                                "type": "number",
+                                "title": "The massperlength schema"
+                            },
+                            "releasez": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/releasez",
+                                "type": "integer",
+                                "title": "The releasez schema",
+                                "default": 0
+                            },
+                            "releasey": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/releasey",
+                                "type": "integer",
+                                "title": "The releasey schema",
+                                "default": 0
+                            },
+                            "crdTransformation": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/0/properties/crdTransformation",
+                                "type": "string",
+                                "title": "crdTransformation Tag"
+                            }
+                        },
+                        "additionalProperties": true
+                    },
+                    {
+                        "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1",
+                        "type": "object",
+                        "title": "Material-specified element",
+                        "examples": [
+                            {
+                                "name": 3,
+                                "type": "ZeroLength",
+                                "nodes": [4,0],
+                                "materials": ["1","2","3","4","5","6"],
+                                "dof": ["P","Vy","Vz","T","My","Mz"],
+                                "transMatrix": [
+                                  [1,0,0],
+                                  [0,1,0],
+                                  [0,0,1]
+                                ]
+                            }
+                        ],
+                        "required": ["name","type","nodes","materials","dof","transMatrix"],
+                        "properties": {
+                            "name": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/name",
+                                "type": "integer",
+                                "title": "The name schema"
+                            },
+                            "type": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/type",
+                                "type": "string",
+                                "title": "The type schema"
+                            },
+                            "nodes": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/nodes",
+                                "type": "array",
+                                "title": "The nodes schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/nodes/items",
+                                    "anyOf": [
+                                        {
+                                            "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/nodes/items/anyOf/0",
+                                            "type": "integer",
+                                            "title": "The first anyOf schema",
+                                            "description": "An explanation about the purpose of this instance.",
+                                            "examples": [4,0]
+                                        }
+                                    ]
+                                }
+                            },
+                            "materials": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/materials",
+                                "type": "array",
+                                "title": "Element material array",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": [],
+                                "examples": [
+                                    [
+                                        "1",
+                                        "2"
+                                    ]
+                                ],
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/materials/items",
+                                    "type": "string",
+                                    "examples": ["1","2"]
+                                }
+                            },
+                            "dof": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/dof",
+                                "type": "array",
+                                "title": "The dof schema",
+                                "examples": [["P","Vy"]],
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/dof/items",
+                                    "enum": ["P","Vy","Vz","T","My","Mz"],
+                                    "type": "string",
+                                    "title": "Element dof"
+                                }
+                            },
+                            "transMatrix": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix",
+                                "type": "array",
+                                "title": "The transMatrix schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": [],
+                                "examples": [
+                                     [[1,0,0],
+                                      [0,1,0],
+                                      [0,0,1]]
+                                ],
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix/items",
+                                    "anyOf": [
+                                        {
+                                            "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix/items/anyOf/0",
+                                            "type": "array",
+                                            "title": "The first anyOf schema",
+                                            "description": "An explanation about the purpose of this instance.",
+                                            "default": [],
+                                            "examples": [
+                                                [
+                                                    1,
+                                                    0
+                                                ]
+                                            ],
+                                            "additionalItems": true,
+                                            "items": {
+                                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix/items/anyOf/0/items",
+                                                "anyOf": [
+                                                    {
+                                                        "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix/items/anyOf/0/items/anyOf/0",
+                                                        "type": "integer",
+                                                        "title": "The first anyOf schema",
+                                                        "description": "An explanation about the purpose of this instance.",
+                                                        "default": 0,
+                                                        "examples": [
+                                                            1,
+                                                            0
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix/items/anyOf/1",
+                                            "type": "array",
+                                            "title": "The second anyOf schema",
+                                            "description": "An explanation about the purpose of this instance.",
+                                            "default": [],
+                                            "additionalItems": true,
+                                            "items": {
+                                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix/items/anyOf/1/items",
+                                                "anyOf": [
+                                                    {
+                                                        "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix/items/anyOf/1/items/anyOf/0",
+                                                        "type": "integer",
+                                                        "title": "The first anyOf schema",
+                                                        "description": "An explanation about the purpose of this instance.",
+                                                        "default": 0,
+                                                        "examples": [
+                                                            0,
+                                                            1
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix/items/anyOf/2",
+                                            "type": "array",
+                                            "title": "The third anyOf schema",
+                                            "description": "An explanation about the purpose of this instance.",
+                                            "default": [],
+                                            "examples": [
+                                                [
+                                                    0,
+                                                    0
+                                                ]
+                                            ],
+                                            "additionalItems": true,
+                                            "items": {
+                                                "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix/items/anyOf/2/items",
+                                                "anyOf": [
+                                                    {
+                                                        "$id": "#/properties/StructuralAnalysisModel/properties/geometry/properties/elements/items/anyOf/1/properties/transMatrix/items/anyOf/2/items/anyOf/0",
+                                                        "type": "integer",
+                                                        "title": "The first anyOf schema",
+                                                        "description": "An explanation about the purpose of this instance.",
+                                                        "default": 0,
+                                                        "examples": [
+                                                            0,
+                                                            1
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}

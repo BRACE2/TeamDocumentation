@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+      "nodal_response": {
+	"type": "object"
+      },
+      "element_response": {}
+  }
+}

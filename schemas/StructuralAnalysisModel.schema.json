@@ -1,0 +1,445 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "required": [
+        "StructuralAnalysisModel"
+    ],
+    "properties": {
+        "StructuralAnalysisModel": {
+            "$id": "#/properties/StructuralAnalysisModel",
+            "default": {},
+            "description": "An explanation about the purpose of this instance.",
+            "required": ["properties","geometry"],
+            "title": "The StructuralAnalysisModel schema",
+            "type": "object",
+            "properties": {
+                "BIM": {
+                    "$id": "#/properties/StructuralAnalysisModel/properties/BIM",
+                    "type": "string",
+                    "title": "BIM",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                },
+                "description": {
+                    "$id": "#/properties/StructuralAnalysisModel/properties/description",
+                    "type": "string",
+                    "title": "SAM Description",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                },
+                "engineer": {
+                    "$id": "#/properties/StructuralAnalysisModel/properties/engineer",
+                    "default": "",
+                    "description": "An explanation about the purpose of this instance.",
+                    "title": "Engineer",
+                    "type": "string"
+                },
+                "units": {
+                    "$id": "#/properties/StructuralAnalysisModel/properties/units",
+                    "type": "object",
+                    "title": "Units",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": {},
+                    "examples": [
+                        {
+                            "force": "",
+                            "length": "",
+                            "time": "",
+                            "temperature": ""
+                        }
+                    ],
+                    "required": [
+                        "force",
+                        "length",
+                        "time",
+                        "temperature"
+                    ],
+                    "properties": {
+                        "force": {
+                            "$id": "#/properties/StructuralAnalysisModel/properties/units/properties/force",
+                            "type": "string",
+                            "title": "The force schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                ""
+                            ]
+                        },
+                        "length": {
+                            "$id": "#/properties/StructuralAnalysisModel/properties/units/properties/length",
+                            "type": "string",
+                            "title": "The length schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                ""
+                            ]
+                        },
+                        "time": {
+                            "$id": "#/properties/StructuralAnalysisModel/properties/units/properties/time",
+                            "type": "string",
+                            "title": "The time schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                ""
+                            ]
+                        },
+                        "temperature": {
+                            "$id": "#/properties/StructuralAnalysisModel/properties/units/properties/temperature",
+                            "type": "string",
+                            "title": "Temperature units",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": ""
+                        }
+                    },
+                    "additionalProperties": true
+                },
+                "properties": {
+                    "$id": "#/properties/StructuralAnalysisModel/properties/properties",
+                    "type": "object",
+                    "title": "Structural properties",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": {},
+                    "examples": [
+                        {
+                            "uniaxialMaterials": [
+                                {"name": "1","type": "ElasticMaterial","Epos": 439679,"Eneg": 439679,"eta": 0},
+                                {"name": "2","type": "ElasticMaterial","Epos": 2478200.0,"Eneg": 2478200.0,"eta": 0},
+                                {"name": "3","type": "ElasticMaterial","Epos": 1e+16,"Eneg": 1e+16,"eta": 0}
+                            ],
+                            "ndMaterials": [],
+                            "sections": [],
+                            "crdTransformations": [
+                                {
+                                    "name": "1",
+                                    "type": "LinearCrdTransf3d",
+                                    "vecInLocXZPlane": [
+                                        0,
+                                        0,
+                                        1
+                                    ]
+                                },
+                                {
+                                    "name": "2",
+                                    "type": "LinearCrdTransf3d",
+                                    "vecInLocXZPlane": [
+                                        0,
+                                        0,
+                                        1
+                                    ],
+                                    "jOffset": [
+                                        0,
+                                        -36.4528,
+                                        0
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "required": [
+                        "uniaxialMaterials",
+                        "ndMaterials",
+                        "sections",
+                        "crdTransformations"
+                    ],
+                    "properties": {
+                        "uniaxialMaterials": {
+                            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/uniaxialMaterials",
+                            "type": "array",
+                            "title": "uniaxialMaterials Definition Array",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": [],
+                            "examples": [
+                                [
+                                  {"name": "1","type": "ElasticMaterial","Epos": 439679,"Eneg": 439679,"eta": 0},
+                                  {"name": "2","type": "ElasticMaterial","Epos": 2478200.0,"Eneg": 2478200.0,"eta": 0},
+                                  {"name": "3","type": "ElasticMaterial","Epos": 1e+16,"Eneg": 1e+16,"eta": 0}
+                                ]
+                            ],
+                            "additionalItems": true,
+                            "items": {
+                                "anyOf": [
+                                   {"$ref": "model/ElasticMaterial.schema.json"} 
+                                ]
+                            }
+                        },
+                        "ndMaterials": {
+                            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/ndMaterials",
+                            "type": "array",
+                            "title": "The ndMaterials schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": [],
+                            "examples": [
+                                []
+                            ],
+                            "additionalItems": true,
+                            "items": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/ndMaterials/items"
+                            }
+                        },
+                        "sections": {
+                            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/sections",
+                            "type": "array",
+                            "title": "The sections schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": [],
+                            "examples": [
+                                []
+                            ],
+                            "additionalItems": true,
+                            "items": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/sections/items"
+                            }
+                        },
+                        "crdTransformations": {
+                            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations",
+                            "type": "array",
+                            "title": "The crdTransformations schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": [],
+                            "examples": [
+                                [
+                                    {
+                                        "name": "1",
+                                        "type": "LinearCrdTransf3d",
+                                        "vecInLocXZPlane": [
+                                            0,
+                                            0,
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "name": "2",
+                                        "type": "LinearCrdTransf3d",
+                                        "vecInLocXZPlane": [
+                                            0,
+                                            0,
+                                            1
+                                        ],
+                                        "jOffset": [
+                                            0,
+                                            -36.4528,
+                                            0
+                                        ]
+                                    }
+                                ]
+                            ],
+                            "additionalItems": true,
+                            "items": {
+                                "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items",
+                                "anyOf": [
+                                    {
+                                        "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/0",
+                                        "type": "object",
+                                        "title": "The first anyOf schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": {},
+                                        "examples": [
+                                            {
+                                                "name": "1",
+                                                "type": "LinearCrdTransf3d",
+                                                "vecInLocXZPlane": [
+                                                    0,
+                                                    0,
+                                                    1
+                                                ]
+                                            }
+                                        ],
+                                        "required": [
+                                            "name",
+                                            "type",
+                                            "vecInLocXZPlane"
+                                        ],
+                                        "properties": {
+                                            "name": {
+                                                "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/0/properties/name",
+                                                "type": "string",
+                                                "title": "The name schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": "",
+                                                "examples": [
+                                                    "1"
+                                                ]
+                                            },
+                                            "type": {
+                                                "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/0/properties/type",
+                                                "type": "string",
+                                                "title": "The type schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": "",
+                                                "examples": [
+                                                    "LinearCrdTransf3d"
+                                                ]
+                                            },
+                                            "vecInLocXZPlane": {
+                                                "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/0/properties/vecInLocXZPlane",
+                                                "type": "array",
+                                                "title": "The vecInLocXZPlane schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": [],
+                                                "examples": [
+                                                    [
+                                                        0,
+                                                        0
+                                                    ]
+                                                ],
+                                                "additionalItems": true,
+                                                "items": {
+                                                    "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/0/properties/vecInLocXZPlane/items",
+                                                    "anyOf": [
+                                                        {
+                                                            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/0/properties/vecInLocXZPlane/items/anyOf/0",
+                                                            "type": "integer",
+                                                            "title": "The first anyOf schema",
+                                                            "description": "An explanation about the purpose of this instance.",
+                                                            "default": 0,
+                                                            "examples": [
+                                                                0,
+                                                                1
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "additionalProperties": true
+                                    },
+                                    {
+                                        "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/1",
+                                        "type": "object",
+                                        "title": "The second anyOf schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": {},
+                                        "examples": [
+                                            {
+                                                "name": "2",
+                                                "type": "LinearCrdTransf3d",
+                                                "vecInLocXZPlane": [
+                                                    0,
+                                                    0,
+                                                    1
+                                                ],
+                                                "jOffset": [
+                                                    0,
+                                                    -36.4528,
+                                                    0
+                                                ]
+                                            }
+                                        ],
+                                        "required": [
+                                            "name",
+                                            "type",
+                                            "vecInLocXZPlane",
+                                            "jOffset"
+                                        ],
+                                        "properties": {
+                                            "name": {
+                                                "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/1/properties/name",
+                                                "type": "string",
+                                                "title": "The name schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": "",
+                                                "examples": [
+                                                    "2"
+                                                ]
+                                            },
+                                            "type": {
+                                                "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/1/properties/type",
+                                                "type": "string",
+                                                "title": "The type schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": "",
+                                                "examples": [
+                                                    "LinearCrdTransf3d"
+                                                ]
+                                            },
+                                            "vecInLocXZPlane": {
+                                                "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/1/properties/vecInLocXZPlane",
+                                                "type": "array",
+                                                "title": "The vecInLocXZPlane schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": [],
+                                                "examples": [
+                                                    [
+                                                        0,
+                                                        0
+                                                    ]
+                                                ],
+                                                "additionalItems": true,
+                                                "items": {
+                                                    "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/1/properties/vecInLocXZPlane/items",
+                                                    "anyOf": [
+                                                        {
+                                                            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/1/properties/vecInLocXZPlane/items/anyOf/0",
+                                                            "type": "integer",
+                                                            "title": "The first anyOf schema",
+                                                            "description": "An explanation about the purpose of this instance.",
+                                                            "default": 0,
+                                                            "examples": [
+                                                                0,
+                                                                1
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "jOffset": {
+                                                "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/1/properties/jOffset",
+                                                "type": "array",
+                                                "title": "The jOffset schema",
+                                                "description": "An explanation about the purpose of this instance.",
+                                                "default": [],
+                                                "examples": [
+                                                    [
+                                                        0,
+                                                        -36.4528
+                                                    ]
+                                                ],
+                                                "additionalItems": true,
+                                                "items": {
+                                                    "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/1/properties/jOffset/items",
+                                                    "anyOf": [
+                                                        {
+                                                            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/1/properties/jOffset/items/anyOf/0",
+                                                            "type": "integer",
+                                                            "title": "The first anyOf schema",
+                                                            "description": "An explanation about the purpose of this instance.",
+                                                            "default": 0,
+                                                            "examples": [
+                                                                0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/crdTransformations/items/anyOf/1/properties/jOffset/items/anyOf/1",
+                                                            "type": "number",
+                                                            "title": "The second anyOf schema",
+                                                            "description": "An explanation about the purpose of this instance.",
+                                                            "default": 0.0,
+                                                            "examples": [
+                                                                -36.4528
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "additionalProperties": true
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "additionalProperties": true
+                },
+                "geometry": {"$ref": "StructuralGeometry.schema.json"}
+            },
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": true
+}

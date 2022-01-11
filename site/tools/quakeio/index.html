@@ -1260,8 +1260,10 @@
                 
 
 <h1 id="quake-io">quake-io</h1>
-<p><img src="https://github.com/claudioperez/quakeio/actions/workflows/base.yaml/badge.svg" style="margin:auto; display: block; max-width: 75%" /></p>
-<p><a href="https://pypi.org/project/quakeio"><img src="https://img.shields.io/pypi/v/quakeio.svg" style="margin:auto; display: block; max-width: 75%" alt="PyPI Downloads" /></a> <a href="https://pypi.org/project/quakeio"><img src="https://img.shields.io/pypi/dm/quakeio.svg" style="margin:auto; display: block; max-width: 75%" alt="PyPI Version" /></a> <img src="https://raw.githubusercontent.com/claudioperez/quakeio/master/etc/coverage/cov.svg" style="margin:auto; display: block; max-width: 75%" /> <a href="https://github.com/claudioperez/quakeio/compare/v0.1.7...master"><img src="https://img.shields.io/github/commits-since/claudioperez/quakeio/v0.1.7?style=social" style="margin:auto; display: block; max-width: 75%" alt="Commits since latest release" /></a> <!-- ![Build][build-img] --></p>
+![](https://github.com/claudioperez/quakeio/actions/workflows/base.yaml/badge.svg)
+
+[![PyPI Downloads][pypi-v-image]][pypi-v-link] [![PyPI Version][pypi-d-image]][pypi-d-link] ![][cov-img] [![Commits since latest release][gh-image]][gh-link]
+<!-- ![Build][build-img] -->
 <p>QuakeIO is a library of utilities for parsing and processing ground motion files. All data is serialized into a standardized JSON representation with a strictly defined <a href="schemas">schema</a>. Interfaces are provided for Python, Matlab, and the command line. The following table summarizes the file formats which are currently supported:</p>
 <center>
 <table>
@@ -1338,7 +1340,7 @@
 <ol type="1">
 <li><a href="schemas/series"><code>QuakeSeries</code></a> is an array-like data type which contains a single time series, and associated metadata like peak values and units. All data contained by this type is generally closely related to a single physical quantity or <em>measurement</em>. An example of a file format which parses to this type is the PEER NGA <code>.AT2</code> file.</li>
 <li><a href="schemas/component"><code>QuakeComponent</code></a> is a collection of <code>QuakeSeries</code> types which generally represents time series data (e.g. acceleration, velocity, displacement) which were collected in a single <em>direction</em>. An example of a file format that parses into this type is the CSMIP Volume 2 (<code>.V2</code>) spec.</li>
-<li><a href="schemas/motion"><code>QuakeMotion</code></a> is a collection of <code>QuakeComponent</code> types which all pertain to a single shared <em>spacial location</em>. The data contained by this type is generally free of any spacial variation.</li>
+<li><a href="schemas/motion"><code>QuakeMotion</code></a> is a collection of <code>QuakeComponent</code> types which all pertain to a single shared <em>spatial location</em>. The data contained by this type is generally free of any spatial variation.</li>
 <li><a href="schemas/collection"><code>QuakeCollection</code></a> is a collection of <code>QuakeMotion</code> types, often corresponding to a single <em>site</em>. An example of a file format that parses into this type is the CSMIP processed archive (<code>.zip</code>).</li>
 </ol>
 <p>The core functionality of the library is exposed by the <code class="sourceCode python">quakeio.read(filename, <span class="bu">format</span><span class="op">=</span><span class="va">None</span>)</code> function. This function will return an object either of type (1), (2) or (3), depending on the format of the file that was parsed. For example, the return value of <code>read</code> when parsing a PEER NGA file (file extension <code>.AT2</code>), is a <code>QuakeSeries</code> with acceleration data. When parsing a CSMIP Volume 2 file the return is a <code>QuakeComponent</code> containing <code>QuakeSeries</code> instances for acceleration, velocity and displacement values, and when parsing a <code>zip</code> archive of such files, a <code>QuakeCollection</code> is returned.</p>
@@ -1356,15 +1358,9 @@ Options:
  
 -f/--from FORMAT
 -t/--to   FORMAT</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quakeio <span class="at">-a</span> rot:30 chan001.v2 <span class="at">-t</span> html</span></code></pre></div>
-<p>Rotate and calculate Husid series.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quakeio <span class="at">-c</span> <span class="st">&#39;rot:30;husid;&#39;</span> chan001.v2 </span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat chan001.v2 <span class="kw">|</span> <span class="ex">quakeio</span> <span class="at">-a</span> rot:30 <span class="at">-f</span> csmip.v2 <span class="at">-t</span> html <span class="kw">|</span> <span class="ex">pandoc</span> <span class="at">-f</span> html <span class="at">-t</span> pdf</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat chan001.v2 <span class="dt">\</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span> <span class="ex">quakeio</span> <span class="at">-a</span> rot:30 <span class="at">-f</span> csmip.v2 <span class="at">-t</span> html <span class="at">-x</span> [<span class="pp">*</span>].data <span class="dt">\</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span> <span class="ex">pandoc</span> <span class="at">-f</span> html <span class="at">-t</span> pdf</span></code></pre></div>
 <h2 id="matlab-interface">MATLAB Interface</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">Motion</span> <span class="op">=</span> <span class="va">quakeIO</span>.<span class="va">read</span>(<span class="ss">&#39;csmip.zip&#39;</span>)</span></code></pre></div>
+<p>The Matlab interface utilizes the standard <code>jsondecode</code> function internally to read a JSON file and build a <code>struct</code> with fields corresponding to the Quake schemas.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">Motion</span> <span class="op">=</span> <span class="va">quakeIO</span>.<span class="va">read</span>(<span class="ss">&#39;csmip.zip&#39;</span>)</span></code></pre></div>
 <!-- Reference links -->
 <!-- Badge links -->
 

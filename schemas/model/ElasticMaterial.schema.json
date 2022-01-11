@@ -1,0 +1,53 @@
+{
+    "type": "object",
+    "title": "ElasticMaterial",
+    "description": "Elastic uniaxial material.",
+    "default": {},
+    "examples": [
+        {"name": "1","type": "ElasticMaterial","Epos": 439679,"Eneg": 439679,"eta": 0}
+    ],
+    "required": ["name","type","Epos","Eneg","eta"],
+    "properties": {
+        "name": {
+            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/uniaxialMaterials/items/anyOf/0/properties/name",
+            "type": "string",
+            "title": "The name schema"
+        },
+        "type": {
+            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/uniaxialMaterials/items/anyOf/0/properties/type",
+            "type": "string",
+            "title": "The type schema"
+        },
+        "Epos": {
+            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/uniaxialMaterials/items/anyOf/0/properties/Epos",
+            "type": "integer",
+            "title": "The Epos schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                439679
+            ]
+        },
+        "Eneg": {
+            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/uniaxialMaterials/items/anyOf/0/properties/Eneg",
+            "type": "number",
+            "title": "The Eneg schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                439679
+            ]
+        },
+        "eta": {
+            "$id": "#/properties/StructuralAnalysisModel/properties/properties/properties/uniaxialMaterials/items/anyOf/0/properties/eta",
+            "type": "number",
+            "title": "The eta schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                0
+            ]
+        }
+    },
+    "additionalProperties": true
+}
