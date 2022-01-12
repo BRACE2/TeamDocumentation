@@ -1285,19 +1285,24 @@
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">Positional Arguments:</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    SAM_FILE               JSON file defining the structural model.</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    RES_FILE               JSON or YAML file defining a structural response.</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">Options</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    -h/--help              Print this message and exit.</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    -o/--write FILE        Save plot to FILE.</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    -C/--coord [L,T,]V     Define global coordinate system.</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    -d/--displ NODE:DOF    Apply a unit displacement at node with tag NODE</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">                           in direction DOF</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    SAM_FILE                 JSON file defining the structural model.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    RES_FILE                 JSON or YAML file defining a structural response.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">Options</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    -s/--scale SCALE         Set displacement scale factor.</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    -C/--coord [L,T,]V       Define global coordinate system.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    -d/--displ NODE:DOF...   Apply a unit displacement at node with tag NODE</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">                             in direction DOF</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    -h/--help                Print this message and exit.</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    -o/--write FILE          Save plot to FILE.</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code></pre></div>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">Examples:</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">    Plot displaced structure with unit translation at nodes</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">    5, 3 and 2 in direction 2 at scale of 100:</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">        $ </span><span class="sc">{</span>NAME<span class="sc">}</span><span class="ss"> -d 5:2,3:2,2:2 -s100 sam.json</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code></pre></div>
 <p>The following Python packages are required by this script:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>REQUIREMENTS <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">scipy</span></span>
@@ -1307,7 +1312,8 @@
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.linalg <span class="im">import</span> block_diag</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>NDM<span class="op">=</span><span class="dv">3</span> <span class="co"># this script currently assumes ndm=3</span></span></code></pre></div>
 <h2 id="data-shaping-misc.">Data shaping / Misc.</h2>
 <p>The following functions are used for reshaping data and carrying out other miscellaneous operations.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> wireframe(sam:<span class="bu">dict</span>)<span class="op">-&gt;</span><span class="bu">dict</span>:</span>
@@ -1315,31 +1321,32 @@
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    return dict with the form:</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">        {&lt;elem tag&gt;: {&quot;crd&quot;: [&lt;coordinates&gt;], ...}}</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> sam[<span class="st">&quot;geometry&quot;</span>]</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    trsfm <span class="op">=</span> {t[<span class="st">&quot;name&quot;</span>]: t <span class="cf">for</span> t <span class="kw">in</span> sam[<span class="st">&quot;properties&quot;</span>][<span class="st">&quot;crdTransformations&quot;</span>]}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    geom  <span class="op">=</span> sam[<span class="st">&quot;geometry&quot;</span>]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    coord <span class="op">=</span> np.array([n[<span class="st">&quot;crd&quot;</span>] <span class="cf">for</span> n <span class="kw">in</span> geom[<span class="st">&quot;nodes&quot;</span>]])</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    nodes <span class="op">=</span> {n[<span class="st">&quot;name&quot;</span>]: n <span class="cf">for</span> n <span class="kw">in</span> geom[<span class="st">&quot;nodes&quot;</span>]}</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    elems <span class="op">=</span>  {</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      e[<span class="st">&quot;name&quot;</span>]: <span class="bu">dict</span>(</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">**</span>e, </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        crd<span class="op">=</span>np.array([nodes[n][<span class="st">&quot;crd&quot;</span>] <span class="cf">for</span> n <span class="kw">in</span> e[<span class="st">&quot;nodes&quot;</span>]]),</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        trsfm<span class="op">=</span>trsfm[e[<span class="st">&quot;crdTransformation&quot;</span>]] <span class="cf">if</span> <span class="st">&quot;crdTransformation&quot;</span> <span class="kw">in</span> e <span class="cf">else</span> <span class="va">None</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      ) <span class="cf">for</span> e <span class="kw">in</span> geom[<span class="st">&quot;elements&quot;</span>]</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">dict</span>(nodes<span class="op">=</span>nodes, elems<span class="op">=</span>elems)</span></code></pre></div>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    trsfm <span class="op">=</span> {t[<span class="st">&quot;name&quot;</span>]: t <span class="cf">for</span> t <span class="kw">in</span> sam[<span class="st">&quot;properties&quot;</span>][<span class="st">&quot;crdTransformations&quot;</span>]}</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    elems <span class="op">=</span>  {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      e[<span class="st">&quot;name&quot;</span>]: <span class="bu">dict</span>(</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">**</span>e, </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        crd<span class="op">=</span>np.array([nodes[n][<span class="st">&quot;crd&quot;</span>] <span class="cf">for</span> n <span class="kw">in</span> e[<span class="st">&quot;nodes&quot;</span>]]),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        trsfm<span class="op">=</span>trsfm[e[<span class="st">&quot;crdTransformation&quot;</span>]] <span class="cf">if</span> <span class="st">&quot;crdTransformation&quot;</span> <span class="kw">in</span> e <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      ) <span class="cf">for</span> e <span class="kw">in</span> geom[<span class="st">&quot;elements&quot;</span>]</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">dict</span>(nodes<span class="op">=</span>nodes, elems<span class="op">=</span>elems, coord<span class="op">=</span>coord)</span></code></pre></div>
 <h2 id="kinematics">Kinematics</h2>
 <p>The following functions implement various kinematic relations for standard frame models.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper functions for extracting rotations in planes</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>elev_dofs <span class="op">=</span> <span class="kw">lambda</span> u: u[[<span class="dv">1</span>,<span class="dv">2</span>]]</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plan_dofs <span class="op">=</span> <span class="kw">lambda</span> u: u[[<span class="dv">3</span>,<span class="dv">4</span>]]</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> elastic_curve(x, v, L, scale<span class="op">=</span><span class="fl">1.0</span>)<span class="op">-&gt;</span>np.ndarray:</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> elastic_curve(x, v, L)<span class="op">-&gt;</span>np.ndarray:</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;compute points along Euler&#39;s elastica&quot;</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    vi, vj <span class="op">=</span> v</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    xi <span class="op">=</span> x<span class="op">/</span>L                        <span class="co"># local coordinates</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    N1 <span class="op">=</span> <span class="fl">1.</span><span class="op">-</span><span class="dv">3</span><span class="op">*</span>xi<span class="op">**</span><span class="dv">2</span><span class="op">+</span><span class="dv">2</span><span class="op">*</span>xi<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    N2 <span class="op">=</span> L<span class="op">*</span>(xi<span class="op">-</span><span class="dv">2</span><span class="op">*</span>xi<span class="op">**</span><span class="dv">2</span><span class="op">+</span>xi<span class="op">**</span><span class="dv">3</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    N1 <span class="op">=</span> <span class="fl">1.</span><span class="op">-</span><span class="fl">3.</span><span class="op">*</span>xi<span class="op">**</span><span class="dv">2</span><span class="op">+</span><span class="fl">2.</span><span class="op">*</span>xi<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    N2 <span class="op">=</span> L<span class="op">*</span>(xi<span class="op">-</span><span class="fl">2.</span><span class="op">*</span>xi<span class="op">**</span><span class="dv">2</span><span class="op">+</span>xi<span class="op">**</span><span class="dv">3</span>)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    N3 <span class="op">=</span> <span class="fl">3.</span><span class="op">*</span>xi<span class="op">**</span><span class="dv">2</span><span class="op">-</span><span class="dv">2</span><span class="op">*</span>xi<span class="op">**</span><span class="dv">3</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    N4 <span class="op">=</span> L<span class="op">*</span>(xi<span class="op">**</span><span class="dv">3</span><span class="op">-</span>xi<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.array(vi<span class="op">*</span>N2<span class="op">+</span>vj<span class="op">*</span>N4)<span class="op">*</span>scale</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.array(vi<span class="op">*</span>N2<span class="op">+</span>vj<span class="op">*</span>N4)</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y.flatten()</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> linear_deformations(u,L):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;compute local frame deformations assuming small displacements&quot;</span></span>
@@ -1372,27 +1379,26 @@
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>        coord: np.ndarray,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        displ:np.ndarray,  <span class="co">#: Displacements</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        vect<span class="op">=</span><span class="va">None</span>,         <span class="co">#: Element orientation vector</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        scale:<span class="bu">float</span> <span class="op">=</span> <span class="fl">1.0</span>, <span class="co">#: Scale factor</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        glob:<span class="bu">bool</span><span class="op">=</span><span class="va">True</span>,    <span class="co">#: Transform to global coordinates</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    )<span class="op">-&gt;</span>np.ndarray:</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="dv">40</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">#          (---ndm---)</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    rep <span class="op">=</span> <span class="dv">4</span> <span class="cf">if</span> <span class="bu">len</span>(coord[<span class="dv">0</span>])<span class="op">==</span><span class="dv">3</span> <span class="cf">else</span> <span class="dv">2</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> rotation(coord, vect)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    L <span class="op">=</span> np.linalg.norm(coord[<span class="dv">1</span>] <span class="op">-</span> coord[<span class="dv">0</span>])</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> linear_deformations(block_diag(<span class="op">*</span>[Q]<span class="op">*</span>rep)<span class="op">@</span>displ, L)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    xaxis <span class="op">=</span> np.linspace(<span class="fl">0.0</span>, L, n)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    plan_curve <span class="op">=</span> elastic_curve(xaxis, plan_dofs(v), L, scale<span class="op">=</span>scale)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    elev_curve <span class="op">=</span> elastic_curve(xaxis, elev_dofs(v), L, scale<span class="op">=</span>scale)</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    dy,dz <span class="op">=</span> Q[<span class="dv">1</span>:,<span class="dv">1</span>:]<span class="op">@</span>np.linspace(displ[<span class="dv">1</span>:<span class="dv">3</span>], displ[<span class="dv">7</span>:<span class="dv">9</span>], n).T</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    local_curve <span class="op">=</span> np.stack([xaxis, plan_curve<span class="op">+</span>dy, elev_curve<span class="op">+</span>dz])</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> glob:</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        global_curve <span class="op">=</span> Q.T<span class="op">@</span>local_curve <span class="op">+</span> coord[<span class="dv">0</span>][<span class="va">None</span>,:].T</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> global_curve</span></code></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        glob:<span class="bu">bool</span><span class="op">=</span><span class="va">True</span>,    <span class="co">#: Transform to global coordinates</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    )<span class="op">-&gt;</span>np.ndarray:</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">#          (---ndm---)</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    rep <span class="op">=</span> <span class="dv">4</span> <span class="cf">if</span> <span class="bu">len</span>(coord[<span class="dv">0</span>])<span class="op">==</span><span class="dv">3</span> <span class="cf">else</span> <span class="dv">2</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> rotation(coord, vect)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    L <span class="op">=</span> np.linalg.norm(coord[<span class="dv">1</span>] <span class="op">-</span> coord[<span class="dv">0</span>])</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> linear_deformations(block_diag(<span class="op">*</span>[Q]<span class="op">*</span>rep)<span class="op">@</span>displ, L)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    xaxis <span class="op">=</span> np.linspace(<span class="fl">0.0</span>, L, n)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    plan_curve <span class="op">=</span> elastic_curve(xaxis, plan_dofs(v), L)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    elev_curve <span class="op">=</span> elastic_curve(xaxis, elev_dofs(v), L)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    dy,dz <span class="op">=</span> Q[<span class="dv">1</span>:,<span class="dv">1</span>:]<span class="op">@</span>np.linspace(displ[<span class="dv">1</span>:<span class="dv">3</span>], displ[<span class="dv">7</span>:<span class="dv">9</span>], n).T</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    local_curve <span class="op">=</span> np.stack([xaxis, plan_curve<span class="op">+</span>dy, elev_curve<span class="op">+</span>dz])</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> glob:</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        global_curve <span class="op">=</span> Q.T<span class="op">@</span>local_curve <span class="op">+</span> coord[<span class="dv">0</span>][<span class="va">None</span>,:].T</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> global_curve</span></code></pre></div>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <h2 id="plotting">Plotting</h2>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> new_3d_axis():</span>
@@ -1400,8 +1406,8 @@
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    ax.set_autoscale_on(<span class="va">True</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    ax.set_axis_off()</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ax</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> set_axis(ax):</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Make axes limits </span></span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> set_axis_limits(ax):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;Find and set axes limits&quot;</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    aspect <span class="op">=</span> [ub <span class="op">-</span> lb <span class="cf">for</span> lb, ub <span class="kw">in</span> (<span class="bu">getattr</span>(ax, <span class="ss">f&#39;get_</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">lim&#39;</span>)() <span class="cf">for</span> a <span class="kw">in</span> <span class="st">&#39;xyz&#39;</span>)]</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    aspect <span class="op">=</span> [<span class="bu">max</span>(a,<span class="bu">max</span>(aspect)<span class="op">/</span><span class="dv">8</span>) <span class="cf">for</span> a <span class="kw">in</span> aspect]</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    ax.set_box_aspect(aspect)</span></code></pre></div>
@@ -1412,59 +1418,109 @@
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        x,y,z <span class="op">=</span> np.array(e[<span class="st">&quot;crd&quot;</span>]).T</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        ax.plot(x,z,y, <span class="op">**</span>props[<span class="st">&quot;frame&quot;</span>])</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ax</span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_displ(frame, res, scale<span class="op">=</span><span class="fl">1.0</span>, ax<span class="op">=</span><span class="va">None</span>):</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    props <span class="op">=</span> {<span class="st">&quot;color&quot;</span>: <span class="st">&quot;red&quot;</span>}</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> el <span class="kw">in</span> frame[<span class="st">&quot;elems&quot;</span>].values():</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">&quot;zero&quot;</span> <span class="kw">not</span> <span class="kw">in</span> el[<span class="st">&quot;type&quot;</span>].lower():</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>            glob_displ <span class="op">=</span> [</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                u <span class="cf">for</span> n <span class="kw">in</span> el[<span class="st">&quot;nodes&quot;</span>] </span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                <span class="co">#   extract displ from node, default to ndf zeros</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">for</span> u <span class="kw">in</span> res.get(n,[<span class="fl">0.0</span>]<span class="op">*</span>frame[<span class="st">&quot;nodes&quot;</span>][n][<span class="st">&quot;ndf&quot;</span>])</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>            ]</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>            vect <span class="op">=</span> el[<span class="st">&quot;trsfm&quot;</span>][<span class="st">&quot;vecInLocXZPlane&quot;</span>]</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            x,y,z <span class="op">=</span> displaced_profile(el[<span class="st">&quot;crd&quot;</span>], glob_displ, scale<span class="op">=</span>scale, vect<span class="op">=</span>vect)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            ax.plot(x,z,y, <span class="op">**</span>props)</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ax</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_nodes(frame, displ<span class="op">=</span><span class="va">None</span>, ax<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> ax <span class="kw">or</span> new_3d_axis()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    displ <span class="op">=</span> displ <span class="kw">or</span> {}</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    Zero <span class="op">=</span> np.zeros(NDM)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    props <span class="op">=</span> {<span class="st">&quot;color&quot;</span>: <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;marker&quot;</span>: <span class="st">&quot;s&quot;</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;s&quot;</span>: <span class="dv">3</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;zorder&quot;</span>: <span class="dv">2</span>}</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    coord <span class="op">=</span> frame[<span class="st">&quot;coord&quot;</span>]</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i,n <span class="kw">in</span> <span class="bu">enumerate</span>(frame[<span class="st">&quot;nodes&quot;</span>].values()):</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        coord[i,:] <span class="op">+=</span> displ.get(n[<span class="st">&quot;name&quot;</span>],Zero)[:<span class="dv">3</span>]</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    x,y,z <span class="op">=</span> coord.T</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    ax.scatter(x, z, y, <span class="op">**</span>props)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ax</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_displ(frame, res, ax<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    props <span class="op">=</span> {<span class="st">&quot;color&quot;</span>: <span class="st">&quot;red&quot;</span>}</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> ax <span class="kw">or</span> new_3d_axis()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> el <span class="kw">in</span> frame[<span class="st">&quot;elems&quot;</span>].values():</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># exclude zero-length elements</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">&quot;zero&quot;</span> <span class="kw">not</span> <span class="kw">in</span> el[<span class="st">&quot;type&quot;</span>].lower():</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            glob_displ <span class="op">=</span> [</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                u <span class="cf">for</span> n <span class="kw">in</span> el[<span class="st">&quot;nodes&quot;</span>] </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                <span class="co">#   extract displ from node, default to ndf zeros</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">for</span> u <span class="kw">in</span> res.get(n,[<span class="fl">0.0</span>]<span class="op">*</span>frame[<span class="st">&quot;nodes&quot;</span>][n][<span class="st">&quot;ndf&quot;</span>])</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            vect <span class="op">=</span> el[<span class="st">&quot;trsfm&quot;</span>][<span class="st">&quot;vecInLocXZPlane&quot;</span>]</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>            x,y,z <span class="op">=</span> displaced_profile(el[<span class="st">&quot;crd&quot;</span>], glob_displ, vect<span class="op">=</span>vect)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>            ax.plot(x,z,y, <span class="op">**</span>props)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ax</span></code></pre></div>
 <h2 id="script-functions">Script functions</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_args(argv)<span class="op">-&gt;</span><span class="bu">dict</span>:</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    opts <span class="op">=</span> {</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;mode&quot;</span>: <span class="dv">1</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;sam_file&quot;</span>:   <span class="va">None</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;res_file&quot;</span>:   <span class="va">None</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;write_file&quot;</span>: <span class="va">None</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> arg <span class="kw">in</span> <span class="bu">iter</span>(argv[<span class="dv">1</span>:]):</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> arg <span class="op">==</span> <span class="st">&quot;--help&quot;</span> <span class="kw">or</span> arg <span class="op">==</span> <span class="st">&quot;-h&quot;</span>:</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(HELP) <span class="kw">or</span> sys.exit()</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--install&quot;</span>:</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">pass</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-m&quot;</span>:</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;mode&quot;</span>] <span class="op">=</span> <span class="bu">int</span>(arg[<span class="dv">2</span>]) <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">int</span>(<span class="bu">next</span>(arg))</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-o&quot;</span>:</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;write_file&quot;</span>] <span class="op">=</span> arg[<span class="dv">2</span>:] <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">next</span>(arg)</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="kw">not</span> opts[<span class="st">&quot;sam_file&quot;</span>]:</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;sam_file&quot;</span>] <span class="op">=</span> arg</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;res_file&quot;</span>] <span class="op">=</span> arg</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> opts</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_args(argv)<span class="op">-&gt;</span><span class="bu">dict</span>:</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    opts <span class="op">=</span> {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;mode&quot;</span>:       <span class="dv">1</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;sam_file&quot;</span>:   <span class="va">None</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;res_file&quot;</span>:   <span class="va">None</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;write_file&quot;</span>: <span class="va">None</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;displ&quot;</span>:      [],</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;scale&quot;</span>:      <span class="fl">100.0</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;displ_only&quot;</span>: <span class="va">False</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> <span class="bu">iter</span>(argv[<span class="dv">1</span>:])</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> arg <span class="kw">in</span> <span class="bu">iter</span>(args):</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> arg <span class="op">==</span> <span class="st">&quot;--help&quot;</span> <span class="kw">or</span> arg <span class="op">==</span> <span class="st">&quot;-h&quot;</span>:</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(HELP) <span class="kw">is</span> <span class="va">None</span> <span class="kw">and</span> sys.exit()</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--install&quot;</span>:</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">pass</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-d&quot;</span>:</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>            node_dof <span class="op">=</span> arg[<span class="dv">2</span>:] <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">next</span>(args)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> nd <span class="kw">in</span> node_dof.split(<span class="st">&quot;,&quot;</span>):</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;displ&quot;</span>].append(<span class="bu">tuple</span>(<span class="bu">map</span>(<span class="bu">int</span>,nd.split(<span class="st">&quot;:&quot;</span>))))</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-s&quot;</span>:</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;scale&quot;</span>] <span class="op">=</span> <span class="bu">float</span>(arg[<span class="dv">2</span>:]) <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">float</span>(<span class="bu">next</span>(args))</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--scale&quot;</span>:</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;scale&quot;</span>] <span class="op">=</span> <span class="bu">float</span>(<span class="bu">next</span>(args))</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-m&quot;</span>:</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;mode&quot;</span>] <span class="op">=</span> <span class="bu">int</span>(arg[<span class="dv">2</span>]) <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">int</span>(<span class="bu">next</span>(args))</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-o&quot;</span>:</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;write_file&quot;</span>] <span class="op">=</span> arg[<span class="dv">2</span>:] <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">next</span>(args)</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--displ-only&quot;</span>:</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;displ_only&quot;</span>] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="kw">not</span> opts[<span class="st">&quot;sam_file&quot;</span>]:</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;sam_file&quot;</span>] <span class="op">=</span> arg</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>            opts[<span class="st">&quot;res_file&quot;</span>] <span class="op">=</span> arg</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> opts</span></code></pre></div>
 <h2 id="main-script">Main script</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> json, yaml</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    opts <span class="op">=</span> parse_args(sys.argv)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(opts[<span class="st">&quot;sam_file&quot;</span>], <span class="st">&quot;r&quot;</span>) <span class="im">as</span> f:</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        frm <span class="op">=</span> wireframe(json.load(f)[<span class="st">&quot;StructuralAnalysisModel&quot;</span>])</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> plot(frm)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&gt;</span> <span class="dv">2</span>:</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(opts[<span class="st">&quot;res_file&quot;</span>], <span class="st">&quot;r&quot;</span>) <span class="im">as</span> f:</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>            res <span class="op">=</span> yaml.load(f,Loader<span class="op">=</span>yaml.Loader)[opts[<span class="st">&quot;mode&quot;</span>]]</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        plot_displ(frm, res, ax<span class="op">=</span>ax)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    set_axis(ax)</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> json, yaml</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    opts <span class="op">=</span> parse_args(sys.argv)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(opts)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(opts[<span class="st">&quot;sam_file&quot;</span>], <span class="st">&quot;r&quot;</span>) <span class="im">as</span> f:</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        frm <span class="op">=</span> wireframe(json.load(f)[<span class="st">&quot;StructuralAnalysisModel&quot;</span>])</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> plot(frm) <span class="cf">if</span> <span class="kw">not</span> opts[<span class="st">&quot;displ_only&quot;</span>] <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> opts[<span class="st">&quot;res_file&quot;</span>] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(opts[<span class="st">&quot;res_file&quot;</span>], <span class="st">&quot;r&quot;</span>) <span class="im">as</span> f:</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>            res <span class="op">=</span> yaml.load(f,Loader<span class="op">=</span>yaml.Loader)[opts[<span class="st">&quot;mode&quot;</span>]]</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        res <span class="op">=</span> {}</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> n,d <span class="kw">in</span> opts[<span class="st">&quot;displ&quot;</span>]:</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> res.setdefault(n,[<span class="fl">0.0</span>]<span class="op">*</span>frm[<span class="st">&quot;nodes&quot;</span>][n][<span class="st">&quot;ndf&quot;</span>])</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>        v[d] <span class="op">+=</span> <span class="fl">1.0</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> opts[<span class="st">&quot;scale&quot;</span>] <span class="op">!=</span> <span class="fl">1.0</span>:</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        scale <span class="op">=</span> opts[<span class="st">&quot;scale&quot;</span>]</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> res.values():</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(n)):</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>                n[i] <span class="op">*=</span> scale</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> plot_nodes(frm, res, ax<span class="op">=</span>ax)</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> res:</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>        plot_displ(frm, res, ax<span class="op">=</span>ax)</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>    set_axis_limits(ax)</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code></pre></div>
 
 
               
