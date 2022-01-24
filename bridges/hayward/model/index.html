@@ -539,15 +539,27 @@
       
         
           
+            
+          
+        
+          
+        
+          
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
-          Meloland
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../meloland/">Meloland</a>
+          
+            <label for="__nav_2_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Meloland" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_5">
@@ -557,13 +569,29 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+          
+            
               
   
   
   
     <li class="md-nav__item">
-      <a href="../../meloland/events/" class="md-nav__link">
-        Events
+      <a href="../../meloland/_meloland-table-2-7/" class="md-nav__link">
+        
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meloland/history/" class="md-nav__link">
+        Event History
 
       </a>
     </li>
@@ -578,7 +606,7 @@
   
     <li class="md-nav__item">
       <a href="../../meloland/model/" class="md-nav__link">
-        Meloland
+        Mk-I Model
       </a>
     </li>
   
@@ -630,8 +658,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../painter/events/" class="md-nav__link">
-        Events
+      <a href="../../painter/history/" class="md-nav__link">
+        Event History
 
       </a>
     </li>
@@ -685,6 +713,8 @@
         
           
             
+          
+        
           
         
           
@@ -832,6 +862,49 @@
         <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
           3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../notes/4/">4</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="4" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          4
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1581,6 +1654,15 @@
   src="../_hayward.html" 
   style="border:none;display:block;flex-direction:row;" 
 />
+<h2 id="general-model-notes">General Model Notes</h2>
+<h3 id="section">8/29/2021</h3>
+<p>Current model uses:</p>
+<ul>
+<li><p>Flanged cap beam section properties</p></li>
+<li><p><code>rigidLink beam</code> joint offsets for top of columns to center of cap beams - there is an intermediate node at top of column <code>Pdelta</code> transformations</p></li>
+<li><p>Integration points: <code>np = 4</code>. Once a reliable model is developed, try other np’s.</p>
+<p>Column bases fixed both translationally and rotationally. Vertical abutment stiffness = 4200 kip/in – needs to be updated later based on computed stiffness of elastomeric bearings. Abutments springs have all 6 directions defined in the zerolength element; rotational springs have zero stiffness. Another option is to have only the translational directions defined in the zerolength element. Rayleigh damping is turned on for the abutment and in-span hinge zerolength elements. Damping ratio of 6% in 1st (transverse) mode, 6% in 2nd (longitudinal) mode In-span hinge and abutment orientation vectors are exact. Inelastic concrete is Concrete02 with (esp, 0.1*fce) stress/strain pair for cover and (ecu, fcu) or (ecuu, fcuu) stress/strain pair for core ultimate strength and strain. The (ecuu, fcuu) stress/strain pair is lower, more realistic for strength degredation/residual strength, capturing the negative slope (in comparison to (ecu, fcu). (Residual strength needs to be small but not zero for numerical purposes)</p></li>
+</ul>
 
 
               

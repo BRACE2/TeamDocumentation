@@ -26,7 +26,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://BRACE2.github.io/TeamDocumentation/bridges/meloland/events/</loc>
+         <loc>https://BRACE2.github.io/TeamDocumentation/bridges/meloland/</loc>
+         <lastmod>2022-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/bridges/meloland/_meloland-table-2-7/</loc>
+         <lastmod>2022-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/bridges/meloland/history/</loc>
          <lastmod>2022-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -36,7 +46,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://BRACE2.github.io/TeamDocumentation/bridges/painter/events/</loc>
+         <loc>https://BRACE2.github.io/TeamDocumentation/bridges/painter/history/</loc>
          <lastmod>2022-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -62,6 +72,11 @@
     </url>
     <url>
          <loc>https://BRACE2.github.io/TeamDocumentation/notes/3/</loc>
+         <lastmod>2022-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://BRACE2.github.io/TeamDocumentation/notes/4/</loc>
          <lastmod>2022-01-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
