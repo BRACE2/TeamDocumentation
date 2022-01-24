@@ -4,12 +4,14 @@ This page collects examples which demonstrate
 interactions with the API from various programming
 languages.
 
+See https//curlconverter.com/ for more.
+
 ## Get all motions
 
 <details>
 <summary>Python</summary>
 ```{.include verbatim=true}
-/home/claudio/brace/motion-mki/tests/pyth_get.py
+/home/claudio/brace/motion-mki/tests/get_basic.py
 ```
 </details>
 
@@ -17,6 +19,22 @@ languages.
 <summary>Shell (`curl`)</summary>
 ```{.include verbatim=true}
 /home/claudio/brace/motion-mki/tests/curl_list.sh
+```
+</details>
+
+## Get a single motion
+
+<details>
+<summary>C</summary>
+```{.include verbatim=true collapse=true}
+/home/claudio/brace/motion-mki/tests/get_basic.c
+```
+</details>
+
+<details>
+<summary>Go</summary>
+```{.include verbatim=true collapse=true}
+/home/claudio/brace/motion-mki/tests/get_basic.go
 ```
 </details>
 
