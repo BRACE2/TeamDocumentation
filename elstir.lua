@@ -1,6 +1,8 @@
-local directory = pandoc.path.directory
-local METADATA = {}
 
+-- shorter alias for function
+local directory = pandoc.path.directory
+
+local METADATA = {}
 
 function dump(o)
    if type(o) == 'table' then
@@ -27,5 +29,12 @@ function image (img)
   end
 end
 
-return {{Meta = function (m) METADATA=m end}, {Image = image}}
+
+return {
+  -- First get document metadata and store
+  -- globally
+  {Meta = function (m) METADATA=m end},
+  -- Then apply filters
+  {Image = image}
+}
 
