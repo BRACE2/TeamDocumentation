@@ -479,13 +479,23 @@
       
         
           
+            
+          
+        
+          
         
       
       
-        <label class="md-nav__link" for="__nav_2_4">
-          Hayward
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../bridges/hayward/">Hayward</a>
+          
+            <label for="__nav_2_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Hayward" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_4">
@@ -493,6 +503,8 @@
           Hayward
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -1683,19 +1695,28 @@
                 
 
 <h1 id="opensees-rendering">OpenSees Rendering</h1>
-<!-- #region -->
-<h1 id="synopsis">Synopsis</h1>
-<blockquote>
-<p>`render.py [<options>] <model-file></p>
-</blockquote>
-<blockquote>
-<p><strong>Arpit Nema</strong>, <strong>Chrystal Chern</strong>, and <strong>Claudio Perez</strong></p>
-</blockquote>
-<p>This script plots the geometry of a structural model given a SAM JSON file. The SAM JSON structure was developed by the NHERI SimCenter.</p>
-<h1 id="installation">Installation</h1>
-<p>The simplest way to install this script is to run</p>
-<pre><code>$ python render.py --install</code></pre>
-<p>from a terminal that has python installed, in a directory containing the <code>render.py</code> file. This will install the following packages: <!-- #endregion --></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Synopsis</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;`render.py [&lt;options&gt;] &lt;model-file&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;**Arpit Nema**, **Chrystal Chern**, and **Claudio Perez**</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This script plots the geometry of a structural</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># model given a SAM JSON file. The SAM JSON structure</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># was developed by the NHERI SimCenter.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># # Installation</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># The simplest way to install this script is to run</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#     $ python render.py --install</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># from a terminal that has python installed, in a</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># directory containing the `render.py` file. This</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># will install the following packages:</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>__version__ <span class="op">=</span> <span class="st">&quot;0.0.2&quot;</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>REQUIREMENTS <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">pyyaml</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">scipy</span></span>
@@ -1714,7 +1735,7 @@
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>NAME <span class="op">=</span> <span class="st">&quot;render.py&quot;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>HELP <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">usage: </span><span class="sc">{</span>NAME<span class="sc">}</span><span class="ss"> &lt;sam-file&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ss">       </span><span class="sc">{</span>NAME<span class="sc">}</span><span class="ss"> --install</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ss">       </span><span class="sc">{</span>NAME<span class="sc">}</span><span class="ss"> --setup ...</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ss">       </span><span class="sc">{</span>NAME<span class="sc">}</span><span class="ss"> [options] &lt;sam-file&gt;</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ss">       </span><span class="sc">{</span>NAME<span class="sc">}</span><span class="ss"> [options] &lt;sam-file&gt; &lt;res-file&gt;</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ss">       </span><span class="sc">{</span>NAME<span class="sc">}</span><span class="ss"> --section &lt;py-file&gt;#&lt;py-object&gt;</span></span>
@@ -1740,15 +1761,17 @@
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="ss">  -c, --conf</span></span>
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="ss">      --install                  Install script dependencies.</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="ss">      --script </span><span class="ch">{{</span><span class="ss">sam|res</span><span class="ch">}}</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="ss">  -h, --help                     Print this message and exit.</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="ss">      --setup                    Run setup operations.</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="ss">      --script </span><span class="ch">{{</span><span class="ss">sam|res</span><span class="ch">}}</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="ss">      --version                  Print version and exit.</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="ss">  -h, --help                     Print this message and exit.</span></span>
 <span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="ss">  &lt;dof&gt;        </span><span class="ch">{{</span><span class="ss">long | tran | vert | sect | elev | plan</span><span class="ch">}}</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="ss">               </span><span class="ch">{{</span><span class="ss">  0  |   1  |   2  |   3  |   4  |   5 </span><span class="ch">}}</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="ss">  &lt;object&gt;     </span><span class="ch">{{</span><span class="ss">origin|frames|frames.displ|nodes|nodes.displ</span><span class="ch">}}</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code></pre></div>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="ss">  &lt;dof&gt;        </span><span class="ch">{{</span><span class="ss">long | tran | vert | sect | elev | plan</span><span class="ch">}}</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="ss">               </span><span class="ch">{{</span><span class="ss">  0  |   1  |   2  |   3  |   4  |   5 </span><span class="ch">}}</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="ss">  &lt;object&gt;     </span><span class="ch">{{</span><span class="ss">origin|frames|frames.displ|nodes|nodes.displ</span><span class="ch">}}</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>EXAMPLES<span class="op">=</span><span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">Examples:</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">    Plot the structural model defined in the file `sam.json`:</span></span>
@@ -2280,61 +2303,64 @@
 <span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>                <span class="co"># if no directory is provided, use default</span></span>
 <span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span> <span class="pp">StopIteration</span>: install_me()</span>
 <span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-d&quot;</span>:</span>
-<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>                node_dof <span class="op">=</span> arg[<span class="dv">2</span>:] <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">next</span>(args)</span>
-<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> nd <span class="kw">in</span> node_dof.split(<span class="st">&quot;,&quot;</span>):</span>
-<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>                    node, dof <span class="op">=</span> nd.split(<span class="st">&quot;:&quot;</span>)</span>
-<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>                    opts[<span class="st">&quot;displ&quot;</span>].append((<span class="bu">int</span>(node), get_dof_num(dof, opts[<span class="st">&quot;orientation&quot;</span>])))</span>
-<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-s&quot;</span>:</span>
-<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;scale&quot;</span>] <span class="op">=</span> <span class="bu">float</span>(arg[<span class="dv">2</span>:]) <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">float</span>(<span class="bu">next</span>(args))</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--version&quot;</span>:</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(__version__)</span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-d&quot;</span>:</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>                node_dof <span class="op">=</span> arg[<span class="dv">2</span>:] <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">next</span>(args)</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> nd <span class="kw">in</span> node_dof.split(<span class="st">&quot;,&quot;</span>):</span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>                    node, dof <span class="op">=</span> nd.split(<span class="st">&quot;:&quot;</span>)</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>                    opts[<span class="st">&quot;displ&quot;</span>].append((<span class="bu">int</span>(node), get_dof_num(dof, opts[<span class="st">&quot;orientation&quot;</span>])))</span>
 <span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--scale&quot;</span>:</span>
-<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;scale&quot;</span>] <span class="op">=</span> <span class="bu">float</span>(<span class="bu">next</span>(args))</span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-s&quot;</span>:</span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;scale&quot;</span>] <span class="op">=</span> <span class="bu">float</span>(arg[<span class="dv">2</span>:]) <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">float</span>(<span class="bu">next</span>(args))</span>
 <span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--axes&quot;</span>:</span>
-<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>                vert <span class="op">=</span> <span class="bu">int</span>(<span class="bu">next</span>(args))</span>
-<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>                tran <span class="op">=</span> <span class="dv">2</span> <span class="cf">if</span> vert <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="dv">1</span></span>
-<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;orientation&quot;</span>][<span class="dv">1</span>:] <span class="op">=</span> [tran, vert]</span>
-<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--show&quot;</span>:</span>
-<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;show_objects&quot;</span>].extend(<span class="bu">next</span>(args).split(<span class="st">&quot;,&quot;</span>))</span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--scale&quot;</span>:</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;scale&quot;</span>] <span class="op">=</span> <span class="bu">float</span>(<span class="bu">next</span>(args))</span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--axes&quot;</span>:</span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>                vert <span class="op">=</span> <span class="bu">int</span>(<span class="bu">next</span>(args))</span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a>                tran <span class="op">=</span> <span class="dv">2</span> <span class="cf">if</span> vert <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="dv">1</span></span>
+<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;orientation&quot;</span>][<span class="dv">1</span>:] <span class="op">=</span> [tran, vert]</span>
 <span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--hide&quot;</span>:</span>
-<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;show_objects&quot;</span>].pop(<span class="bu">next</span>(args))</span>
-<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-V&quot;</span>:</span>
-<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;view&quot;</span>] <span class="op">=</span> arg[<span class="dv">2</span>:] <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">next</span>(args)</span>
-<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--view&quot;</span>:</span>
-<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;view&quot;</span>] <span class="op">=</span> <span class="bu">next</span>(args)</span>
-<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--elem-by-type&quot;</span>:</span>
-<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;elem_by_type&quot;</span>] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--show&quot;</span>:</span>
+<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;show_objects&quot;</span>].extend(<span class="bu">next</span>(args).split(<span class="st">&quot;,&quot;</span>))</span>
+<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--hide&quot;</span>:</span>
+<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;show_objects&quot;</span>].pop(<span class="bu">next</span>(args))</span>
+<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-V&quot;</span>:</span>
+<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;view&quot;</span>] <span class="op">=</span> arg[<span class="dv">2</span>:] <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">next</span>(args)</span>
+<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--view&quot;</span>:</span>
+<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;view&quot;</span>] <span class="op">=</span> <span class="bu">next</span>(args)</span>
 <span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a>            <span class="co">#elif arg[:2] == &quot;-m&quot;:</span></span>
-<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a>            <span class="co">#    opts[&quot;mode&quot;] = int(arg[2]) if len(arg) &gt; 2 else int(next(args))</span></span>
+<span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg <span class="op">==</span> <span class="st">&quot;--elem-by-type&quot;</span>:</span>
+<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;elem_by_type&quot;</span>] <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb34-58"><a href="#cb34-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-o&quot;</span>:</span>
-<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;write_file&quot;</span>] <span class="op">=</span> arg[<span class="dv">2</span>:] <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">next</span>(args)</span>
+<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a>            <span class="co">#elif arg[:2] == &quot;-m&quot;:</span></span>
+<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a>            <span class="co">#    opts[&quot;mode&quot;] = int(arg[2]) if len(arg) &gt; 2 else int(next(args))</span></span>
 <span id="cb34-61"><a href="#cb34-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a>            <span class="co">#elif arg == &quot;--displ-only&quot;:</span></span>
-<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a>            <span class="co">#    opts[&quot;displ_only&quot;] = True</span></span>
+<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg[:<span class="dv">2</span>] <span class="op">==</span> <span class="st">&quot;-o&quot;</span>:</span>
+<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;write_file&quot;</span>] <span class="op">=</span> arg[<span class="dv">2</span>:] <span class="cf">if</span> <span class="bu">len</span>(arg) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="bu">next</span>(args)</span>
 <span id="cb34-64"><a href="#cb34-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-65"><a href="#cb34-65" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Final check on options</span></span>
-<span id="cb34-66"><a href="#cb34-66" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg[<span class="dv">0</span>] <span class="op">==</span> <span class="st">&quot;-&quot;</span>:</span>
-<span id="cb34-67"><a href="#cb34-67" aria-hidden="true" tabindex="-1"></a>                <span class="cf">raise</span> RenderError(<span class="ss">f&quot;ERROR - unknown option &#39;</span><span class="sc">{</span>arg<span class="sc">}</span><span class="ss">&#39;&quot;</span>)</span>
-<span id="cb34-68"><a href="#cb34-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-69"><a href="#cb34-69" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> <span class="kw">not</span> opts[<span class="st">&quot;sam_file&quot;</span>]:</span>
-<span id="cb34-70"><a href="#cb34-70" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;sam_file&quot;</span>] <span class="op">=</span> arg</span>
+<span id="cb34-65"><a href="#cb34-65" aria-hidden="true" tabindex="-1"></a>            <span class="co">#elif arg == &quot;--displ-only&quot;:</span></span>
+<span id="cb34-66"><a href="#cb34-66" aria-hidden="true" tabindex="-1"></a>            <span class="co">#    opts[&quot;displ_only&quot;] = True</span></span>
+<span id="cb34-67"><a href="#cb34-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-68"><a href="#cb34-68" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Final check on options</span></span>
+<span id="cb34-69"><a href="#cb34-69" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> arg[<span class="dv">0</span>] <span class="op">==</span> <span class="st">&quot;-&quot;</span>:</span>
+<span id="cb34-70"><a href="#cb34-70" aria-hidden="true" tabindex="-1"></a>                <span class="cf">raise</span> RenderError(<span class="ss">f&quot;ERROR - unknown option &#39;</span><span class="sc">{</span>arg<span class="sc">}</span><span class="ss">&#39;&quot;</span>)</span>
 <span id="cb34-71"><a href="#cb34-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-72"><a href="#cb34-72" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
-<span id="cb34-73"><a href="#cb34-73" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;res_file&quot;</span>] <span class="op">=</span> arg</span>
+<span id="cb34-72"><a href="#cb34-72" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> <span class="kw">not</span> opts[<span class="st">&quot;sam_file&quot;</span>]:</span>
+<span id="cb34-73"><a href="#cb34-73" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;sam_file&quot;</span>] <span class="op">=</span> arg</span>
 <span id="cb34-74"><a href="#cb34-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-75"><a href="#cb34-75" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">StopIteration</span>:</span>
-<span id="cb34-76"><a href="#cb34-76" aria-hidden="true" tabindex="-1"></a>            <span class="co"># `next(args)` was called without successive arg</span></span>
-<span id="cb34-77"><a href="#cb34-77" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> RenderError(<span class="ss">f&quot;ERROR -- Argument &#39;</span><span class="sc">{</span>arg<span class="sc">}</span><span class="ss">&#39; expected value&quot;</span>)</span>
-<span id="cb34-78"><a href="#cb34-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> opts</span></code></pre></div>
+<span id="cb34-75"><a href="#cb34-75" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb34-76"><a href="#cb34-76" aria-hidden="true" tabindex="-1"></a>                opts[<span class="st">&quot;res_file&quot;</span>] <span class="op">=</span> arg</span>
+<span id="cb34-77"><a href="#cb34-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-78"><a href="#cb34-78" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">StopIteration</span>:</span>
+<span id="cb34-79"><a href="#cb34-79" aria-hidden="true" tabindex="-1"></a>            <span class="co"># `next(args)` was called without successive arg</span></span>
+<span id="cb34-80"><a href="#cb34-80" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> RenderError(<span class="ss">f&quot;ERROR -- Argument &#39;</span><span class="sc">{</span>arg<span class="sc">}</span><span class="ss">&#39; expected value&quot;</span>)</span>
+<span id="cb34-81"><a href="#cb34-81" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> opts</span></code></pre></div>
 <div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> install_me(install_opt<span class="op">=</span><span class="va">None</span>):</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> os</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> subprocess</span>
@@ -2352,7 +2378,7 @@
 <span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(sys.argv)</span>
 <span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>    setup(name<span class="op">=</span><span class="st">&quot;render&quot;</span>,</span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>          version<span class="op">=</span><span class="st">&quot;0.0.1&quot;</span>,</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>          version<span class="op">=</span>__version__,</span>
 <span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>          description<span class="op">=</span><span class="st">&quot;&quot;</span>,</span>
 <span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>          long_description<span class="op">=</span>HELP,</span>
 <span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>          author<span class="op">=</span><span class="st">&quot;&quot;</span>, author_email<span class="op">=</span><span class="st">&quot;&quot;</span>, url<span class="op">=</span><span class="st">&quot;&quot;</span>,</span>
@@ -2460,7 +2486,6 @@
 <span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>        plt <span class="op">=</span> MplPlotter()</span>
 <span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>        plt.plot_section(scope[<span class="bu">file</span>.fragment])</span></code></pre></div>
 <div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 
 
               
