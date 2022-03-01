@@ -1,11 +1,12 @@
 ## Bridges
 
-| Name                   | CESMD         | Repo                                                      |
-|------------------------|---------------|-----------------------------------------------------------|
-| Hwy8/Meloland Overpass | `CE01336`     | [Github](https://github.com/BRACE2/Caltrans.Meloland/)    |
-| Painter Street         | `CE89324`     | [Github](https://github.com/BRACE2/Caltrans.Painter/)     |
-| Lake Crowley           | `CE54730`     | [Github](https://github.com/BRACE2/Caltrans.Crowley/)     |
-| San Bernardino         | `CE23631`     | [Github](https://github.com/BRACE2/Caltrans.Bernardino/)  |
+| Name                   | CESMD         | Source code                                               | Documentation
+|------------------------|---------------|-----------------------------------------------------------|---------------------------
+| Hwy8/Meloland Overpass | `CE01336`     | [Github](https://github.com/BRACE2/Caltrans.Meloland/)    | [link](bridges/meloland/)
+| Painter Street         | `CE89324`     | [Github](https://github.com/BRACE2/Caltrans.Painter/)     | [link](bridges/painter/)
+| Lake Crowley           | `CE54730`     | [Github](https://github.com/BRACE2/Caltrans.Crowley/)     | [link](bridges/crowley/)
+| San Bernardino         | `CE23631`     | [Github](https://github.com/BRACE2/Caltrans.Bernardino/)  | [link](bridges/bernard/)
+
 
 <!--
 ```{yaml-table}
@@ -73,8 +74,8 @@ on the QuakeIO tool page indicates whether or not the test suite is currently pa
 [gh-link]: https://github.com/claudioperez/quakeio/compare/0.0.3...master
 [gh-image]: https://img.shields.io/github/commits-since/claudioperez/quakeio/0.0.3?style=social
 
-
+<!--
 #
 # strongmotioncenter.org/stationmap_worldwide/all_stations.php
 #
-
+-->

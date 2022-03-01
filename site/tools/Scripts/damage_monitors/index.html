@@ -479,13 +479,23 @@
       
         
           
+            
+          
+        
+          
         
       
       
-        <label class="md-nav__link" for="__nav_2_4">
-          Hayward
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../bridges/hayward/">Hayward</a>
+          
+            <label for="__nav_2_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Hayward" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_4">
@@ -493,6 +503,8 @@
           Hayward
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -1715,29 +1727,34 @@
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> opensees.render.mpl <span class="im">as</span> render</span></code></pre></div>
 </div>
 <div class="cell code" data-execution_count="2">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> section.FiberSection(fibers<span class="op">=</span>[</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        patch.circ(extRad<span class="op">=</span><span class="dv">20</span>, intRad<span class="op">=</span><span class="dv">15</span>),</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        layer.line(vertices<span class="op">=</span>[[<span class="op">-</span><span class="dv">14</span>, <span class="op">-</span><span class="dv">10</span>], [<span class="dv">14</span>, <span class="dv">10</span>]]),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        patch.rect(vertices<span class="op">=</span>[[<span class="op">-</span><span class="dv">15</span>, <span class="op">-</span><span class="dv">10</span>], [<span class="dv">15</span>, <span class="dv">10</span>]]),</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>render.section(s)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> section.FiberSection(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    areas <span class="op">=</span> [</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        patch.circ(extRad<span class="op">=</span><span class="dv">20</span>, intRad<span class="op">=</span><span class="dv">18</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        layer.line(vertices<span class="op">=</span>[[<span class="op">-</span><span class="dv">14</span>, <span class="op">-</span><span class="dv">10</span>], [<span class="dv">14</span>, <span class="dv">10</span>]]),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        patch.rect(vertices<span class="op">=</span>[[<span class="op">-</span><span class="dv">15</span>, <span class="op">-</span><span class="dv">10</span>], [<span class="dv">15</span>, <span class="dv">10</span>]])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>render.section(s)<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
-<p><img src="../../../static/b5c4ade67f802aa59d2f359150a3bda54e3564f0.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../static/afa1e3e76c36377b86f324558633d6f390ff3b47.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
+</div>
+<div class="cell code" data-execution_count="3">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from SectionLib import sees2gmsh, plot</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(sees2gmsh(s, (10,10)))</span></span></code></pre></div>
 </div>
 <div class="cell markdown">
 <p>Print section properties:</p>
 </div>
-<div class="cell code" data-execution_count="3">
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.area)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.ixx)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.iyy)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.ixy)</span></code></pre></div>
+<div class="cell code" data-execution_count="4">
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.area)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.ixc)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.iyc)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print(s.ixc)</span></span></code></pre></div>
 <div class="output stream stdout">
-<pre><code>1149.7787143782139
-105902.9241215959
-130902.9241215959
-0.0</code></pre>
+<pre><code>838.7610416728243
+63215.74854278119
+88215.74854278119</code></pre>
 </div>
 </div>
 <div class="cell markdown">
@@ -1749,102 +1766,102 @@
 <li><code>Octagon(extRad, extRad)</code> (ie when both arguments are equal) Constructs an octagonal boundary line.</li>
 </ul>
 </div>
-<div class="cell code" data-execution_count="4">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> opensees.section <span class="im">import</span> PatchOctagon <span class="im">as</span> Octagon</span></code></pre></div>
+<div class="cell code" data-execution_count="5">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> opensees.section <span class="im">import</span> ConfinedOctagon <span class="im">as</span> Octagon</span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="5" data-tags="[]">
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>render.section(Octagon(<span class="dv">20</span>))<span class="op">;</span></span></code></pre></div>
+<div class="cell code" data-execution_count="6" data-tags="[]">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>render.section(Octagon(<span class="dv">20</span>))<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img src="../../../static/f934cee962fe1af3164a0743bb6266eec86da25a.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
-<div class="cell code" data-execution_count="6">
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>render.section(Octagon(<span class="dv">20</span>, <span class="dv">18</span>))<span class="op">;</span></span></code></pre></div>
+<div class="cell code" data-execution_count="7">
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>render.section(Octagon(<span class="dv">20</span>, <span class="dv">18</span>))<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img src="../../../static/0cd4901b9544f12a4792d12ecf138c5502aa1a4e.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
-<div class="cell code" data-execution_count="7">
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>render.section(Octagon(<span class="dv">20</span>, <span class="dv">20</span>), marker<span class="op">=</span><span class="st">&quot;x&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="cell code" data-execution_count="8">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>render.section(Octagon(<span class="dv">20</span>, <span class="dv">20</span>))<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
-<p><img src="../../../static/52b5b2d41ca723383dcc442e3d9849d02672e1d9.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../static/18a31e09eebba95f6bda68e56624ee453476ad22.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
 <section id="define-damage-state-regions-the-get_fibers-module-2-define-damage-state-regions-the-get_fibers-module" class="cell markdown" data-tags="[]">
 <h3>2) Define damage state regions; the <code>get_fibers</code> module {#2-define-damage-state-regions-the-get_fibers-module}</h3>
 </section>
-<div class="cell code" data-execution_count="8" data-tags="[]">
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> get_fibers <span class="im">import</span> iter_elem_fibers</span></code></pre></div>
+<div class="cell code" data-execution_count="9" data-tags="[]">
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> get_fibers <span class="im">import</span> iter_elem_fibers</span></code></pre></div>
 </div>
 <div class="cell markdown">
 <p>The <code>get_fibers</code> module provides the helper function <code>iter_elem_fibers</code> for iterating over a filtered collection of fibers. Fibers are filtered out by supplying a <em>damage state</em> dictionary with a required <code>"regions"</code> field, and optional <code>"material"</code> field.</p>
 </div>
-<div class="cell code" data-execution_count="9" data-tags="[]">
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> opensees.units.english <span class="im">import</span> ft, inch</span></code></pre></div>
+<div class="cell code" data-execution_count="10" data-tags="[]">
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> opensees.units.english <span class="im">import</span> ft, inch</span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="10">
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ft, inch</span></code></pre></div>
-<div class="output execute_result" data-execution_count="10">
+<div class="cell code" data-execution_count="11">
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ft, inch</span></code></pre></div>
+<div class="output execute_result" data-execution_count="11">
 <pre><code>(12.000000000000002, 1.0)</code></pre>
 </div>
 </div>
-<div class="cell code" data-execution_count="11">
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Dcol <span class="op">=</span> <span class="dv">7</span><span class="op">*</span>ft</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>Rcol <span class="op">=</span> Dcol<span class="op">/</span><span class="dv">2</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>cover <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>inch</span></code></pre></div>
-</div>
 <div class="cell code" data-execution_count="12">
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>DS <span class="op">=</span> {</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Any outermost cover fiber</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dsr1&quot;</span> : {</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;regions&quot;</span>: [</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>          Octagon(Rcol, Rcol)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>      ]</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dsr2&quot;</span> : {</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;regions&quot;</span>: [</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>          section.FiberSection(fibers<span class="op">=</span>[</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>              patch.circ(intRad<span class="op">=</span>Rcol<span class="op">-</span>cover<span class="op">-</span><span class="dv">2</span>, extRad<span class="op">=</span>Rcol<span class="op">-</span>cover)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>          ])</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>      ],</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;material&quot;</span>: <span class="st">&quot;*steel*&quot;</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dsr3&quot;</span> : {</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;regions&quot;</span>: [</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>      <span class="co">#             external radius      internal radius</span></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>          Octagon(Rcol<span class="op">-</span>cover<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="fl">0.75</span>), Rcol<span class="op">-</span>cover<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="fl">0.5</span>))</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>      ],</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;material&quot;</span>: <span class="st">&quot;*concr*&quot;</span></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Dcol <span class="op">=</span> <span class="dv">7</span><span class="op">*</span>ft</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>Rcol <span class="op">=</span> Dcol<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>cover <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>inch</span></code></pre></div>
+</div>
+<div class="cell code" data-execution_count="13">
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>DS <span class="op">=</span> {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Any outermost cover fiber</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dsr1&quot;</span> : {</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;regions&quot;</span>: [</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>          Octagon(Rcol, Rcol)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>      ]</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dsr2&quot;</span> : {</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;regions&quot;</span>: [</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>          section.FiberSection(areas<span class="op">=</span>[</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>              patch.circ(intRad<span class="op">=</span>Rcol<span class="op">-</span>cover<span class="op">-</span><span class="dv">2</span>, extRad<span class="op">=</span>Rcol<span class="op">-</span>cover)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>          ])</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>      ],</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;material&quot;</span>: <span class="st">&quot;*steel*&quot;</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dsr3&quot;</span> : {</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;regions&quot;</span>: [</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>      <span class="co">#             external radius      internal radius</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>          Octagon(Rcol<span class="op">-</span>cover<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="fl">0.75</span>), Rcol<span class="op">-</span>cover<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="fl">0.5</span>))</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>      ],</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;material&quot;</span>: <span class="st">&quot;*concr*&quot;</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <section id="iterating-over-fibers-3-iterating-over-fibers" class="cell markdown">
 <h3>3) Iterating over fibers {#3-iterating-over-fibers}</h3>
 </section>
-<div class="cell code" data-execution_count="13" data-tags="[]">
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
+<div class="cell code" data-execution_count="14" data-tags="[]">
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="14">
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>model_file <span class="op">=</span> <span class="st">&quot;modelDetails.json&quot;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>elements <span class="op">=</span> [<span class="dv">4020</span>]</span></code></pre></div>
+<div class="cell code" data-execution_count="15">
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model_file <span class="op">=</span> <span class="st">&quot;modelDetails.json&quot;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>elements <span class="op">=</span> [<span class="dv">4020</span>]</span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="15" data-tags="[]">
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(model_file, <span class="st">&quot;r&quot;</span>) <span class="im">as</span> f:</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> json.load(f)</span></code></pre></div>
+<div class="cell code" data-execution_count="16" data-tags="[]">
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(model_file, <span class="st">&quot;r&quot;</span>) <span class="im">as</span> f:</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> json.load(f)</span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="16">
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>ds1_fibers <span class="op">=</span> np.array([</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    f[<span class="st">&quot;coord&quot;</span>] <span class="cf">for</span> e,s,f <span class="kw">in</span> iter_elem_fibers(model, elements, filt<span class="op">=</span>DS[<span class="st">&quot;dsr1&quot;</span>])</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>ds2_fibers <span class="op">=</span> np.array([</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    f[<span class="st">&quot;coord&quot;</span>] <span class="cf">for</span> e,s,f <span class="kw">in</span> iter_elem_fibers(model, elements, filt<span class="op">=</span>DS[<span class="st">&quot;dsr2&quot;</span>])</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>ds3_fibers <span class="op">=</span> np.array([</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    f[<span class="st">&quot;coord&quot;</span>] <span class="cf">for</span> e,s,f <span class="kw">in</span> iter_elem_fibers(model, elements, filt<span class="op">=</span>DS[<span class="st">&quot;dsr3&quot;</span>])</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
+<div class="cell code" data-execution_count="17">
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ds1_fibers <span class="op">=</span> np.array([</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    f[<span class="st">&quot;coord&quot;</span>] <span class="cf">for</span> e,s,f <span class="kw">in</span> iter_elem_fibers(model, elements, filt<span class="op">=</span>DS[<span class="st">&quot;dsr1&quot;</span>])</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>ds2_fibers <span class="op">=</span> np.array([</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    f[<span class="st">&quot;coord&quot;</span>] <span class="cf">for</span> e,s,f <span class="kw">in</span> iter_elem_fibers(model, elements, filt<span class="op">=</span>DS[<span class="st">&quot;dsr2&quot;</span>])</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>ds3_fibers <span class="op">=</span> np.array([</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    f[<span class="st">&quot;coord&quot;</span>] <span class="cf">for</span> e,s,f <span class="kw">in</span> iter_elem_fibers(model, elements, filt<span class="op">=</span>DS[<span class="st">&quot;dsr3&quot;</span>])</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
 </div>
 <section id="visualizing-3-visualizing" class="cell markdown">
 <h2>3) Visualizing {#3-visualizing}</h2>
@@ -1852,25 +1869,25 @@
 <div class="cell markdown">
 <p>Patches can be superimposed for plotting purposes by adding them to a <code>Section</code> object like the one returned by the <code>Octagon</code> function. The <code>add_patches</code> method accepts a list of <code>Patch</code> objects; this list is constructed in the following cell by concatenating (<code>+</code> operator) the <code>patches</code> attributes of each of the previously defined damage regions.</p>
 </div>
-<div class="cell code" data-execution_count="17">
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sect <span class="op">=</span> Octagon(Dcol<span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sect.add_patches(</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    DS[<span class="st">&quot;dsr1&quot;</span>][<span class="st">&quot;regions&quot;</span>][<span class="dv">0</span>].layers <span class="op">+</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    DS[<span class="st">&quot;dsr2&quot;</span>][<span class="st">&quot;regions&quot;</span>][<span class="dv">0</span>].patches <span class="op">+</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    DS[<span class="st">&quot;dsr3&quot;</span>][<span class="st">&quot;regions&quot;</span>][<span class="dv">0</span>].patches</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> render.section(sect)</span></code></pre></div>
+<div class="cell code" data-execution_count="18">
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sect <span class="op">=</span> Octagon(Dcol<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sect.add_patches(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    DS[<span class="st">&quot;dsr1&quot;</span>][<span class="st">&quot;regions&quot;</span>][<span class="dv">0</span>].layers <span class="op">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    DS[<span class="st">&quot;dsr2&quot;</span>][<span class="st">&quot;regions&quot;</span>][<span class="dv">0</span>].patches <span class="op">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    DS[<span class="st">&quot;dsr3&quot;</span>][<span class="st">&quot;regions&quot;</span>][<span class="dv">0</span>].patches</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> render.section(sect)</span></code></pre></div>
 <div class="output display_data">
 <p><img src="../../../static/0777de62f19abb2df6391f0ac23717284df8511c.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
-<div class="cell code" data-execution_count="18">
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create grid of points</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> render.section(sect)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ax.scatter(*list(zip(*ds1_fibers)), color=&quot;blue&quot;,  s=0.5)</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="op">*</span><span class="bu">list</span>(<span class="bu">zip</span>(<span class="op">*</span>ds2_fibers)), color<span class="op">=</span><span class="st">&quot;black&quot;</span>, s<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="op">*</span><span class="bu">list</span>(<span class="bu">zip</span>(<span class="op">*</span>ds3_fibers)), color<span class="op">=</span><span class="st">&quot;red&quot;</span>,   s<span class="op">=</span><span class="fl">0.5</span>)<span class="op">;</span></span></code></pre></div>
+<div class="cell code" data-execution_count="21">
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create grid of points</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> render.section(sect)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ax.scatter(*list(zip(*ds1_fibers)), color=&quot;blue&quot;,  s=0.5)</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="op">*</span><span class="bu">list</span>(<span class="bu">zip</span>(<span class="op">*</span>ds2_fibers)), color<span class="op">=</span><span class="st">&quot;black&quot;</span>, s<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="op">*</span><span class="bu">list</span>(<span class="bu">zip</span>(<span class="op">*</span>ds3_fibers)), color<span class="op">=</span><span class="st">&quot;red&quot;</span>,   s<span class="op">=</span><span class="fl">0.5</span>)<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img src="../../../static/70d5ea5d9b9db9b0f86c3c87f54ab5026e58f3d9.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
@@ -1878,14 +1895,19 @@
 <div class="cell markdown">
 <p>If the third argument to <code>iter_elem_fibers</code> is omitted, all fibers are returned (Underscores are used in the following cell to name unused variables).</p>
 </div>
-<div class="cell code" data-execution_count="19">
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>all_fibers <span class="op">=</span> [f[<span class="st">&quot;coord&quot;</span>] <span class="cf">for</span> _,__,f <span class="kw">in</span> iter_elem_fibers(model, [<span class="dv">4020</span>])]</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> render.section(sect)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="op">*</span><span class="bu">list</span>(<span class="bu">zip</span>(<span class="op">*</span>all_fibers)), color<span class="op">=</span><span class="st">&quot;red&quot;</span>, s<span class="op">=</span><span class="fl">0.5</span>)<span class="op">;</span></span></code></pre></div>
+<div class="cell code" data-execution_count="20">
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>all_fibers <span class="op">=</span> [</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    f[<span class="st">&quot;coord&quot;</span>] <span class="cf">for</span> _,__,f <span class="kw">in</span> iter_elem_fibers(model, [<span class="dv">4020</span>])</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> render.section(sect)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>ax.scatter(<span class="op">*</span><span class="bu">list</span>(<span class="bu">zip</span>(<span class="op">*</span>all_fibers)), color<span class="op">=</span><span class="st">&quot;red&quot;</span>, s<span class="op">=</span><span class="fl">0.5</span>)<span class="op">;</span></span></code></pre></div>
 <div class="output display_data">
 <p><img src="../../../static/89c78810faf03720f7a82a21cea0067af0fff401.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
+</div>
+<div class="cell code">
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 </div>
 
 

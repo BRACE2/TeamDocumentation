@@ -1,11 +1,10 @@
 # quake-io
 
-```{=html}
 ![](https://github.com/claudioperez/quakeio/actions/workflows/base.yaml/badge.svg)
 
 [![PyPI Downloads][pypi-v-image]][pypi-v-link] [![PyPI Version][pypi-d-image]][pypi-d-link] ![][cov-img] [![Commits since latest release][gh-image]][gh-link]
 <!-- ![Build][build-img] -->
-```
+
 
 QuakeIO is a library of utilities for parsing and processing ground motion
 files. All data is serialized into a standardized JSON representation with a
