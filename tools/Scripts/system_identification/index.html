@@ -1698,7 +1698,7 @@
 <p>System identification procedures for LTI systems generally accept a collection of set of <em>input data</em>, and <em>output data</em>, and finds four arrays. These output arrays are typically denoted by <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, and <span class="math inline">\(D\)</span> in the literature and characterize a state-space system according to the following equations:</p>
 <p><span class="math display">\[
 \begin{gathered}
-\boldsymbol{x}_{k+1}=A \boldsymbol{x}(k)+B \boldsymbol{u}_k \\
+\boldsymbol{x}_{k+1}=A \boldsymbol{x}_k + B \boldsymbol{u}_k \\
 \boldsymbol{y}_k = C \boldsymbol{x}_k + D \boldsymbol{u}_k
 \end{gathered}
 \]</span></p>
@@ -1720,6 +1720,7 @@
 <li>Precompute and store <span class="math inline">\(\mathcal{U}\)</span></li>
 <li>Parallelize assembly of <span class="math inline">\(\Phi\)</span></li>
 </ul>
+<h2 id="spectral-transfer-function">Spectral Transfer Function</h2>
 
 
               
